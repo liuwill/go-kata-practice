@@ -15,13 +15,18 @@ func translateFirst(num int) string {
 }
 
 func translate(num int) string {
+  result := ""
   if isFizz(num) {
-    return "Fizz"
-  } else if isBuzz(num) {
-    return "Buzz"
+    result = "Fizz"
+  }
+  if isBuzz(num) {
+    result += "Buzz"
+  }
+  if len(result) == 0 {
+    return strconv.Itoa(num)
   }
 
-  return strconv.Itoa(num)
+  return result
 }
 
 func isFizz(num int) bool {

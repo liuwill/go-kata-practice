@@ -28,6 +28,8 @@ func Test_Run(t *testing.T) {
   expectMap["5"] = "Buzz"
   expectMap["6"] = "Fizz"
   expectMap["10"] = "Buzz"
+  expectMap["15"] = "FizzBuzz"
+  expectMap["30"] = "FizzBuzz"
 
   for key, val := range expectMap {
     num, _ := strconv.Atoi(key)
