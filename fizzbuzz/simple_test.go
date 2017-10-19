@@ -20,6 +20,27 @@ func Test_TranslateFirst(t *testing.T) {
   t.Log("I'm pass")
 }
 
+func Test_FullTranslate(t *testing.T) {
+  expectMap := make(map[string]string)
+  expectMap["1"] = "1"
+  expectMap["2"] = "2"
+  expectMap["3"] = "Fizz"
+  expectMap["5"] = "Buzz"
+  expectMap["6"] = "Fizz"
+  expectMap["10"] = "Buzz"
+  expectMap["15"] = "FizzBuzz"
+  expectMap["30"] = "FizzBuzz"
+
+  for key, val := range expectMap {
+    num, _ := strconv.Atoi(key)
+    if translateFull(num) != val {
+      t.Error("translate fail")
+    }
+  }
+
+  t.Log("Translate Succeed Full")
+}
+
 func Test_Run(t *testing.T) {
   expectMap := make(map[string]string)
   expectMap["1"] = "1"
@@ -38,5 +59,5 @@ func Test_Run(t *testing.T) {
     }
   }
 
-    t.Log("Translate Succeed")
+  t.Log("Translate Succeed")
 }

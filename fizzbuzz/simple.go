@@ -4,6 +4,9 @@ import (
   "strconv"
 )
 
+/**
+ * translate First
+ */
 func translateFirst(num int) string {
   if num % 3 == 0 {
     return "Fizz"
@@ -14,7 +17,10 @@ func translateFirst(num int) string {
   return strconv.Itoa(num)
 }
 
-func translate(num int) string {
+/**
+ * translate Second
+ */
+func translateFull(num int) string {
   result := ""
   if isFizz(num) {
     result = "Fizz"
@@ -27,6 +33,39 @@ func translate(num int) string {
   }
 
   return result
+}
+
+/**
+ * traslate Third
+ */
+func translate(num int) string {
+  result := ""
+  handleFizz(num, &result)
+  handleBuzz(num, &result)
+  handleOther(num, &result)
+
+  return result
+}
+
+func handleOther(num int, resultTarget *string) string {
+  if len(*resultTarget) == 0 {
+    *resultTarget = strconv.Itoa(num)
+  }
+  return *resultTarget
+}
+
+func handleFizz(num int, resultTarget *string) string {
+  if isFizz(num) {
+    *resultTarget += "Fizz"
+  }
+  return *resultTarget
+}
+
+func handleBuzz(num int, resultTarget *string) string {
+  if isBuzz(num) {
+    *resultTarget += "Buzz"
+  }
+  return *resultTarget
 }
 
 func isFizz(num int) bool {
