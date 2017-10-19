@@ -3,3 +3,6 @@ test-fizzbuzz:
 
 default:
 	go test -v ./...
+
+test:
+	go test --cover -v ./...

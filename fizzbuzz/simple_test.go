@@ -36,5 +36,5 @@ func Test_Run(t *testing.T) {
     }
   }
 
-  t.Log("Translate Succeed")
+    t.Log("Translate Succeed")
 }
