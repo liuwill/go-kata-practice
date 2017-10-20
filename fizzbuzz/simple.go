@@ -38,7 +38,7 @@ func translateFull(num int) string {
 /**
  * traslate Third
  */
-func translate(num int) string {
+func translateBetter(num int) string {
   result := ""
   handleFizz(num, &result)
   handleBuzz(num, &result)
@@ -74,4 +74,28 @@ func isFizz(num int) bool {
 
 func isBuzz(num int) bool {
   return num % 5 == 0
+}
+
+/**
+ * Translate Last
+ */
+func isMonkey(num int) bool {
+  return num % 7 == 0
+}
+
+func handleMonkey(num int, resultTarget *string) string {
+  if isMonkey(num) {
+    *resultTarget += "Monkey"
+  }
+  return *resultTarget
+}
+
+func buildTranslate(funcList []func(num int, resultTarget *string) string) func(num int) string {
+  return func (num int) string {
+    result := ""
+    for _, handler := range funcList {
+      handler(num, &result)
+    }
+    return result
+  }
 }
