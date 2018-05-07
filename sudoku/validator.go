@@ -38,7 +38,43 @@ func checkColumn(board [][]byte) bool {
 	return true
 }
 
-func checkBlock(board [][]byte) bool { return false }
+func checkBlock(board [][]byte) bool {
+	positionMap := [][]int{
+		{0, 0},
+		{0, 1},
+		{0, 2},
+		{1, 0},
+		{1, 1},
+		{1, 2},
+		{2, 0},
+		{2, 1},
+		{2, 2},
+	}
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 3; j++ {
+			startX := i * 3
+			startY := j * 3
+
+			counter := []int{0, 0, 0, 0, 0, 0, 0, 0, 0}
+			for _, posMap := range positionMap {
+				offsetX := posMap[0]
+				offsetY := posMap[1]
+				item := board[startX+offsetX][startY+offsetY]
+
+				if item == '.' {
+					continue
+				}
+
+				pos := item - 49
+				if counter[pos] > 0 {
+					return false
+				}
+				counter[pos] = 1
+			}
+		}
+	}
+	return true
+}
 
 func isValidSudoku(board [][]byte) bool {
 	isSudokuLine := checkLine(board)
