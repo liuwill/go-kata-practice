@@ -2,10 +2,18 @@ package sudoku
 
 func checkLine(board [][]byte) bool {
 	for _, line := range board {
-		if len(line) != 9 {
-			return false
-		}
+		counter := []int{0, 0, 0, 0, 0, 0, 0, 0, 0}
+		for _, item := range line {
+			if item == '.' {
+				continue
+			}
 
+			pos := item - 49
+			if counter[pos] > 0 {
+				return false
+			}
+			counter[pos] = 1
+		}
 	}
 	return true
 }
