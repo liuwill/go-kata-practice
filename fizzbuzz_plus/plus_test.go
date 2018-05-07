@@ -18,7 +18,6 @@ func Test_translate(t *testing.T) {
     theNum, _ := strconv.Atoi(num)
     target := translate(theNum)
 
-    print(target, num, result)
     if target != result {
       t.Error("Translate Fail For " + num)
     }
