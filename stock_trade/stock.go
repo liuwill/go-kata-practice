@@ -1,9 +1,9 @@
 package stock_trade
 
 type Account struct {
-	cost    int
-	benefit int
-	hold    bool
+	cost   int
+	profit int
+	hold   bool
 }
 
 func (account *Account) buy(price int) {
@@ -17,17 +17,17 @@ func (account Account) isHold() bool {
 
 func (account *Account) sell(price int) {
 	account.hold = false
-	benefit := price - account.cost
-	account.benefit = account.benefit + benefit
+	profit := price - account.cost
+	account.profit = account.profit + profit
 	account.cost = 0
 }
 
 func maxProfit(prices []int) int {
 	var result int
 	myAccount := Account{
-		cost:    0,
-		benefit: 0,
-		hold:    false,
+		cost:   0,
+		profit: 0,
+		hold:   false,
 	}
 
 	current := prices[0]
