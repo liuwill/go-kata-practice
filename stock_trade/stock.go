@@ -15,6 +15,10 @@ func (account Account) isHold() bool {
 	return account.hold
 }
 
+func (account Account) getProfit() int {
+	return account.profit
+}
+
 func (account *Account) sell(price int) {
 	account.hold = false
 	profit := price - account.cost
@@ -23,7 +27,6 @@ func (account *Account) sell(price int) {
 }
 
 func maxProfit(prices []int) int {
-	var result int
 	myAccount := Account{
 		cost:   0,
 		profit: 0,
@@ -36,11 +39,12 @@ func maxProfit(prices []int) int {
 			myAccount.buy(prices[i])
 		} else if myAccount.isHold() {
 			if current > prices[i] || (i == len(prices)-1 && prices[i] > myAccount.cost) {
-				myAccount.sell(prices[i])
+				myAccount.sell(current)
 			}
 		}
+
 		current = prices[i]
 	}
 
-	return result
+	return myAccount.getProfit()
 }
