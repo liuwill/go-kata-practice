@@ -9,6 +9,7 @@ JUST make some practice
 ## Docs
 
 -   [Sudoku](./docs/sudoku.md)
+-   [Best Time to Buy and Sell Stock II](./docs/best_time_to_buy_and_sell_stock_II.md)
 
 
 ## License
