@@ -27,25 +27,28 @@ func (account *Account) sell(price int) {
 }
 
 func maxProfit(prices []int) int {
+	if len(prices) < 2 {
+		return 0
+	}
 	myAccount := Account{
 		cost:   0,
 		profit: 0,
 		hold:   false,
 	}
 
-	current := prices[0]
-	for i := 1; i < len(prices); i++ {
-		if !myAccount.isHold() && current < prices[i] {
-			myAccount.buy(current)
+	for i, current := range prices {
+		nextPos := i + 1
+		if !myAccount.isHold() {
+			if nextPos < len(prices) && current < prices[nextPos] {
+				myAccount.buy(current)
+			}
 		} else if myAccount.isHold() {
-			if current > prices[i] {
+			if i == len(prices)-1 && current > myAccount.cost {
 				myAccount.sell(current)
-			} else if i == len(prices)-1 && prices[i] > myAccount.cost {
-				myAccount.sell(prices[i])
+			} else if current > prices[nextPos] {
+				myAccount.sell(current)
 			}
 		}
-
-		current = prices[i]
 	}
 
 	return myAccount.getProfit()
