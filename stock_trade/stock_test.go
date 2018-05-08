@@ -45,5 +45,12 @@ func Test_maxProfitLess(t *testing.T) {
 		t.Error("get max profit less fail")
 	}
 
+	emptyPrices := []int{}
+	emptyProfit := maxProfit(emptyPrices)
+	emptyTarget := 0
+	if emptyProfit != emptyTarget {
+		t.Error("get max profit empty fail")
+	}
+
 	t.Log("Test_maxProfitLess pass")
 }
