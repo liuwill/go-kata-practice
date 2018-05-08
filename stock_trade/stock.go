@@ -36,10 +36,12 @@ func maxProfit(prices []int) int {
 	current := prices[0]
 	for i := 1; i < len(prices); i++ {
 		if !myAccount.isHold() && current < prices[i] {
-			myAccount.buy(prices[i])
+			myAccount.buy(current)
 		} else if myAccount.isHold() {
-			if current > prices[i] || (i == len(prices)-1 && prices[i] > myAccount.cost) {
+			if current > prices[i] {
 				myAccount.sell(current)
+			} else if i == len(prices)-1 && prices[i] > myAccount.cost {
+				myAccount.sell(prices[i])
 			}
 		}
 
