@@ -24,7 +24,7 @@ func (account Account) isHold() bool {
 }
 
 func (account Account) getProfit() int {
-	return account.profit
+	return account.bigTrade.profit + account.smallTrade.profit
 }
 
 func (account *Account) sell(price int) {
@@ -42,9 +42,17 @@ func (account *Account) addTrade(buyPrice int, sellPrice int, profit int) {
 
 	if profit > bigTrade.profit {
 		account.smallTrade = bigTrade
-		account.bigTrade = Trade{}
+		account.bigTrade = Trade{
+			buy:    buyPrice,
+			sell:   sellPrice,
+			profit: profit,
+		}
 	} else if profit > smallTrade.profit {
-		account.smallTrade = Trade{}
+		account.smallTrade = Trade{
+			buy:    buyPrice,
+			sell:   sellPrice,
+			profit: profit,
+		}
 	}
 }
 
