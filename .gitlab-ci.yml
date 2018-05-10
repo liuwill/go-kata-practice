@@ -10,6 +10,7 @@ cache:
 
 stages:
   - test
+  - deploy
 
 before_script:
   - cp -a /builds/liuwill/* /go/src/
@@ -37,9 +38,25 @@ code_coverage_report:
     - make coverhtml
   only:
   - master
+  artifacts:
+    paths:
+      - /go/src/go-kata-practice/coverage.html
+
 
 # lint_code:
 #   stage: test
 #   script:
 #     - make lint
 
+pages:
+  stage: deploy
+  dependencies:
+    - code_coverage_report
+  script:
+    - cp /go/src/go-kata-practice/coverage.html public/index.html
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    - master
