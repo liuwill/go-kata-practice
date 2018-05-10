@@ -12,9 +12,7 @@ stages:
   - test
 
 before_script:
-  - mkdir -p /go/src/gitlab.com/liuwll /go/src/_/builds
-  - cp -r $CI_PROJECT_DIR /go/src/gitlab.com/liuwill/go-kata-practice
-  - ln -s /go/src/gitlab.com/liuwill /go/src/_/builds/liuwill
+  - go get -t -v ./...
 
 unit_tests:
   stage: test
