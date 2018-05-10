@@ -43,7 +43,7 @@ func maxProfit(prices []int) int {
 			if nextPos < len(prices) && current < prices[nextPos] {
 				myAccount.buy(current)
 			}
-		} else if myAccount.isHold() {
+		} else {
 			if i == len(prices)-1 && current > myAccount.cost {
 				myAccount.sell(current)
 			} else if current > prices[nextPos] {
