@@ -25,3 +25,15 @@ func Test_maxProfitLimitCase(t *testing.T) {
 
 	t.Log("Test_maxProfitLimitCase pass")
 }
+
+func Test_maxProfitFeeEmpty(t *testing.T) {
+	prices := []int{1}
+	myProfit := maxProfit(prices)
+	targetProfit := 0
+
+	if myProfit != targetProfit {
+		t.Error("get max profit empty fail")
+	}
+
+	t.Log("Test_maxProfitFeeEmpty pass")
+}
