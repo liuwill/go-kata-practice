@@ -1,46 +1,47 @@
-image: golang:1.10
+golang-kata:
+  image: golang:1.10
 
-cache:
-  paths:
-    - /apt-cache
-    - /go/src/github.com
-    - /go/src/golang.org
-    - /go/src/google.golang.org
-    - /go/src/gopkg.in
-
-stages:
-  - test
-  - deploy
-
-before_script:
-  - cp -a /builds/liuwill/* /go/src/
-  - cd /go/src/go-kata-practice
-  - go get -t -v ./...
-
-unit_tests:
-  stage: test
-  script:
-    - make test
-
-# race_detector:
-#   stage: test
-#   script:
-#     - make race
-
-code_coverage:
-  stage: test
-  script:
-    - make coverage
-
-code_coverage_report:
-  stage: test
-  script:
-    - make coverhtml
-  only:
-  - master
-  artifacts:
+  cache:
     paths:
-      - dist/
+      - /apt-cache
+      - /go/src/github.com
+      - /go/src/golang.org
+      - /go/src/google.golang.org
+      - /go/src/gopkg.in
+
+  stages:
+    - test
+    - deploy
+
+  before_script:
+    - cp -a /builds/liuwill/* /go/src/
+    - cd /go/src/go-kata-practice
+    - go get -t -v ./...
+
+  unit_tests:
+    stage: test
+    script:
+      - make test
+
+  # race_detector:
+  #   stage: test
+  #   script:
+  #     - make race
+
+  code_coverage:
+    stage: test
+    script:
+      - make coverage
+
+  code_coverage_report:
+    stage: test
+    script:
+      - make coverhtml
+    only:
+    - master
+    artifacts:
+      paths:
+        - dist/
 
 
 # lint_code:
