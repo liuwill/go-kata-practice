@@ -9,9 +9,6 @@ type Account struct {
 }
 
 func (account *Account) detectCost(price int) {
-	println(account.hold)
-	println(price)
-	println(account.cost)
 	if account.hold && price < account.cost {
 		account.cost = price
 	} else if !account.hold {
