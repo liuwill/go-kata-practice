@@ -1,0 +1,45 @@
+image: golang:1.9
+
+cache:
+  paths:
+    - /apt-cache
+    - /go/src/github.com
+    - /go/src/golang.org
+    - /go/src/google.golang.org
+    - /go/src/gopkg.in
+
+stages:
+  - test
+
+before_script:
+  - mkdir -p /go/src/gitlab.com/liuwll /go/src/_/builds
+  - cp -r $CI_PROJECT_DIR /go/src/gitlab.com/liuwill/go-kata-practice
+  - ln -s /go/src/gitlab.com/liuwill /go/src/_/builds/liuwill
+
+unit_tests:
+  stage: test
+  script:
+    - make test
+
+# race_detector:
+#   stage: test
+#   script:
+#     - make race
+
+code_coverage:
+  stage: test
+  script:
+    - make coverage
+
+code_coverage_report:
+  stage: test
+  script:
+    - make coverhtml
+  only:
+  - master
+
+# lint_code:
+#   stage: test
+#   script:
+#     - make lint
+
