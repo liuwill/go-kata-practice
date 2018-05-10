@@ -18,30 +18,12 @@ golang-kata:
     - cd /go/src/go-kata-practice
     - go get -t -v ./...
 
-  unit_tests:
-    stage: test
-    script:
-      - make test
+  script:
+    - make coverhtml
 
-  # race_detector:
-  #   stage: test
-  #   script:
-  #     - make race
-
-  code_coverage:
-    stage: test
-    script:
-      - make coverage
-
-  code_coverage_report:
-    stage: test
-    script:
-      - make coverhtml
-    only:
-    - master
-    artifacts:
-      paths:
-        - dist/
+  artifacts:
+    paths:
+      - dist/
 
 
 # lint_code:
