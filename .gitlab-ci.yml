@@ -1,30 +1,15 @@
 golang-kata:
   image: golang:1.10
-
-  cache:
-    paths:
-      - /apt-cache
-      - /go/src/github.com
-      - /go/src/golang.org
-      - /go/src/google.golang.org
-      - /go/src/gopkg.in
-
-  stages:
-    - test
-    - deploy
-
+  stage: test
   before_script:
     - cp -a /builds/liuwill/* /go/src/
     - cd /go/src/go-kata-practice
     - go get -t -v ./...
-
   script:
     - make coverhtml
-
   artifacts:
     paths:
       - dist/
-
 
 # lint_code:
 #   stage: test
