@@ -5,14 +5,13 @@ golang-kata:
   image: golang:1.10
   stage: test
   before_script:
-    - mkdir
-    - cp -a $CI_PROJECT_DIR/* /go/src/$REPO_NAME/
-    - cd /go/src/$REPO_NAME/
+    - cp -a ${CI_PROJECT_DIR}/* /go/src/${REPO_NAME}/
+    - cd /go/src/${REPO_NAME}/
     - go get -t -v ./...
   script:
     - make coverhtml
-    - mkdir $CI_PROJECT_DIR/dist
-    - cp -a /go/src/$REPO_NAME/dist/* $CI_PROJECT_DIR/dist/
+    - mkdir ${CI_PROJECT_DIR}/dist
+    - cp -a /go/src/${REPO_NAME}/dist/* ${CI_PROJECT_DIR}/dist/
   artifacts:
     paths:
       - dist/
