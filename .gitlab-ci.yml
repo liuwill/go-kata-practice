@@ -7,6 +7,8 @@ golang-kata:
     - go get -t -v ./...
   script:
     - make coverhtml
+    - mkdir /builds/liuwill/go-kata-practice/dist
+    - cp -a /go/src/go-kata-practice/dist/* /builds/liuwill/go-kata-practice/dist/
   artifacts:
     paths:
       - dist/
