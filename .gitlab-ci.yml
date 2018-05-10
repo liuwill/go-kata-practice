@@ -19,7 +19,7 @@ golang-kata:
 pages:
   stage: deploy
   dependencies:
-    - code_coverage_report
+    - golang-kata
   script:
     - mv dist/ public/
   artifacts:
