@@ -12,6 +12,7 @@ stages:
   - test
 
 before_script:
+  - cp -a /builds/liuwill/* /go/src/
   - go get -t -v ./...
 
 unit_tests:
