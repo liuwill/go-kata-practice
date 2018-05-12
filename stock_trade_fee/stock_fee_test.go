@@ -54,6 +54,21 @@ func Test_maxProfitFeeCase(t *testing.T) {
 	t.Log("Test_maxProfitFeeCase pass")
 }
 
+/*
+func Test_maxProfitFeeError(t *testing.T) {
+	prices := []int{1, 3, 7, 5, 10, 3}
+	fee := 3
+	myProfit := maxProfit(prices, fee)
+	targetProfit := 6
+
+	if myProfit != targetProfit {
+		t.Error("get max profit fee error fail")
+	}
+
+	t.Log("Test_maxProfitFeeError pass")
+}
+*/
+
 func Test_maxProfitFeeEmpty(t *testing.T) {
 	prices := []int{1}
 	fee := 2
