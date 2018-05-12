@@ -15,6 +15,18 @@ JUST make some practice
 -   [Best Time to Buy and Sell Stock](./docs/best_time_to_buy_and_sell_stock.md)
 -   [Best Time to Buy and Sell Stock II](./docs/best_time_to_buy_and_sell_stock_II.md)
 
+### Script
+```shell
+# 运行单元测试
+make test
+
+# 单元测试并且生成测试覆盖报告
+make coverage
+
+# 单元测试并且测试覆盖HTML页面
+make coverhtml
+```
+
 ## License
 
   [MIT](./LICENSE)
