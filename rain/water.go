@@ -41,25 +41,47 @@ func trapWater(height []int, start int, end int, small int) int {
 	return water
 }
 
-/*
+func isBorder(height []int, current int, direction bool) bool {
+	if direction && current >= len(height)-1 {
+		return true
+	} else if !direction && current <= 0 {
+		return true
+	}
+
+	return false
+}
+
 func countBlockWater(height []int, previousHeighest int, direction bool) int {
 	water := 0
+
 	for {
-		if previousHeighest <= 0 {
+		if isBorder(height, previousHeighest, direction) {
 			break
 		}
-		frontHeighest := findMax(height, 0, previousHeighest-1, direction)
+
+		frontHeighest := -1
+		if !direction {
+			frontHeighest = findMax(height, 0, previousHeighest-1, direction)
+		} else {
+			frontHeighest = findMax(height, previousHeighest+1, len(height)-1, direction)
+		}
+
 		if frontHeighest < 0 {
 			break
 		}
 
-		water = water + trapWater(height, frontHeighest, previousHeighest, height[frontHeighest])
+		unitWater := 0
+		if !direction {
+			unitWater = trapWater(height, frontHeighest, previousHeighest, height[frontHeighest])
+		} else {
+			unitWater = trapWater(height, previousHeighest, frontHeighest, height[frontHeighest])
+		}
+		water = water + unitWater
 		previousHeighest = frontHeighest
 	}
 
 	return water
 }
-*/
 
 func trap(height []int) int {
 	water := 0
@@ -68,33 +90,37 @@ func trap(height []int) int {
 	}
 	heighest := findMax(height, 0, len(height)-1, true)
 
-	previousHeighest := heighest
-	for {
-		if previousHeighest <= 0 {
-			break
-		}
-		frontHeighest := findMax(height, 0, previousHeighest-1, false)
-		if frontHeighest < 0 {
-			break
-		}
+	water = water + countBlockWater(height, heighest, false)
+	water = water + countBlockWater(height, heighest, true)
+	/*
+			previousHeighest := heighest
+			for {
+				if previousHeighest <= 0 {
+					break
+				}
+				frontHeighest := findMax(height, 0, previousHeighest-1, false)
+				if frontHeighest < 0 {
+					break
+				}
 
-		water = water + trapWater(height, frontHeighest, previousHeighest, height[frontHeighest])
-		previousHeighest = frontHeighest
-	}
+				water = water + trapWater(height, frontHeighest, previousHeighest, height[frontHeighest])
+				previousHeighest = frontHeighest
+			}
 
-	previousHeighest = heighest
-	for {
-		if previousHeighest >= len(height)-1 {
-			break
-		}
-		frontHeighest := findMax(height, previousHeighest+1, len(height)-1, true)
-		if frontHeighest < 0 {
-			break
-		}
+			previousHeighest = heighest
+			for {
+				if previousHeighest >= len(height)-1 {
+					break
+				}
+				frontHeighest := findMax(height, previousHeighest+1, len(height)-1, true)
+				if frontHeighest < 0 {
+					break
+				}
 
-		water = water + trapWater(height, previousHeighest, frontHeighest, height[frontHeighest])
-		previousHeighest = frontHeighest
-	}
+				water = water + trapWater(height, previousHeighest, frontHeighest, height[frontHeighest])
+				previousHeighest = frontHeighest
+		  }
+	*/
 
 	return water
 }
