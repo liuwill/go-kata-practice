@@ -11,6 +11,7 @@ JUST make some practice
 ### Questions
 
 -   [Sudoku](./docs/sudoku.md)
+-   [Trapping Rain Water](./docs/trap_rain_water.md)
 -   [Best Time to Buy and Sell Stock](./docs/best_time_to_buy_and_sell_stock.md)
 -   [Best Time to Buy and Sell Stock II](./docs/best_time_to_buy_and_sell_stock_II.md)
 
