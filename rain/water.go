@@ -41,6 +41,7 @@ func trapWater(height []int, start int, end int, small int) int {
 	return water
 }
 
+/*
 func countBlockWater(height []int, previousHeighest int, direction bool) int {
 	water := 0
 	for {
@@ -58,6 +59,7 @@ func countBlockWater(height []int, previousHeighest int, direction bool) int {
 
 	return water
 }
+*/
 
 func trap(height []int) int {
 	water := 0
@@ -79,6 +81,7 @@ func trap(height []int) int {
 		water = water + trapWater(height, frontHeighest, previousHeighest, height[frontHeighest])
 		previousHeighest = frontHeighest
 	}
+
 	previousHeighest = heighest
 	for {
 		if previousHeighest >= len(height)-1 {
