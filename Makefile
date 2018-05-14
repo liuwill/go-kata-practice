@@ -5,6 +5,9 @@ all: build
 test-fizzbuzz:
 	cd fizzbuzz && go test --cover
 
+test-jump:
+	cd jump_game && go test --cover
+
 default:
 	go test -v ./...
 
