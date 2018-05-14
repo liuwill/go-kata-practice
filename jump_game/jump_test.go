@@ -18,7 +18,7 @@ func Test_Jump(t *testing.T) {
 func Test_JumpMore(t *testing.T) {
 	source := []int{2, 4, 2, 1, 5, 3, 2, 6, 3}
 	target := jump(source)
-	expect := 4
+	expect := 3
 
 	if expect != target {
 		t.Error("Translate jump game II more Fail ", target)

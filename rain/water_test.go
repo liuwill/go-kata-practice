@@ -32,7 +32,6 @@ func Test_TrapHighFirst(t *testing.T) {
 	expect := 2
 
 	if expect != target {
-		println(target)
 		t.Error("Translate trap rain water HighFirst Fail ")
 	}
 	t.Log("Translate Test_TrapHighFirst Success")
@@ -44,7 +43,6 @@ func Test_TrapHighLast(t *testing.T) {
 	expect := 1
 
 	if expect != target {
-		println(target)
 		t.Error("Translate trap rain water HighLast Fail ")
 	}
 	t.Log("Translate Test_TrapHighLast Success")
