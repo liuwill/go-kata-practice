@@ -4,7 +4,7 @@ func jump(nums []int) int {
 	step := 0
 	if len(nums) <= 1 {
 		return step
-	} else if len(nums) <= nums[0] {
+	} else if len(nums)-1 <= nums[0] {
 		return step + 1
 	}
 
