@@ -3,10 +3,23 @@ package multiply_strings
 import (
 	"math"
 	"strconv"
+	"strings"
 )
 
 func byteToInt(input byte) float64 {
 	return float64(input - 48)
+}
+
+func bitPlus(one byte, two byte) int {
+	return int((one - 48) + (two - 48))
+}
+
+func shift(num string, bit int) string {
+	if bit < 1 {
+		return num
+	}
+	zeros := strings.Repeat("0", bit)
+	return strings.Join([]string{num, zeros}, "")
 }
 
 func multiply(num1 string, num2 string) string {
