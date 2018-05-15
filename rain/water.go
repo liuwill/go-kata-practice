@@ -1,16 +1,34 @@
 package rain
 
+func buildGoNextStep(direction bool) func(int) int {
+	if direction {
+		return func(x int) int {
+			return x + 1
+		}
+	}
+	return func(x int) int {
+		return x - 1
+	}
+}
+
 func findMax(height []int, start int, end int, direction bool) int {
 	max := 0
 	position := -1
 
 	index := start
-	goStep := func(x int) int { return x + 1 }
-	hasMore := func(index int) bool { return index <= end }
+	goStep := buildGoNextStep(direction)
+	hasMore := func(index int) bool {
+		if direction {
+			return index <= end
+		}
+		return index >= start
+	}
+	// goStep := func(x int) int { return x + 1 }
+	// hasMore := func(index int) bool { return index <= end }
 	if !direction {
 		index = end
-		goStep = func(x int) int { return x - 1 }
-		hasMore = func(index int) bool { return index >= start }
+		// goStep = func(x int) int { return x - 1 }
+		// hasMore = func(index int) bool { return index >= start }
 	}
 
 	for {
