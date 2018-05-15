@@ -20,6 +20,28 @@ func Test_Multiply(t *testing.T) {
 	t.Log("Translate Test_Multiply Success")
 }
 
+func Test_MultiplyBig(t *testing.T) {
+	target := multiply("63456346", "6453745")
+	expect := "409531075715770"
+
+	if expect != target {
+		t.Error("Translate Test_MultiplyBig Fail ", target)
+	}
+
+	t.Log("Translate Test_MultiplyBig Success")
+}
+
+func Test_MultiplyLarge(t *testing.T) {
+	target := multiply("409531075715770", "34534252365264")
+	expect := "14142849520186440394285013280"
+
+	if expect != target {
+		t.Error("Translate Test_MultiplyLarge Fail ", target)
+	}
+
+	t.Log("Translate Test_MultiplyLarge Success")
+}
+
 func Test_Shift(t *testing.T) {
 	target := shift("1242", 0)
 	expect := "1242"
