@@ -14,6 +14,68 @@ func bitPlus(one byte, two byte) int {
 	return int((one - 48) + (two - 48))
 }
 
+func plus(num1 string, num2 string) string {
+	lenNum1 := len(num1)
+	lenNum2 := len(num2)
+
+	longLen := lenNum1
+	shortLen := lenNum2
+	longNum := num1
+	shortNum := num2
+
+	if shortLen > longLen {
+		longLen = lenNum2
+		shortLen = lenNum1
+
+		longNum = num2
+		shortNum = num1
+	}
+
+	longList := append([]byte{}, longNum...)
+	shortList := append([]byte{}, shortNum...)
+
+	targetStr := ""
+	income := 0
+	i := 0
+	for ; i < shortLen; i++ {
+		x := longLen - i - 1
+		y := shortLen - i - 1
+
+		operator1 := longList[x]
+		operator2 := shortList[y]
+		plusResult := bitPlus(operator1, operator2) + income
+
+		income = plusResult / 10
+		current := plusResult % 10
+		targetStr = strings.Join([]string{strconv.Itoa(current), targetStr}, "")
+	}
+
+	println(num1, num2, i)
+	for longLen-i >= 0 || income > 0 {
+		if longLen-i == 0 {
+			if income > 0 {
+				targetStr = strings.Join([]string{strconv.Itoa(income), targetStr}, "")
+			}
+			break
+		}
+
+		currentIndex := longLen - i - 1
+		if income <= 0 {
+			targetStr = strings.Join([]string{longNum[0 : longLen-i], targetStr}, "")
+			break
+		}
+
+		incomeByte := byte(income + 48)
+		plusResult := bitPlus(longList[currentIndex], incomeByte)
+
+		income = plusResult / 10
+		current := plusResult % 10
+		targetStr = strings.Join([]string{strconv.Itoa(current), targetStr}, "")
+		i++
+	}
+	return targetStr
+}
+
 func shift(num string, bit int) string {
 	if bit < 1 {
 		return num
