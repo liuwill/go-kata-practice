@@ -50,7 +50,6 @@ func plus(num1 string, num2 string) string {
 		targetStr = strings.Join([]string{strconv.Itoa(current), targetStr}, "")
 	}
 
-	println(num1, num2, i)
 	for longLen-i >= 0 || income > 0 {
 		if longLen-i == 0 {
 			if income > 0 {

@@ -20,6 +20,24 @@ func Test_Multiply(t *testing.T) {
 	t.Log("Translate Test_Multiply Success")
 }
 
+func Test_Shift(t *testing.T) {
+	target := shift("1242", 0)
+	expect := "1242"
+
+	if expect != target {
+		t.Error("Translate Test_Shift Fail ", target)
+	}
+
+	xTarget := shift("432", 4)
+	xExpect := "4320000"
+
+	if xExpect != xTarget {
+		t.Error("Translate Test_Shift Fail ", xTarget)
+	}
+
+	t.Log("Translate Test_Shift Success")
+}
+
 func Test_Plus(t *testing.T) {
 	target := plus("1242", "63")
 	expect := "1305"
