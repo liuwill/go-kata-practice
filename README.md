@@ -28,6 +28,14 @@ make coverage
 make coverhtml
 ```
 
+#### 运行单个测试
+
+run.test.sh脚本，参数一设置目录
+
+```shell
+./run.test.sh rain
+```
+
 ## License
 
   [MIT](./LICENSE)
