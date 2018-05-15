@@ -42,6 +42,17 @@ func Test_MultiplyLarge(t *testing.T) {
 	t.Log("Translate Test_MultiplyLarge Success")
 }
 
+func Test_MultiplyZero(t *testing.T) {
+	target := multiply("409531075715770", "0")
+	expect := "0"
+
+	if expect != target {
+		t.Error("Translate Test_MultiplyZero Fail ", target)
+	}
+
+	t.Log("Translate Test_MultiplyZero Success")
+}
+
 func Test_Shift(t *testing.T) {
 	target := shift("1242", 0)
 	expect := "1242"

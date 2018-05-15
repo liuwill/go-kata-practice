@@ -83,6 +83,10 @@ func shift(num string, bit int) string {
 }
 
 func multiply(num1 string, num2 string) string {
+	if strings.Compare(num1, "0") == 0 || strings.Compare(num2, "0") == 0 {
+		return "0"
+	}
+
 	num1List := []byte{}
 	num2List := []byte{}
 
