@@ -13,7 +13,7 @@ func bitPlus(one byte, two byte) int {
 	return int((one - 48) + (two - 48))
 }
 
-func plus(num1 string, num2 string) string {
+func addStrings(num1 string, num2 string) string {
 	lenNum1 := len(num1)
 	lenNum2 := len(num2)
 
@@ -105,10 +105,10 @@ func multiply(num1 string, num2 string) string {
 			operator2 := byteToInt(num2List[pos2])
 
 			multiResult := shift(strconv.Itoa(operator2*operator1), j)
-			stepResult = plus(stepResult, multiResult)
+			stepResult = addStrings(stepResult, multiResult)
 		}
 
-		result = plus(result, shift(stepResult, i))
+		result = addStrings(result, shift(stepResult, i))
 	}
 
 	return result

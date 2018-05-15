@@ -72,14 +72,14 @@ func Test_Shift(t *testing.T) {
 }
 
 func Test_Plus(t *testing.T) {
-	target := plus("1242", "63")
+	target := addStrings("1242", "63")
 	expect := "1305"
 
 	if expect != target {
 		t.Error("Translate Test_Plus Fail ", target)
 	}
 
-	xTarget := plus("99999999", "11")
+	xTarget := addStrings("99999999", "11")
 	xExpect := "100000010"
 
 	if xExpect != xTarget {
@@ -89,8 +89,19 @@ func Test_Plus(t *testing.T) {
 	t.Log("Translate Test_Plus Success")
 }
 
+func Test_PlusOne(t *testing.T) {
+	target := addStrings("1242", "1")
+	expect := "1243"
+
+	if expect != target {
+		t.Error("Translate Test_PlusOne Fail ", target)
+	}
+
+	t.Log("Translate Test_PlusOne Success")
+}
+
 func Test_PlusZero(t *testing.T) {
-	target := plus("1242", "0")
+	target := addStrings("1242", "0")
 	expect := "1242"
 
 	if expect != target {
