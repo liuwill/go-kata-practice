@@ -15,7 +15,7 @@ func Test_Multiply(t *testing.T) {
 	bigTarget := multiply("25", "25")
 	bigExpect := "625"
 	if bigExpect != bigTarget {
-		t.Error("Translate Test_Multiply Fail ", bigTarget)
+		t.Error("Translate Test_Multiply x Fail ", bigTarget)
 	}
 	t.Log("Translate Test_Multiply Success")
 }
@@ -54,4 +54,15 @@ func Test_Plus(t *testing.T) {
 	}
 
 	t.Log("Translate Test_Plus Success")
+}
+
+func Test_PlusZero(t *testing.T) {
+	target := plus("1242", "0")
+	expect := "1242"
+
+	if expect != target {
+		t.Error("Translate Test_PlusZero Fail ", target)
+	}
+
+	t.Log("Translate Test_PlusZero Success")
 }
