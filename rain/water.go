@@ -1,14 +1,17 @@
 package rain
 
 func buildGoNextStep(direction bool) func(int) int {
+	var goStep func(int) int
 	if direction {
-		return func(x int) int {
+		goStep = func(x int) int {
 			return x + 1
 		}
+	} else {
+		goStep = func(x int) int {
+			return x - 1
+		}
 	}
-	return func(x int) int {
-		return x - 1
-	}
+	return goStep
 }
 
 func findMax(height []int, start int, end int, direction bool) int {
