@@ -10,9 +10,9 @@ func Test_CanCross(t *testing.T) {
 	expect := true
 
 	if expect != target {
-		t.Error("Translate Test_CanCross Fail ", target)
+		t.Error("Translate Test_CanCross Fail")
 	}
-	t.Log("Translate Test_CanCross more Success")
+	t.Log("Translate Test_CanCross Success")
 }
 
 func Test_CanCrossFail(t *testing.T) {
@@ -21,7 +21,7 @@ func Test_CanCrossFail(t *testing.T) {
 	expect := false
 
 	if expect != target {
-		t.Error("Translate Test_CanCrossFail Fail ", target)
+		t.Error("Translate Test_CanCrossFail Fail", target)
 	}
 	t.Log("Translate Test_CanCrossFail more Success")
 }
