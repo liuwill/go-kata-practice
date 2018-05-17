@@ -16,11 +16,11 @@ func getPossibleDistance(distance int, position int) []int {
 type JumpAction struct {
 	position int
 	distance int
-	action   []int
+	action   int
 }
 
-func couldCross(stones *[]int, index int, front int) bool {
-
+func findFront(stones *[]int, index int, front int) int {
+	return -1
 }
 
 func canCross(stones []int) bool {
@@ -32,15 +32,18 @@ func canCross(stones []int) bool {
 	stack := []JumpAction{}
 	lastPosition := len(stones) - 1
 	index := lastPosition - 1
-	stack = append(stack, JumpAction{
-		position: lastPosition,
-		distance: stones[lastPosition],
-		action:   []int{stones[lastPosition] - stones[index]},
-	})
+	stack = []JumpAction{
+		JumpAction{
+			position: lastPosition,
+			distance: stones[lastPosition],
+			action:   stones[lastPosition] - stones[index],
+		},
+	}
 
 	for len(stack) > 0 {
-		currentJump := stack[0]
-		stack = stack[1:]
+		lastPos := len(stack) - 1
+		currentJump := stack[lastPos]
+		stack = stack[:lastPos]
 
 		currentAction := currentJump.action
 		currentIndex := currentJump.position
@@ -48,9 +51,19 @@ func canCross(stones []int) bool {
 			return true
 		}
 
-		for _, action := range currentAction {
-			if couldCross(&stones, currentIndex, action) {
+		possibleDistances := getPossibleDistance(currentAction, currentIndex)
+		for _, action := range possibleDistances {
+			frontPosition := findFront(&stones, currentIndex, action)
+			if frontPosition == 0 {
+				return true
+			}
 
+			if frontPosition >= 0 {
+				stack = append(stack, JumpAction{
+					position: currentIndex,
+					distance: stones[currentIndex],
+					action:   stones[currentIndex] - stones[frontPosition],
+				})
 			}
 		}
 	}
