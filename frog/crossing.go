@@ -1,5 +1,10 @@
 package frog
 
+type JumpAction struct {
+	position int
+	action   int
+}
+
 func getPossibleDistance(distance int, position int) []int {
 	target := []int{}
 	if position == 1 {
@@ -11,12 +16,6 @@ func getPossibleDistance(distance int, position int) []int {
 		target = append(target, distance, distance+1)
 	}
 	return target
-}
-
-type JumpAction struct {
-	position int
-	distance int
-	action   int
 }
 
 func findFront(stones []int, index int, distance int) int {
@@ -48,7 +47,6 @@ func canCross(stones []int) bool {
 	stack = []JumpAction{
 		JumpAction{
 			position: lastPosition,
-			distance: stones[lastPosition],
 			action:   stones[lastPosition] - stones[index],
 		},
 	}
@@ -67,7 +65,7 @@ func canCross(stones []int) bool {
 		}
 
 		possibleDistances := getPossibleDistance(currentAction, currentIndex)
-		println("+++", currentIndex, currentJump.distance, currentAction, len(stack), len(possibleDistances))
+		// println("+++", currentIndex, stones[currentIndex], currentAction, len(stack), len(possibleDistances))
 		for _, action := range possibleDistances {
 			frontPosition := findFront(stones, currentIndex, action)
 
@@ -75,7 +73,6 @@ func canCross(stones []int) bool {
 				// println(len(stack), "====", currentIndex, currentJump.distance, currentAction, ":", frontPosition, stones[frontPosition], action)
 				stack = append(stack, JumpAction{
 					position: frontPosition,
-					distance: stones[frontPosition],
 					action:   action,
 				})
 			}
