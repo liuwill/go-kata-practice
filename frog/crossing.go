@@ -41,11 +41,13 @@ func canCross(stones []int) bool {
 		return true
 	}
 
-	if len(stones) < 100 {
-		return canCrossStack(stones)
-	}
+	/*
+			if len(stones) < 100 {
+
+		  }
+	*/
 	// distance := 0
-	return false
+	return canCrossStack(stones)
 }
 
 func canCrossStack(stones []int) bool {
