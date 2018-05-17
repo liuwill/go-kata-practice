@@ -44,12 +44,17 @@ func canCross(stones []int) bool {
 	// distance := 0
 	stack := []JumpAction{}
 	lastPosition := len(stones) - 1
-	index := lastPosition - 1
-	stack = []JumpAction{
-		JumpAction{
+
+	for index := lastPosition - 1; index >= 0; index-- {
+		predictDistance := stones[lastPosition] - stones[index]
+		if index <= 1 && predictDistance > index+1 {
+			continue
+		}
+
+		stack = append(stack, JumpAction{
 			position: lastPosition,
-			action:   stones[lastPosition] - stones[index],
-		},
+			action:   predictDistance,
+		})
 	}
 
 	for len(stack) > 0 {
