@@ -60,8 +60,6 @@ func canCross(stones []int) bool {
 		currentIndex := currentJump.position
 		if currentIndex == 0 {
 			return true
-		} else if currentIndex == 1 && currentAction > 2 {
-			continue
 		}
 
 		possibleDistances := getPossibleDistance(currentAction, currentIndex)
