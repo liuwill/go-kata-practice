@@ -41,6 +41,28 @@ func Test_CanCross(t *testing.T) {
 	t.Log("Translate Test_CanCross Success")
 }
 
+func Test_CanCrossLong(t *testing.T) {
+	source := []int{0, 1, 3, 5, 7, 9, 12, 15, 16, 19}
+	target := canCross(source)
+	expect := true
+
+	if expect != target {
+		t.Error("Translate Test_CanCrossLong Fail")
+	}
+	t.Log("Translate Test_CanCrossLong Success")
+}
+
+func Test_CanCrossMissing(t *testing.T) {
+	source := []int{0, 1, 3, 6, 10, 13, 14}
+	target := canCross(source)
+	expect := true
+
+	if expect != target {
+		t.Error("Translate Test_CanCrossMissing Fail")
+	}
+	t.Log("Translate Test_CanCrossMissing Success")
+}
+
 func Test_CanCrossFail(t *testing.T) {
 	source := []int{0, 1, 2, 3, 4, 8, 9, 11}
 	target := canCross(source)

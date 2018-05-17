@@ -6,10 +6,11 @@ type JumpAction struct {
 }
 
 func getPossibleDistance(distance int, position int) []int {
-	target := []int{}
+	var target []int
 	if position == 1 {
-		target = append(target, 1)
+		target = []int{1}
 	} else {
+		target = []int{}
 		if distance > 1 {
 			target = append(target, distance-1)
 		}
