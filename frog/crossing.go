@@ -37,7 +37,7 @@ func findFront(stones []int, index int, distance int) int {
 }
 
 func canCross(stones []int) bool {
-	if len(stones) < 3 {
+	if len(stones) < 2 {
 		return true
 	}
 
