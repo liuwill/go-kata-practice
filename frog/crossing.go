@@ -41,7 +41,14 @@ func canCross(stones []int) bool {
 		return true
 	}
 
+	if len(stones) < 100 {
+		return canCrossStack(stones)
+	}
 	// distance := 0
+	return false
+}
+
+func canCrossStack(stones []int) bool {
 	stack := []JumpAction{}
 	lastPosition := len(stones) - 1
 
