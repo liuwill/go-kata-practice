@@ -92,6 +92,7 @@ func swapPairs(head *ListNode) *ListNode {
 			head = next
 		} else {
 			last.Next = next
+			last = current
 		}
 
 		index++
