@@ -93,6 +93,8 @@ func swapPairs(head *ListNode) *ListNode {
 		} else {
 			last.Next = next
 		}
+
+		index++
 	}
 
 	return head
