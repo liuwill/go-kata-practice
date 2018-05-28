@@ -15,6 +15,7 @@ JUST make some practice
 -   [Jump Game II](./docs/jump_game_II.md)
 -   [Multiply Strings](./docs/multiply_strings.md)
 -   [Add Strings](./docs/add_strings.md)
+-   [Swap Node In Pair](./docs/swap_node_in_pairs.md)
 -   [Best Time to Buy and Sell Stock](./docs/best_time_to_buy_and_sell_stock.md)
 -   [Best Time to Buy and Sell Stock II](./docs/best_time_to_buy_and_sell_stock_II.md)
 
