@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func test_Length(t *testing.T) {
+func Test_Length(t *testing.T) {
 	source := []int{1, 2, 3, 4}
 	sourceNodes := buildPairList(source)
 	target := lenPairList(sourceNodes)
@@ -16,7 +16,7 @@ func test_Length(t *testing.T) {
 	t.Log("Translate test_Length Success")
 }
 
-func test_Compare(t *testing.T) {
+func Test_Compare(t *testing.T) {
 	source := []int{1, 2, 3, 4}
 	target := []int{1, 2, 4}
 	expect := []int{1, 2, 3}
