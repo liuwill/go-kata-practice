@@ -5,6 +5,19 @@ type ListNode struct {
 	Next *ListNode
 }
 
+func lenPairList(head *ListNode) int {
+	cursor := head
+	length := 0
+	for cursor != nil {
+		length++
+
+		println("---", cursor.Val)
+		cursor = cursor.Next
+	}
+
+	return length
+}
+
 func buildPairList(list []int) *ListNode {
 	head := &ListNode{
 		Val:  list[0],

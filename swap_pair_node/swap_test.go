@@ -12,7 +12,7 @@ func Test_Swap(t *testing.T) {
 	expect := []int{2, 1, 4, 3}
 
 	if !compareList(expect, target) {
-		t.Error("Translate swap node Fail ", target, parseListNode(sourceNodes), []int{1, 2, 3, 4})
+		t.Error("Translate swap node Fail ", target, []int{1, 2, 3, 4})
 	}
 	t.Log("Translate Test_Swap Success")
 }
