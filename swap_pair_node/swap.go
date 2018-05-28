@@ -11,7 +11,6 @@ func lenPairList(head *ListNode) int {
 	for cursor != nil {
 		length++
 
-		println("---", cursor.Val)
 		cursor = cursor.Next
 	}
 
@@ -81,7 +80,6 @@ func swapPairs(head *ListNode) *ListNode {
 	for cursor != nil && cursor.Next != nil {
 		current := cursor
 		next := cursor.Next
-		println(current.Val, next.Val, last.Val, head.Val)
 
 		cursor = next.Next
 		current.Next = next.Next

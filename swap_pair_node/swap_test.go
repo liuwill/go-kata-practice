@@ -4,6 +4,33 @@ import (
 	"testing"
 )
 
+func test_Length(t *testing.T) {
+	source := []int{1, 2, 3, 4}
+	sourceNodes := buildPairList(source)
+	target := lenPairList(sourceNodes)
+	expect := 4
+
+	if expect != target {
+		t.Error("Translate swap lenPairList Fail ", target)
+	}
+	t.Log("Translate test_Length Success")
+}
+
+func test_Compare(t *testing.T) {
+	source := []int{1, 2, 3, 4}
+	target := []int{1, 2, 4}
+	expect := []int{1, 2, 3}
+
+	if compareList(expect, target) {
+		t.Error("Translate swap compareList Fail ", target)
+	}
+
+	if compareList(source, target) {
+		t.Error("Translate swap compareList Fail ", target)
+	}
+	t.Log("Translate test_Compare Success")
+}
+
 func Test_Swap(t *testing.T) {
 	source := []int{1, 2, 3, 4}
 	sourceNodes := buildPairList(source)
