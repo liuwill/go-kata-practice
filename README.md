@@ -18,6 +18,8 @@ JUST make some practice
 -   [Swap Node In Pair](./docs/swap_node_in_pairs.md)
 -   [Best Time to Buy and Sell Stock](./docs/best_time_to_buy_and_sell_stock.md)
 -   [Best Time to Buy and Sell Stock II](./docs/best_time_to_buy_and_sell_stock_II.md)
+-   [Remove Duplicates from Sorted Array](./docs/remove_duplicates_from_sorted_array.md)
+
 
 ### Script
 ```shell
