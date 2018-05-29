@@ -9,8 +9,8 @@ func Test_Remove(t *testing.T) {
 	target := removeDuplicates(source)
 	expect := 5
 
-	if expect != target {
-		t.Error("Translate remove duplicates Fail ", target)
+	if expect != target || len(source) != expect {
+		t.Error("Translate remove duplicates Fail ", target, len(source))
 	}
 	t.Log("Translate Test_Remove Success")
 }
