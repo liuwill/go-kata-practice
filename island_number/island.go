@@ -5,26 +5,26 @@ type Position struct {
 	y int
 }
 
-var moveActions = []func(grid [][]byte, x int, y int) Position{
-	func(grid [][]byte, x int, y int) Position {
+var moveActions = []func(x int, y int) Position{
+	func(x int, y int) Position {
 		return Position{
 			x: x - 1,
 			y: y,
 		}
 	},
-	func(grid [][]byte, x int, y int) Position {
+	func(x int, y int) Position {
 		return Position{
 			x: x + 1,
 			y: y,
 		}
 	},
-	func(grid [][]byte, x int, y int) Position {
+	func(x int, y int) Position {
 		return Position{
 			x: x,
 			y: y - 1,
 		}
 	},
-	func(grid [][]byte, x int, y int) Position {
+	func(x int, y int) Position {
 		return Position{
 			x: x,
 			y: y + 1,
@@ -63,7 +63,7 @@ func scanIsland(grid [][]byte, position Position) {
 		positionList = positionList[1:]
 
 		for _, action := range moveActions {
-			nextPos := action(grid, position.x, position.y)
+			nextPos := action(position.x, position.y)
 			if !isInMap(grid, nextPos) {
 				continue
 			}
