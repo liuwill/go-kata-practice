@@ -19,3 +19,19 @@ func Test_Island(t *testing.T) {
 	}
 	t.Log("Translate Test_Island Success")
 }
+
+func Test_IslandEasy(t *testing.T) {
+	source := [][]byte{
+		{1, 1, 1, 1, 0},
+		{1, 1, 0, 1, 0},
+		{1, 1, 0, 0, 0},
+		{0, 0, 0, 0, 0},
+	}
+	target := numIslands(source)
+	expect := 1
+
+	if expect != target {
+		t.Error("Translate island number easy Fail ", target)
+	}
+	t.Log("Translate Test_IslandEasy Success")
+}
