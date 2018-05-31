@@ -54,11 +54,7 @@ func isInMap(grid [][]byte, pos Position) bool {
 }
 
 func scanIsland(grid [][]byte, positionList []Position) {
-	for {
-		if len(positionList) < 1 {
-			break
-		}
-
+	for len(positionList) > 0 {
 		position := positionList[0]
 		positionList = positionList[1:]
 
@@ -80,8 +76,6 @@ func scanIsland(grid [][]byte, positionList []Position) {
 
 func numIslands(grid [][]byte) int {
 	current := 0
-	// var data [][]byte
-	// copy(data, grid)
 	positionList := []Position{}
 
 	for i := 0; i < len(grid); i++ {
