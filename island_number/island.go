@@ -46,11 +46,7 @@ func isInMap(grid [][]byte, pos Position) bool {
 		return false
 	}
 
-	if x >= len(grid) {
-		return false
-	}
-
-	if y >= len(grid[x]) {
+	if x >= len(grid) || y >= len(grid[x]) {
 		return false
 	}
 

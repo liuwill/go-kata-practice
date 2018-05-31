@@ -20,7 +20,7 @@ func Test_Island(t *testing.T) {
 	t.Log("Translate Test_Island Success")
 }
 
-func Test_IslandChar(t *testing.T) {
+func Test_IslandCharacter(t *testing.T) {
 	source := [][]byte{
 		{'1', '1', '0', '0', '0'},
 		{'1', '1', '0', '0', '0'},
@@ -31,9 +31,9 @@ func Test_IslandChar(t *testing.T) {
 	expect := 3
 
 	if expect != target {
-		t.Error("Translate island number char Fail ", target)
+		t.Error("Translate island number character Fail ", target)
 	}
-	t.Log("Translate Test_IslandChar Success")
+	t.Log("Translate Test_IslandCharacter Success")
 }
 
 func Test_IslandEasy(t *testing.T) {
