@@ -53,7 +53,11 @@ func isInMap(grid [][]byte, pos Position) bool {
 	return true
 }
 
-func scanIsland(grid [][]byte, positionList []Position) {
+func scanIsland(grid [][]byte, position Position) {
+	positionList := []Position{
+		position,
+	}
+
 	for len(positionList) > 0 {
 		position := positionList[0]
 		positionList = positionList[1:]
@@ -63,20 +67,21 @@ func scanIsland(grid [][]byte, positionList []Position) {
 			if !isInMap(grid, nextPos) {
 				continue
 			}
-			if !isMark(grid[nextPos.x][nextPos.y]) {
-				grid[nextPos.x][nextPos.y] = 2
-				positionList = append(positionList[:], Position{
-					x: nextPos.x,
-					y: nextPos.y,
-				})
+			if isMark(grid[nextPos.x][nextPos.y]) {
+				continue
 			}
+
+			grid[nextPos.x][nextPos.y] = 2
+			positionList = append(positionList[:], Position{
+				x: nextPos.x,
+				y: nextPos.y,
+			})
 		}
 	}
 }
 
 func numIslands(grid [][]byte) int {
 	islandNumbers := 0
-	positionList := []Position{}
 
 	for i := 0; i < len(grid); i++ {
 		column := grid[i]
@@ -87,11 +92,10 @@ func numIslands(grid [][]byte) int {
 
 			islandNumbers++
 			grid[i][j] = 2
-			positionList = append(positionList[:], Position{
+			scanIsland(grid[:], Position{
 				x: i,
 				y: j,
 			})
-			scanIsland(grid[:], positionList[:])
 		}
 	}
 	return islandNumbers
