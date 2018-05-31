@@ -1,5 +1,7 @@
 package island_number
 
+const ISLAND_MARK byte = 2
+
 type Position struct {
 	x int
 	y int
@@ -71,7 +73,7 @@ func scanIsland(grid [][]byte, position Position) {
 				continue
 			}
 
-			grid[nextPos.x][nextPos.y] = 2
+			grid[nextPos.x][nextPos.y] = ISLAND_MARK
 			positionList = append(positionList[:], Position{
 				x: nextPos.x,
 				y: nextPos.y,
@@ -91,7 +93,7 @@ func numIslands(grid [][]byte) int {
 			}
 
 			islandNumbers++
-			grid[i][j] = 2
+			grid[i][j] = ISLAND_MARK
 			scanIsland(grid[:], Position{
 				x: i,
 				y: j,
