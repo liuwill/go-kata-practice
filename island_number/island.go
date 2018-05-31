@@ -75,18 +75,17 @@ func scanIsland(grid [][]byte, positionList []Position) {
 }
 
 func numIslands(grid [][]byte) int {
-	current := 0
+	islandNumbers := 0
 	positionList := []Position{}
 
 	for i := 0; i < len(grid); i++ {
 		column := grid[i]
 		for j := 0; j < len(column); j++ {
-			mark := grid[i][j]
-			if isMark(mark) {
+			if isMark(grid[i][j]) {
 				continue
 			}
 
-			current++
+			islandNumbers++
 			grid[i][j] = 2
 			positionList = append(positionList[:], Position{
 				x: i,
@@ -95,5 +94,5 @@ func numIslands(grid [][]byte) int {
 			scanIsland(grid[:], positionList[:])
 		}
 	}
-	return current
+	return islandNumbers
 }
