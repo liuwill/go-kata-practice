@@ -33,10 +33,10 @@ var moveActions = []func(x int, y int) Position{
 }
 
 func isMark(value byte) bool {
-	if value == '0' || value == 0 || value == 2 {
-		return true
+	if value == '1' || value == 1 {
+		return false
 	}
-	return false
+	return true
 }
 
 func isInMap(grid [][]byte, pos Position) bool {
@@ -62,8 +62,8 @@ func scanIsland(grid [][]byte, position Position) {
 		position := positionList[0]
 		positionList = positionList[1:]
 
-		for _, action := range moveActions {
-			nextPos := action(position.x, position.y)
+		for _, doAction := range moveActions {
+			nextPos := doAction(position.x, position.y)
 			if !isInMap(grid, nextPos) {
 				continue
 			}
