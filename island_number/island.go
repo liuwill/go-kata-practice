@@ -5,11 +5,56 @@ type Position struct {
 	y int
 }
 
+var moveActions = []func(grid [][]byte, x int, y int) Position{
+	func(grid [][]byte, x int, y int) Position {
+		return Position{
+			x: x - 1,
+			y: y,
+		}
+	},
+	func(grid [][]byte, x int, y int) Position {
+		return Position{
+			x: x + 1,
+			y: y,
+		}
+	},
+	func(grid [][]byte, x int, y int) Position {
+		return Position{
+			x: x,
+			y: y - 1,
+		}
+	},
+	func(grid [][]byte, x int, y int) Position {
+		return Position{
+			x: x,
+			y: y + 1,
+		}
+	},
+}
+
 func isMark(value byte) bool {
-	if value == 0 || value == 2 {
+	if value == '0' || value == 0 || value == 2 {
 		return true
 	}
 	return false
+}
+
+func isInMap(grid [][]byte, pos Position) bool {
+	x := pos.x
+	y := pos.y
+	if x < 0 || y < 0 {
+		return false
+	}
+
+	if x >= len(grid) {
+		return false
+	}
+
+	if y >= len(grid[x]) {
+		return false
+	}
+
+	return true
 }
 
 func scanIsland(grid [][]byte, positionList []Position) {
@@ -21,52 +66,18 @@ func scanIsland(grid [][]byte, positionList []Position) {
 		position := positionList[0]
 		positionList = positionList[1:]
 
-		for left := position.x - 1; left >= 0; left-- {
-			if isMark(grid[left][position.y]) {
-				break
+		for _, action := range moveActions {
+			nextPos := action(grid, position.x, position.y)
+			if !isInMap(grid, nextPos) {
+				continue
 			}
-
-			grid[left][position.y] = 2
-			positionList = append(positionList[:], Position{
-				x: left,
-				y: position.y,
-			})
-		}
-
-		for top := position.y - 1; top >= 0; top-- {
-			if isMark(grid[position.x][top]) {
-				break
+			if !isMark(grid[nextPos.x][nextPos.y]) {
+				grid[nextPos.x][nextPos.y] = 2
+				positionList = append(positionList[:], Position{
+					x: nextPos.x,
+					y: nextPos.y,
+				})
 			}
-
-			grid[position.x][top] = 2
-			positionList = append(positionList[:], Position{
-				x: position.x,
-				y: top,
-			})
-		}
-
-		for right := position.x + 1; right < len(grid); right++ {
-			if isMark(grid[right][position.y]) {
-				break
-			}
-
-			grid[right][position.y] = 2
-			positionList = append(positionList[:], Position{
-				x: right,
-				y: position.y,
-			})
-		}
-
-		for bottom := position.y + 1; bottom < len(grid[position.x]); bottom++ {
-			if isMark(grid[position.x][bottom]) {
-				break
-			}
-
-			grid[position.x][bottom] = 2
-			positionList = append(positionList[:], Position{
-				x: position.x,
-				y: bottom,
-			})
 		}
 	}
 }
