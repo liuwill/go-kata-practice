@@ -19,6 +19,7 @@ JUST make some practice
 -   [Best Time to Buy and Sell Stock](./docs/best_time_to_buy_and_sell_stock.md)
 -   [Best Time to Buy and Sell Stock II](./docs/best_time_to_buy_and_sell_stock_II.md)
 -   [Remove Duplicates from Sorted Array](./docs/remove_duplicates_from_sorted_array.md)
+-   [Numbers Of Island](./docs/numbers_of_island.md)
 
 
 ### Script
