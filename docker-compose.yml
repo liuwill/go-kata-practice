@@ -1,9 +1,9 @@
 version: '3'
 services:
-  golang:
+  golang-kata:
     image: golang:1.10
     volumes:
-    - .:/builds/liuwill/go-kata-practice
-    - logvolume01:/var/log
+      - .:/go/src/go-kata-practice
+      - logvolume01:/var/log
 volumes:
   logvolume01: {}

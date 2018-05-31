@@ -42,6 +42,20 @@ run.test.sh脚本，参数一设置目录
 ./run.test.sh rain
 ```
 
+#### docker 环境运行
+
+```shell
+# 创建docker容器
+bash ./docker.sh
+
+# 进入docker容器
+docker exec -it golang-kata /bin/bash
+
+# 在容器中运行命令
+cd /go/src/go-kata-practice
+make coverhtml
+```
+
 ## License
 
   [MIT](./LICENSE)
