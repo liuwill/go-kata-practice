@@ -34,11 +34,11 @@ var moveActions = []func(x int, y int) Position{
 	},
 }
 
-func isMark(value byte) bool {
+func isVirginIsland(value byte) bool {
 	if value == '1' || value == 1 {
-		return false
+		return true
 	}
-	return true
+	return false
 }
 
 func isInMap(grid [][]byte, pos Position) bool {
@@ -69,7 +69,7 @@ func scanIsland(grid [][]byte, position Position) {
 			if !isInMap(grid, nextPos) {
 				continue
 			}
-			if isMark(grid[nextPos.x][nextPos.y]) {
+			if !isVirginIsland(grid[nextPos.x][nextPos.y]) {
 				continue
 			}
 
@@ -88,7 +88,7 @@ func numIslands(grid [][]byte) int {
 	for i := 0; i < len(grid); i++ {
 		column := grid[i]
 		for j := 0; j < len(column); j++ {
-			if isMark(grid[i][j]) {
+			if !isVirginIsland(grid[i][j]) {
 				continue
 			}
 
