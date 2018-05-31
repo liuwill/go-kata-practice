@@ -1,7 +1,5 @@
 package island_number
 
-import "fmt"
-
 type Position struct {
 	x int
 	y int
@@ -15,7 +13,6 @@ func isMark(value byte) bool {
 }
 
 func scanIsland(grid [][]byte, positionList []Position) {
-	fmt.Printf("%v", positionList)
 	for {
 		if len(positionList) < 1 {
 			break
@@ -35,6 +32,7 @@ func scanIsland(grid [][]byte, positionList []Position) {
 				y: position.y,
 			})
 		}
+
 		for top := position.y - 1; top >= 0; top-- {
 			if isMark(grid[position.x][top]) {
 				break
@@ -46,7 +44,8 @@ func scanIsland(grid [][]byte, positionList []Position) {
 				y: top,
 			})
 		}
-		for right := position.x + 1; right < len(grid[position.x]); right++ {
+
+		for right := position.x + 1; right < len(grid); right++ {
 			if isMark(grid[right][position.y]) {
 				break
 			}
@@ -57,7 +56,8 @@ func scanIsland(grid [][]byte, positionList []Position) {
 				y: position.y,
 			})
 		}
-		for bottom := position.y + 1; bottom < len(grid); bottom++ {
+
+		for bottom := position.y + 1; bottom < len(grid[position.x]); bottom++ {
 			if isMark(grid[position.x][bottom]) {
 				break
 			}
