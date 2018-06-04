@@ -2,7 +2,7 @@ package house_robber
 
 func rob(nums []int) int {
 	length := len(nums)
-	for index := length - 1; index >= 0; index++ {
+	for index := length - 1; index >= 0; index-- {
 		left := index + 1
 		right := index + 2
 
