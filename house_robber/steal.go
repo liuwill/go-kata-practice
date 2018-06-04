@@ -1,10 +1,12 @@
 package house_robber
 
+import "fmt"
+
 func rob(nums []int) int {
 	length := len(nums)
 	for index := length - 1; index >= 0; index-- {
-		left := index + 1
-		right := index + 2
+		left := index + 2
+		right := index + 3
 
 		bigger := 0
 		if right < length && nums[right] > bigger {
@@ -26,5 +28,6 @@ func rob(nums []int) int {
 		result = nums[1]
 	}
 
+	fmt.Printf("%v", nums)
 	return result
 }
