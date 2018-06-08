@@ -27,7 +27,10 @@ func canVisitAllRooms(rooms [][]int) bool {
 			continue
 		}
 
+		// 访问一个房间
 		roomMap[index].Visited = true
+		visited++
+
 		currentKeys := rooms[index]
 		for _, key := range currentKeys {
 			keyRoom := roomMap[key]
