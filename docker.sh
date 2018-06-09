@@ -31,14 +31,31 @@ enterDocker () {
    docker exec -it golang-kata /bin/bash
 }
 
+checkDockerStatus () {
+  check_result=`docker ps -a | grep golang-kata`
+
+  if [ ! "$check_result" ]; then
+    return 0
+  fi
+  return 1
+}
+
 if [ $# -ne 1 ] ; then
     usage
 fi
 
-if [ "$1" = "enter" ]; then
-    enterDocker
-elif [ "$1" = "install" ]; then
-    installDocker
+checkDockerStatus
+check_status=$?
+
+if [ "$1" = "install" ]; then
+  if [ "$check_status" != "0" ]; then
+    echo "容器已经存在"
+    exit 0
+  fi
+  installDocker
+  exit 0
 elif [ "$1" = "start" ]; then
-    startDocker
+  startDocker
+elif [ "$1" = "enter" ]; then
+  enterDocker
 fi
