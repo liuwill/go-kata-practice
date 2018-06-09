@@ -3,7 +3,10 @@
 [Code](../dungeon_game)
 
 ## 解题思路：
-
+1 首先地图的规则决定了不会产生回路，所以可以放心的进行遍历
+2 另外，毫无疑问只有遍历完所有可能的路径之后，才有可能得出最后的结论
+3 遍历过程中可以存储一个当前的最小血值，如果有更小的就更新
+4 作为一种优化，可以记录每个位置已经探索过的，到达它的未知需要的血值，如果有新的路径到达，比较一下，如果需要更大血值，就可以淘汰当前方案
 
 ```
 The demons had captured the princess (P) and imprisoned her in the bottom-right corner of a dungeon. The dungeon consists of M x N rooms laid out in a 2D grid. Our valiant knight (K) was initially positioned in the top-left room and must fight his way through the dungeon to rescue the princess.
