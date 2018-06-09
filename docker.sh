@@ -1,5 +1,11 @@
 #!/bin/bash
 
+DEMO_PATH=`pwd`
+GOLANG_DOCKER_VERSION=golang:1.10
+DOCKER_CONTAINER=golang-kata
+APP_NAME=go-kata-practice
+DOCKER_RUN_PATH=/go/src/$APP_NAME
+
 usage()
 {
   echo "USAGE: $CALLER [-h] COMMANDS"
@@ -15,32 +21,37 @@ usage()
 
 installDocker () {
   echo "start install docker container"
-  DEMO_PATH=`pwd`
 
   docker run -itd \
-    -v $DEMO_PATH:/go/src/go-kata-practice \
-    --name golang-kata \
-    golang:1.10 &> /dev/null
+    -v $DEMO_PATH:$DOCKER_RUN_PATH \
+    --name $DOCKER_CONTAINER \
+    $GOLANG_DOCKER_VERSION &> /dev/null
+
+  # docker run -itd \
+  #   -v $DEMO_PATH:/go/src/go-kata-practice \
+  #   --name golang-kata \
+  #   golang:1.10 &> /dev/null
 }
 
 startDocker () {
-   docker start golang-kata
+   docker start $DOCKER_CONTAINER
 }
 
 enterDocker () {
-   docker exec -it golang-kata /bin/bash
+   docker exec -it $DOCKER_CONTAINER /bin/bash
 }
 
 execTestKata () {
-  docker exec -it golang-kata bash -c "cd /go/src/go-kata-practice;make coverhtml"
+  docker exec -it $DOCKER_CONTAINER bash -c "cd $DOCKER_RUN_PATH;make coverhtml"
 }
 
 checkDockerStatus () {
-  check_result=`docker ps -a | grep golang-kata`
+  check_result=`docker ps -a | grep $DOCKER_CONTAINER`
 
   if [ ! "$check_result" ]; then
     return 0
   fi
+
   check_exit=`echo $check_result | grep Exited`
   if [ ! "$check_exit" ]; then
     return 2
