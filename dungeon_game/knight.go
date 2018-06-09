@@ -1,46 +1,42 @@
 package dungeon_game
 
-import "fmt"
-
 type Action struct {
-	X          int
-	Y          int
-	Reverse    bool
-	Energy     int
-	InItEnergy int
+	X       int
+	Y       int
+	Consume int
+	Energy  int
 }
 
+/*
 func (action *Action) isBetterAction(x int, y int, marks [][]int) bool {
 	if marks[x][y] == 0 || marks[x][y] > action.Energy {
 		return true
 	}
 	return false
 }
+*/
 
-func (action *Action) countEnergy(x int, y int, dungeon [][]int) int {
+func (action *Action) countNextAction(x int, y int, dungeon [][]int) Action {
 	currentState := dungeon[x][y]
-	return action.Energy - currentState
+	nextEnergy := action.Energy - currentState
+	return Action{
+		X:      x,
+		Y:      y,
+		Energy: nextEnergy,
+	}
 }
 
 func (action *Action) nextActions(width int, height int, dungeon [][]int, marks [][]int) []Action {
 	target := []Action{}
-	if action.X+1 < width && action.isBetterAction(action.X+1, action.Y, marks) {
-		xEnergy := action.countEnergy(action.X+1, action.Y, dungeon)
-		marks[action.X+1][action.Y] = xEnergy
-		target = append(target, Action{
-			X:      action.X + 1,
-			Y:      action.Y,
-			Energy: xEnergy,
-		})
+	if action.X+1 < width { // && action.isBetterAction(action.X+1, action.Y, marks)
+		xAction := action.countNextAction(action.X+1, action.Y, dungeon)
+		marks[action.X+1][action.Y] = xAction.Energy
+		target = append(target, xAction)
 	}
-	if action.Y+1 < height && action.isBetterAction(action.X, action.Y+1, marks) {
-		yEnergy := action.countEnergy(action.X, action.Y+1, dungeon)
-		marks[action.X][action.Y] = yEnergy
-		target = append(target, Action{
-			X:      action.X,
-			Y:      action.Y + 1,
-			Energy: yEnergy,
-		})
+	if action.Y+1 < height { // && action.isBetterAction(action.X, action.Y+1, marks)
+		yAction := action.countNextAction(action.X, action.Y+1, dungeon)
+		marks[action.X][action.Y] = yAction.Energy
+		target = append(target, yAction)
 	}
 	return target
 }
@@ -63,10 +59,11 @@ func calculateMinimumHP(dungeon [][]int) int {
 		width = len(dungeon[0])
 	}
 
+	initEnergy := -dungeon[0][0]
 	actions := []Action{Action{
 		X:      0,
 		Y:      0,
-		Energy: -dungeon[0][0],
+		Energy: initEnergy,
 	}}
 
 	best := 0
@@ -76,9 +73,9 @@ func calculateMinimumHP(dungeon [][]int) int {
 			best = currentAction.Energy
 		}
 
-		fmt.Printf("%v ==== \n", currentAction)
+		// fmt.Printf("%v ==== \n", currentAction)
 		nextActions := currentAction.nextActions(width, height, dungeon, marks)
-		fmt.Printf("%v %v\n", currentAction, (nextActions))
+		// fmt.Printf("%v %v\n", currentAction, (nextActions))
 		actions = append(actions[1:], nextActions...)
 	}
 
