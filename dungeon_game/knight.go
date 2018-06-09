@@ -8,19 +8,10 @@ type Action struct {
 	Consume int
 }
 
-/*
-func (action *Action) isBetterAction(x int, y int, marks [][]int) bool {
-	if marks[x][y] == 0 || marks[x][y] > action.Energy {
-		return true
-	}
-	return false
-}
-*/
-
-func (action *Action) countNextAction(x int, y int, dungeon [][]int, marks [][]int) Action {
+func (action *Action) countNextAction(x int, y int, dungeon [][]int) Action {
 	currentState := dungeon[x][y]
 	nextEnergy := action.Energy - currentState
-	marks[x][y] = nextEnergy
+
 	currentConsume := action.Consume
 	if currentConsume < nextEnergy {
 		currentConsume = nextEnergy
@@ -35,14 +26,14 @@ func (action *Action) countNextAction(x int, y int, dungeon [][]int, marks [][]i
 	}
 }
 
-func (action *Action) nextActions(width int, height int, dungeon [][]int, marks [][]int) []Action {
+func (action *Action) nextActions(width int, height int, dungeon [][]int) []Action {
 	target := []Action{}
 	if action.X+1 < width { // && action.isBetterAction(action.X+1, action.Y, marks)
-		xAction := action.countNextAction(action.X+1, action.Y, dungeon, marks)
+		xAction := action.countNextAction(action.X+1, action.Y, dungeon)
 		target = append(target, xAction)
 	}
 	if action.Y+1 < height { // && action.isBetterAction(action.X, action.Y+1, marks)
-		yAction := action.countNextAction(action.X, action.Y+1, dungeon, marks)
+		yAction := action.countNextAction(action.X, action.Y+1, dungeon)
 		target = append(target, yAction)
 	}
 	return target
@@ -56,7 +47,7 @@ func (action *Action) isEnd(width int, height int) bool {
 }
 
 func (action *Action) isBest(best int) bool {
-	if action.Consume > 0 && best == 0 {
+	if action.Consume > 0 && best <= 0 {
 		return true
 	}
 
@@ -64,22 +55,18 @@ func (action *Action) isBest(best int) bool {
 }
 
 func calculateMinimumHP(dungeon [][]int) int {
-	marks := make([][]int, len(dungeon))
-	for index, line := range dungeon {
-		marks[index] = make([]int, len(line))
-	}
-	height := len(dungeon)
-	width := 0
+	width := len(dungeon)
+	height := 0
 	if len(dungeon) > 0 {
-		width = len(dungeon[0])
+		height = len(dungeon[0])
 	}
 
-	initEnergy := -dungeon[0][0]
+	initEnergy := 1 - dungeon[0][0]
 	initAction := Action{
 		X:       0,
 		Y:       0,
 		Point:   dungeon[0][0],
-		Consume: 0,
+		Consume: 1,
 		Energy:  initEnergy,
 	}
 
@@ -92,14 +79,19 @@ func calculateMinimumHP(dungeon [][]int) int {
 	for len(actions) > 0 {
 		currentAction := actions[0]
 		if currentAction.isEnd(width, height) && currentAction.isBest(best) {
-			// fmt.Printf("%v ==== \n", currentAction)
 			best = currentAction.Consume
 		}
 
-		nextActions := currentAction.nextActions(width, height, dungeon, marks)
+		actions = actions[1:]
+		nextActions := currentAction.nextActions(width, height, dungeon)
 		// fmt.Printf("%v %v\n", currentAction, (nextActions))
-		actions = append(actions[1:], nextActions...)
+		for _, next := range nextActions {
+			if next.Consume > best && best > 0 {
+				continue
+			}
+			actions = append(actions, next)
+		}
 	}
 
-	return best + 1
+	return best
 }
