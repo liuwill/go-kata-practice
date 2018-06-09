@@ -54,8 +54,25 @@ if [ "$1" = "install" ]; then
   fi
   installDocker
   exit 0
-elif [ "$1" = "start" ]; then
+fi
+
+
+if [ "$1" = "start" ]; then
+  if [ "$check_status" = "2" ]; then
+    echo "container is working"
+    exit 0
+  elif [ "$check_status" = "0" ]; then
+    echo "container not exist"
+    installDocker
+  fi
   startDocker
 elif [ "$1" = "enter" ]; then
+  if [ "$check_status" = "0" ]; then
+    echo "container not exist"
+    installDocker
+  elif [ "$check_status" != "2" ]; then
+    startDocker
+  fi
+
   enterDocker
 fi
