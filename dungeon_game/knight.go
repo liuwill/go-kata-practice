@@ -3,9 +3,11 @@ package dungeon_game
 import "fmt"
 
 type Action struct {
-	X      int
-	Y      int
-	Energy int
+	X          int
+	Y          int
+	Reverse    bool
+	Energy     int
+	InItEnergy int
 }
 
 func (action *Action) isBetterAction(x int, y int, marks [][]int) bool {
@@ -33,7 +35,7 @@ func (action *Action) nextActions(width int, height int, dungeon [][]int, marks 
 	}
 	if action.Y+1 < height && action.isBetterAction(action.X, action.Y+1, marks) {
 		yEnergy := action.countEnergy(action.X, action.Y+1, dungeon)
-		marks[action.X+1][action.Y] = yEnergy
+		marks[action.X][action.Y] = yEnergy
 		target = append(target, Action{
 			X:      action.X,
 			Y:      action.Y + 1,
@@ -66,6 +68,7 @@ func calculateMinimumHP(dungeon [][]int) int {
 		Y:      0,
 		Energy: -dungeon[0][0],
 	}}
+
 	best := 0
 	for len(actions) > 0 {
 		currentAction := actions[0]
@@ -73,8 +76,9 @@ func calculateMinimumHP(dungeon [][]int) int {
 			best = currentAction.Energy
 		}
 
+		fmt.Printf("%v ==== \n", currentAction)
 		nextActions := currentAction.nextActions(width, height, dungeon, marks)
-		fmt.Printf("%v", currentAction)
+		fmt.Printf("%v %v\n", currentAction, (nextActions))
 		actions = append(actions[1:], nextActions...)
 	}
 
