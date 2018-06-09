@@ -48,14 +48,17 @@ run.test.sh脚本，参数一设置目录
 
 ```shell
 # 创建docker容器
-bash ./docker.sh
+./docker.sh install
 
 # 进入docker容器
-docker exec -it golang-kata /bin/bash
+./docker.sh enter
 
 # 在容器中运行命令
 cd /go/src/go-kata-practice
 make coverhtml
+
+# 或者
+./docker.sh test
 ```
 
 ## License

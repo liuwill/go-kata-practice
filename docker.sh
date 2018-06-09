@@ -31,11 +31,19 @@ enterDocker () {
    docker exec -it golang-kata /bin/bash
 }
 
+execTestKata () {
+  docker exec -it golang-kata bash -c "cd /go/src/go-kata-practice;make coverhtml"
+}
+
 checkDockerStatus () {
   check_result=`docker ps -a | grep golang-kata`
 
   if [ ! "$check_result" ]; then
     return 0
+  fi
+  check_exit=`echo $check_result | grep Exited`
+  if [ ! "$check_exit" ]; then
+    return 2
   fi
   return 1
 }
@@ -75,4 +83,14 @@ elif [ "$1" = "enter" ]; then
   fi
 
   enterDocker
+elif [ "$1" = "test" ]; then
+  if [ "$check_status" = "0" ]; then
+    echo "container not exist"
+    installDocker
+  elif [ "$check_status" != "2" ]; then
+    startDocker
+  fi
+
+  execTestKata
 fi
+
