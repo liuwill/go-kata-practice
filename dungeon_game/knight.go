@@ -1,5 +1,7 @@
 package dungeon_game
 
+import "fmt"
+
 type Action struct {
 	X      int
 	Y      int
@@ -53,10 +55,10 @@ func calculateMinimumHP(dungeon [][]int) int {
 	for index, line := range dungeon {
 		marks[index] = make([]int, len(line))
 	}
-	width := len(dungeon)
-	height := 0
+	height := len(dungeon)
+	width := 0
 	if len(dungeon) > 0 {
-		height = len(dungeon[0])
+		width = len(dungeon[0])
 	}
 
 	actions := []Action{Action{
@@ -69,10 +71,11 @@ func calculateMinimumHP(dungeon [][]int) int {
 		currentAction := actions[0]
 		if currentAction.isEnd(width, height) && currentAction.Energy <= best {
 			best = currentAction.Energy
-			continue
 		}
 
-		currentAction.nextActions(width, height, dungeon, marks)
+		nextActions := currentAction.nextActions(width, height, dungeon, marks)
+		fmt.Printf("%v", currentAction)
+		actions = append(actions[1:], nextActions...)
 	}
 
 	return best
