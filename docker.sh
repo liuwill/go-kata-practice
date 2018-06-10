@@ -34,18 +34,18 @@ installDocker () {
 }
 
 startDocker () {
-   docker start $DOCKER_CONTAINER
+  docker start $DOCKER_CONTAINER
 }
 
 enterDocker () {
-   docker exec -it $DOCKER_CONTAINER /bin/bash
+  docker exec -it $DOCKER_CONTAINER /bin/bash
 }
 
 execTestKata () {
   docker exec -it $DOCKER_CONTAINER bash -c "cd $DOCKER_RUN_PATH;make coverhtml"
 }
 
-checkDockerStatus () {
+checkDockerContainerStatus () {
   check_result=`docker ps -a | grep $DOCKER_CONTAINER`
 
   if [ ! "$check_result" ]; then
@@ -59,11 +59,22 @@ checkDockerStatus () {
   return 1
 }
 
+checkDockerInstalled () {
+  check_result=`which docker`
+
+  if [ ! "$check_result" ]; then
+    echo "没有检测到docker，请先安装docker之后再试"
+    exit 1
+  fi
+}
+
 if [ $# -ne 1 ] ; then
     usage
 fi
 
-checkDockerStatus
+checkDockerInstalled
+
+checkDockerContainerStatus
 check_status=$?
 
 if [ "$1" = "install" ]; then
