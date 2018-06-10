@@ -2,12 +2,22 @@
 
 [Code](../dungeon_game)
 
-## 解题思路：
+## 解题思路1：
 1 首先地图的规则决定了不会产生回路，所以可以放心的进行遍历
 2 另外，毫无疑问只有遍历完所有可能的路径之后，才有可能得出最后的结论
 3 遍历过程中可以存储一个当前的最小血值，如果有更小的就更新
 4 作为一种优化，可以记录每个位置已经探索过的，到达它的未知需要的血值，如果有新的路径到达，比较一下，如果需要更大血值，就可以淘汰当前方案
 
+[Code](../dungeon_game/knight.go)
+
+## 解题思路2：
+
+通过解决思路1之后发现，根据骑士的行走规则，其实有高效的算法，不需要取模拟所有的行走动作，只需要按照特定的顺序遍历一遍所有格子，就可以完成目标。
+
+[Code](../dungeon_game/computer.go)
+
+
+## 问题：
 ```
 The demons had captured the princess (P) and imprisoned her in the bottom-right corner of a dungeon. The dungeon consists of M x N rooms laid out in a 2D grid. Our valiant knight (K) was initially positioned in the top-left room and must fight his way through the dungeon to rescue the princess.
 
