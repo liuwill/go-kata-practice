@@ -86,10 +86,9 @@ func calculateMinimumHP(dungeon [][]int) int {
 		nextActions := currentAction.nextActions(width, height, dungeon)
 		// fmt.Printf("%v %v\n", currentAction, (nextActions))
 		for _, next := range nextActions {
-			if next.Consume > best && best > 0 {
-				continue
+			if next.Consume < best || best <= 0 {
+				actions = append(actions, next)
 			}
-			actions = append(actions, next)
 		}
 	}
 
