@@ -54,7 +54,7 @@ func (action *Action) isBest(best int) bool {
 	return action.Consume < best
 }
 
-func calculateMinimumHP(dungeon [][]int) int {
+func calculateKnightMinimumHP(dungeon [][]int) int {
 	width := len(dungeon)
 	height := 0
 	if len(dungeon) > 0 {
