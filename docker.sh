@@ -75,10 +75,10 @@ fi
 checkDockerInstalled
 
 checkDockerContainerStatus
-check_status=$?
+DOCKER_START_STATUS=$?
 
 if [ "$1" = "install" ]; then
-  if [ "$check_status" != "0" ]; then
+  if [ "$DOCKER_START_STATUS" != "0" ]; then
     echo "容器已经存在"
     exit 0
   fi
@@ -88,28 +88,28 @@ fi
 
 
 if [ "$1" = "start" ]; then
-  if [ "$check_status" = "2" ]; then
+  if [ "$DOCKER_START_STATUS" = "2" ]; then
     echo "container is working"
     exit 0
-  elif [ "$check_status" = "0" ]; then
+  elif [ "$DOCKER_START_STATUS" = "0" ]; then
     echo "container not exist"
     installDocker
   fi
   startDocker
 elif [ "$1" = "enter" ]; then
-  if [ "$check_status" = "0" ]; then
+  if [ "$DOCKER_START_STATUS" = "0" ]; then
     echo "container not exist"
     installDocker
-  elif [ "$check_status" != "2" ]; then
+  elif [ "$DOCKER_START_STATUS" != "2" ]; then
     startDocker
   fi
 
   enterDocker
 elif [ "$1" = "test" ]; then
-  if [ "$check_status" = "0" ]; then
+  if [ "$DOCKER_START_STATUS" = "0" ]; then
     echo "container not exist"
     installDocker
-  elif [ "$check_status" != "2" ]; then
+  elif [ "$DOCKER_START_STATUS" != "2" ]; then
     startDocker
   fi
 
