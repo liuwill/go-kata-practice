@@ -25,3 +25,14 @@ func Test_MiniHpFails(t *testing.T) {
 	}
 	t.Log("Translate Test_MiniHpFails Success")
 }
+
+func Test_MiniHpZero(t *testing.T) {
+	source := [][]int{{0, 0}}
+	target := calculateMinimumHP(source)
+	expect := 1
+
+	if expect != target {
+		t.Error("Translate minimum hp zero Fail", target)
+	}
+	t.Log("Translate Test_MiniHpZero Success")
+}
