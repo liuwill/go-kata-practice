@@ -25,3 +25,14 @@ func Test_KnightMiniHpFails(t *testing.T) {
 	}
 	t.Log("Translate Test_MiniHpFails knight Success")
 }
+
+func Test_KnightMiniHpError(t *testing.T) {
+	source := [][]int{{1, -3, 3}, {0, -2, 0}, {-3, -3, -3}}
+	target := calculateKnightMinimumHP(source)
+	expect := 3
+
+	if expect != target {
+		t.Error("Translate knight minimum hp error Fail", target)
+	}
+	t.Log("Translate Test_KnightMiniHpError Success")
+}

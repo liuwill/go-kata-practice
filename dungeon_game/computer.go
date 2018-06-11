@@ -1,5 +1,7 @@
 package dungeon_game
 
+// 本算法因为确实信息，无法完成任务
+
 type MarkPoint struct {
 	Energy int
 	Best   int
@@ -35,7 +37,7 @@ func calculateCurrentMark(x int, y int, dungeon [][]int, marks [][]MarkPoint) Ma
 	return target
 }
 
-func calculateMinimumHP(dungeon [][]int) int {
+func calculateComputerMinimumHP(dungeon [][]int) int {
 	best := 0
 	width := 0
 	height := len(dungeon)
@@ -50,7 +52,7 @@ func calculateMinimumHP(dungeon [][]int) int {
 			marks[index][x] = calculateCurrentMark(index, x, dungeon, marks)
 		}
 
-		if index < len(line)-1 {
+		if index < len(line) {
 			for y := index + 1; y < len(dungeon); y++ {
 				marks[y][index] = calculateCurrentMark(y, index, dungeon, marks)
 			}
