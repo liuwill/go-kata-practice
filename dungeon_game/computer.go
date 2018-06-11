@@ -10,11 +10,8 @@ func calculateCurrentMark(x int, y int, dungeon [][]int, marks [][]MarkPoint) Ma
 	best := 0
 
 	if x == 0 && y == 0 {
-		energy = 1 - dungeon[0][0]
+		energy = 1
 		best = 1
-		if energy > 1 {
-			best = energy
-		}
 	} else {
 		if x > 0 {
 			energy = marks[x-1][y].Energy
@@ -25,11 +22,19 @@ func calculateCurrentMark(x int, y int, dungeon [][]int, marks [][]MarkPoint) Ma
 			best = marks[x][y-1].Best
 		}
 	}
-
-	return MarkPoint{
-		Energy: energy,
-		Best:   best,
+	nextEnergy := energy - dungeon[x][y]
+	currentBest := best
+	if currentBest < nextEnergy {
+		currentBest = nextEnergy
 	}
+
+	target := MarkPoint{
+		Energy: nextEnergy,
+		Best:   currentBest,
+	}
+	// fmt.Printf("=== %v => ", target)
+	// println(x, y, energy, best)
+	return target
 }
 
 func calculateMinimumHP(dungeon [][]int) int {
@@ -40,14 +45,17 @@ func calculateMinimumHP(dungeon [][]int) int {
 	marks := make([][]MarkPoint, len(dungeon))
 	for index, line := range dungeon {
 		marks[index] = make([]MarkPoint, len(line))
+	}
+	for index, line := range dungeon {
 		width = len(line)
+		// fmt.Printf("%v\n", marks)
 		for x := index; x < len(line); x++ {
 			marks[index][x] = calculateCurrentMark(index, x, dungeon, marks)
+			// println("++", index, x, dungeon[index][x])
 		}
 
 		if index < len(line)-1 {
 			for y := index + 1; y < len(dungeon); y++ {
-				// println(y, index)
 				marks[y][index] = calculateCurrentMark(y, index, dungeon, marks)
 			}
 		}

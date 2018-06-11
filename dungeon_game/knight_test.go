@@ -10,9 +10,9 @@ func Test_KnightMiniHp(t *testing.T) {
 	expect := 7
 
 	if expect != target {
-		t.Error("Translate minimum hp Fail", target)
+		t.Error("Translate knight minimum hp Fail", target)
 	}
-	t.Log("Translate Test_MiniHp Success")
+	t.Log("Translate Test_MiniHp knight Success")
 }
 
 func Test_KnightMiniHpFails(t *testing.T) {
@@ -21,7 +21,7 @@ func Test_KnightMiniHpFails(t *testing.T) {
 	expect := 1
 
 	if expect != target {
-		t.Error("Translate minimum hp fail Fail", target)
+		t.Error("Translate knight minimum hp fail Fail", target)
 	}
-	t.Log("Translate Test_MiniHpFails Success")
+	t.Log("Translate Test_MiniHpFails knight Success")
 }
