@@ -14,7 +14,9 @@
 
 通过解决思路1之后发现，根据骑士的行走规则，其实有高效的算法，不需要取模拟所有的行走动作，只需要按照特定的顺序遍历一遍所有格子，就可以完成目标。
 
-[Code](../dungeon_game/computer.go)
+[正确实现](../dungeon_game/truth.go)
+
+[错误实现](../dungeon_game/computer.go)
 
 
 ## 问题：
