@@ -1,5 +1,7 @@
 # Count And Say
 
+[Code](../count_say)
+
 ```
 The count-and-say sequence is the sequence of integers with the first five terms as following:
 

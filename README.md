@@ -23,6 +23,7 @@ JUST make some practice
 -   [House Robber](./docs/house_robber.md)
 -   [Keys And Rooms](./docs/keys_and_rooms.md)
 -   [Dungeon Game](./docs/dungeon_game.md)
+-   [Count And Say](./docs/count_and_say.md)
 
 
 ### Script
