@@ -12,6 +12,7 @@ JUST make some practice
 
 -   [Sudoku](./docs/sudoku.md)
 -   [Trapping Rain Water](./docs/trap_rain_water.md)
+-   [Jump Game](./docs/jump_game.md)
 -   [Jump Game II](./docs/jump_game_II.md)
 -   [Multiply Strings](./docs/multiply_strings.md)
 -   [Add Strings](./docs/add_strings.md)
