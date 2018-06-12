@@ -1,7 +1,11 @@
 package count_say
 
+import (
+	"strconv"
+)
+
 func say(letter string, count int) string {
-	return letter + string(count) // strings.Repeat(letter, count)
+	return strconv.Itoa(count) + letter
 }
 
 func read(input string) string {

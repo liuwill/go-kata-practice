@@ -21,7 +21,18 @@ func Test_CountSayFour(t *testing.T) {
 	expect := "1211"
 
 	if expect != target {
-		t.Error("Translate CountAndSay four Fail ", target)
+		t.Error("Translate CountAndSay Four Fail ", target)
 	}
-	t.Log("Translate Test_CountSay four Success")
+	t.Log("Translate Test_CountSay Four Success")
+}
+
+func Test_CountSaySever(t *testing.T) {
+	source := 7
+	target := countAndSay(source)
+	expect := "13112221"
+
+	if expect != target {
+		t.Error("Translate CountAndSay Sever Fail ", target)
+	}
+	t.Log("Translate Test_CountSay Sever Success")
 }
