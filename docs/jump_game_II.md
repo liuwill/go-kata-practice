@@ -1,6 +1,6 @@
 # Jump Game II
 
-[Jump Game Code](../jump_game)
+[Jump Game Code](../jump_game/jump.go)
 
 ```
 Given an array of non-negative integers, you are initially positioned at the first index of the array.
