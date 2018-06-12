@@ -1,9 +1,7 @@
 package count_say
 
-import "strings"
-
 func say(letter string, count int) string {
-	return strings.Repeat(letter, count)
+	return letter + string(count) // strings.Repeat(letter, count)
 }
 
 func read(input string) string {
