@@ -6,10 +6,19 @@ func next(current int, length int) int {
 
 func drive(start int, gas []int, cost []int) bool {
 	length := len(gas)
+	petrol := 0
+	current := start
 	for i := 0; i < length; i++ {
+		petrol += gas[current]
 
+		if petrol >= cost[current] {
+			petrol -= cost[current]
+			current = next(current, length)
+		} else {
+			return false
+		}
 	}
-	return false
+	return true
 }
 
 func canCompleteCircuit(gas []int, cost []int) int {
