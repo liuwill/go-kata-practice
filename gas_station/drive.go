@@ -21,7 +21,7 @@ func drive(start int, gas []int, cost []int) bool {
 	return true
 }
 
-func canCompleteCircuit(gas []int, cost []int) int {
+func canDriveCompleteCircuit(gas []int, cost []int) int {
 	origin := -1
 	for i, _ := range gas {
 		if drive(i, gas, cost) {
