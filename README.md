@@ -25,6 +25,7 @@ JUST make some practice
 -   [Keys And Rooms](./docs/keys_and_rooms.md)
 -   [Dungeon Game](./docs/dungeon_game.md)
 -   [Count And Say](./docs/count_and_say.md)
+-   [Gas Station](./docs/gas_station.md)
 
 
 ### Script
