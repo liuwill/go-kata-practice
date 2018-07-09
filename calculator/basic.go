@@ -40,6 +40,9 @@ func calculate(s string) int {
 	operators := []string{}
 	for _, v := range s {
 		letter := string(v)
+		if letter == " " {
+			continue
+		}
 
 		if isNumber(v) {
 			current += letter
