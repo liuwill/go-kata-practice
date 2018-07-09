@@ -39,3 +39,15 @@ func Test_CanCalculateBasicLong(t *testing.T) {
 	}
 	t.Log("Translate Test_CanCalculateBasicLong Success")
 }
+
+func Test_CanCalculateBasicWrong(t *testing.T) {
+	source := "1-1+1"
+
+	target := calculate(source)
+	expect := 1
+
+	if expect != target {
+		t.Error("Translate Calculate Wrong CanSuccess Fail ", target)
+	}
+	t.Log("Translate Test_CanCalculateBasicWrong Success")
+}

@@ -38,7 +38,6 @@ func calculate(s string) int {
 	operator := ""
 	numbers := []string{}
 	operators := []string{}
-	println(s)
 	for _, v := range s {
 		letter := string(v)
 		if letter == " " {
@@ -73,15 +72,12 @@ func calculate(s string) int {
 		}
 	}
 
-	endPos := len(numbers) - 1
-	for i := len(operators) - 1; i >= 0; i-- {
+	result := numbers[0]
+	for i := 0; i < len(operators); i++ {
 		operator = operators[i]
-		left := numbers[endPos-1]
-		right := numbers[endPos]
 
-		numbers[endPos-1] = operate(operator, left, right)
-		endPos = endPos - 1
+		result = operate(operator, result, numbers[i+1])
 	}
-	target, _ := strconv.Atoi(numbers[0])
+	target, _ := strconv.Atoi(result)
 	return target
 }
