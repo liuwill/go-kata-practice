@@ -27,3 +27,15 @@ func Test_CanCalculateBasicBlank(t *testing.T) {
 	}
 	t.Log("Translate Test_CanCalculateBasicBlank Success")
 }
+
+func Test_CanCalculateBasicLong(t *testing.T) {
+	source := "3 + 5 * 2 - 4 "
+
+	target := calculate(source)
+	expect := 9
+
+	if expect != target {
+		t.Error("Translate Calculate Long CanSuccess Fail ", target)
+	}
+	t.Log("Translate Test_CanCalculateBasicLong Success")
+}

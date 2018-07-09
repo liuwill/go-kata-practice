@@ -38,6 +38,7 @@ func calculate(s string) int {
 	operator := ""
 	numbers := []string{}
 	operators := []string{}
+	println(s)
 	for _, v := range s {
 		letter := string(v)
 		if letter == " " {
@@ -49,6 +50,7 @@ func calculate(s string) int {
 		} else if len(operator) > 0 {
 			numbers[len(numbers)-1] = operate(operator, numbers[len(numbers)-1], current)
 			operator = ""
+			current = ""
 		} else {
 			numbers = append(numbers, current)
 			current = ""
@@ -64,6 +66,7 @@ func calculate(s string) int {
 		if len(operator) > 0 {
 			numbers[len(numbers)-1] = operate(operator, numbers[len(numbers)-1], current)
 			operator = ""
+			current = ""
 		} else {
 			numbers = append(numbers, current)
 			current = ""
