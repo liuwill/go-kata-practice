@@ -1,6 +1,8 @@
 package calculator
 
-import "strconv"
+import (
+	"strconv"
+)
 
 func isNumber(letter rune) bool {
 	return letter >= 48 && letter <= 57
@@ -38,6 +40,7 @@ func calculate(s string) int {
 	operators := []string{}
 	for _, v := range s {
 		letter := string(v)
+
 		if isNumber(v) {
 			current += letter
 		} else if len(operator) > 0 {
@@ -55,7 +58,13 @@ func calculate(s string) int {
 		}
 	}
 	if len(current) > 0 {
-		numbers = append(numbers, current)
+		if len(operator) > 0 {
+			numbers[len(numbers)-1] = operate(operator, numbers[len(numbers)-1], current)
+			operator = ""
+		} else {
+			numbers = append(numbers, current)
+			current = ""
+		}
 	}
 
 	endPos := len(numbers) - 1
