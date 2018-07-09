@@ -26,6 +26,7 @@ JUST make some practice
 -   [Dungeon Game](./docs/dungeon_game.md)
 -   [Count And Say](./docs/count_and_say.md)
 -   [Gas Station](./docs/gas_station.md)
+-   [Basic Calculator II](./docs/basic_calculator_II.md)
 
 
 ### Script
