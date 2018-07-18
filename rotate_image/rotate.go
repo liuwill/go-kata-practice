@@ -5,9 +5,6 @@ func rotate(matrix [][]int) {
 		distance := len(matrix) - i - 1
 
 		for j := i; j < distance; j++ {
-			// if j == distance && i == distance {
-			// 	continue
-			// }
 
 			temp := matrix[i][j]
 			matrix[i][j] = matrix[distance-j+i][i]

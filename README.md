@@ -27,6 +27,7 @@ JUST make some practice
 -   [Count And Say](./docs/count_and_say.md)
 -   [Gas Station](./docs/gas_station.md)
 -   [Basic Calculator II](./docs/basic_calculator_II.md)
+-   [Rotate Image](./docs/rotate_image.md)
 
 
 ### Script
