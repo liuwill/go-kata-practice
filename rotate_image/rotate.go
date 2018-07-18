@@ -10,7 +10,6 @@ func rotate(matrix [][]int) {
 			if j == distance && i == distance {
 				continue
 			}
-			println("++", matrix[i][j], matrix[distance-j][i], matrix[distance-i][distance-j], matrix[j][distance-i])
 			temp := matrix[i][j]
 			matrix[i][j] = matrix[distance-j][i]
 			matrix[distance-j][i] = matrix[distance-i][distance-j]

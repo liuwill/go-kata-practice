@@ -4,6 +4,17 @@ import (
 	"testing"
 )
 
+func isArrayMatch(target [][]int, expect [][]int) bool {
+	for i := 0; i < len(target); i++ {
+		for j := 0; j < len(target[i]); j++ {
+			if target[i][j] != expect[i][j] {
+				return false
+			}
+		}
+	}
+	return true
+}
+
 func Test_Rotate(t *testing.T) {
 	source := [][]int{
 		{1, 2, 3},
@@ -17,13 +28,8 @@ func Test_Rotate(t *testing.T) {
 		{9, 6, 3},
 	}
 
-	for i := 0; i < len(source); i++ {
-		for j := 0; j < len(source[i]); j++ {
-			if source[i][j] != expect[i][j] {
-				t.Error("Translate rotate Fail", i, j, source[i][j], expect[i][j])
-				// break
-			}
-		}
+	if !isArrayMatch(source, expect) {
+		t.Error("Translate rotate Fail", source)
 	}
 	t.Log("Translate Test_Rotate Success")
 }
