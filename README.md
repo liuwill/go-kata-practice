@@ -28,6 +28,7 @@ JUST make some practice
 -   [Gas Station](./docs/gas_station.md)
 -   [Basic Calculator II](./docs/basic_calculator_II.md)
 -   [Rotate Image](./docs/rotate_image.md)
+-   [Sort Colors](./docs/sort_colors.md)
 
 
 ### Script
