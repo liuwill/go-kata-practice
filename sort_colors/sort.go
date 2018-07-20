@@ -10,22 +10,22 @@ func sortColors(nums []int) {
 	whitePos := 0
 	bluePos := len(nums) - 1
 
-	for i, _ := range nums {
+	for i := 0; i < len(nums); i++ {
 		if nums[i] == 0 {
 			for j := whitePos; j < i; j++ {
 				if nums[j] > nums[i] {
 					changePos(nums, i, j)
 					whitePos = j
+					i--
 					break
 				}
 			}
-		}
-
-		if nums[i] == 2 {
+		} else if nums[i] == 2 {
 			for j := bluePos; j > i; j-- {
 				if nums[j] < nums[i] {
 					changePos(nums, i, j)
 					bluePos = j
+					i--
 					break
 				}
 			}
