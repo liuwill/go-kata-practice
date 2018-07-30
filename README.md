@@ -29,6 +29,7 @@ JUST make some practice
 -   [Basic Calculator II](./docs/basic_calculator_II.md)
 -   [Rotate Image](./docs/rotate_image.md)
 -   [Sort Colors](./docs/sort_colors.md)
+-   [Binary Gap](./docs/binary_gap.md)
 
 
 ### Script
