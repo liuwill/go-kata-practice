@@ -1,54 +1,62 @@
 package weekly_contest_93
 
 type MarkItem struct {
-	Number int
-	Mark   bool
+	Number   int
+	Position int
 }
 
 func sortMark(list []int) []MarkItem {
-	markList := []MarkItem{}
+	markList := make([]MarkItem, len(list))
 	for i := 0; i < len(list); i++ {
-		for j := i + 1; j < len(list); j++ {
-			if list[j] < list[i] {
-				temp := list[i]
-				list[i] = list[j]
-				list[j] = temp
+		markList[i] = MarkItem{
+			Position: i,
+			Number:   list[i],
+		}
+	}
+
+	for i := 0; i < len(markList); i++ {
+		for j := i + 1; j < len(markList); j++ {
+			if markList[j].Number < markList[i].Number {
+				temp := markList[i]
+				markList[i] = markList[j]
+				markList[j] = temp
 			}
 		}
-
-		markList = append(markList[:], MarkItem{
-			Mark:   false,
-			Number: list[i],
-		})
 	}
 
 	return markList
 }
 
 func advantageCount(A []int, B []int) []int {
-	target := []int{}
-	markedA := sortMark(A)
+	sortedB := sortMark(B)
+	sortedA := sortMark(A)
+	target := make([]int, len(A))
+	markedA := make([]bool, len(A))
 
-	for _, value := range B {
+	for _, value := range sortedB {
 		winner := false
-		for _, markedItem := range markedA {
-			if markedItem.Number > value && !markedItem.Mark {
-				markedItem.Mark = true
-				target = append(target[:], markedItem.Number)
+		for i := 0; i < len(sortedA); i++ {
+			pos := sortedA[i].Position
+			if sortedA[i].Number > value.Number && !markedA[pos] {
+				markedA[pos] = true
+				target[value.Position] = A[pos]
 				winner = true
 				break
 			}
 		}
 
 		if !winner {
-			for _, markedItem := range markedA {
-				if !markedItem.Mark {
-					markedItem.Mark = true
-					target = append(target[:], markedItem.Number)
+			for i := 0; i < len(sortedA); i++ {
+				pos := sortedA[i].Position
+				if !markedA[pos] {
+					markedA[pos] = true
+					target[value.Position] = A[pos]
+					winner = true
 					break
 				}
 			}
 		}
+
 	}
 
 	return target

@@ -27,3 +27,15 @@ func Test_AdvantageCountSimple(t *testing.T) {
 	}
 	t.Log("Translate Test_AdvantageCountSimple Success")
 }
+
+func Test_AdvantageCountFail(t *testing.T) {
+	sourceA := []int{2, 0, 4, 1, 2}
+	sourceB := []int{1, 3, 0, 0, 2}
+	target := advantageCount(sourceA, sourceB)
+	expect := []int{2, 0, 1, 2, 4}
+
+	if !compareList(expect, target) {
+		t.Error("Translate Test_AdvantageCountFail Fail", target)
+	}
+	t.Log("Translate Test_AdvantageCountFail Success")
+}
