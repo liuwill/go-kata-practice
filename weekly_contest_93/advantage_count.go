@@ -36,6 +36,7 @@ func advantageCount(A []int, B []int) []int {
 				markedItem.Mark = true
 				target = append(target[:], markedItem.Number)
 				winner = true
+				break
 			}
 		}
 
@@ -44,6 +45,7 @@ func advantageCount(A []int, B []int) []int {
 				if !markedItem.Mark {
 					markedItem.Mark = true
 					target = append(target[:], markedItem.Number)
+					break
 				}
 			}
 		}
