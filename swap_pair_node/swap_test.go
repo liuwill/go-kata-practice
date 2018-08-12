@@ -4,6 +4,20 @@ import (
 	"testing"
 )
 
+func compareList(source []int, target []int) bool {
+	if len(source) != len(target) {
+		return false
+	}
+
+	for index := 0; index < len(source); index++ {
+		if source[index] != target[index] {
+			return false
+		}
+	}
+
+	return true
+}
+
 func Test_Length(t *testing.T) {
 	source := []int{1, 2, 3, 4}
 	sourceNodes := buildPairList(source)

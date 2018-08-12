@@ -51,20 +51,6 @@ func parseListNode(head *ListNode) []int {
 	return list
 }
 
-func compareList(source []int, target []int) bool {
-	if len(source) != len(target) {
-		return false
-	}
-
-	for index := 0; index < len(source); index++ {
-		if source[index] != target[index] {
-			return false
-		}
-	}
-
-	return true
-}
-
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
