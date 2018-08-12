@@ -27,5 +27,27 @@ func sortMark(list []int) []MarkItem {
 
 func advantageCount(A []int, B []int) []int {
 	target := []int{}
+	markedA := sortMark(A)
+
+	for _, value := range B {
+		winner := false
+		for _, markedItem := range markedA {
+			if markedItem.Number > value && !markedItem.Mark {
+				markedItem.Mark = true
+				target = append(target[:], markedItem.Number)
+				winner = true
+			}
+		}
+
+		if !winner {
+			for _, markedItem := range markedA {
+				if !markedItem.Mark {
+					markedItem.Mark = true
+					target = append(target[:], markedItem.Number)
+				}
+			}
+		}
+	}
+
 	return target
 }
