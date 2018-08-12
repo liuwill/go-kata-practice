@@ -42,9 +42,10 @@ enterDocker () {
 }
 
 execTestKata () {
-  docker exec -it $DOCKER_CONTAINER sh -c 'cp /etc/apk/repositories /etc/apk/repositories.bak;echo "http://mirrors.aliyun.com/alpine/v3.7/main/" > /etc/apk/repositories;apk add --no-cache make'
+  docker exec -it $DOCKER_CONTAINER sh $DOCKER_RUN_PATH/scripts/init.sh
+  # docker exec -it $DOCKER_CONTAINER sh -c 'cp /etc/apk/repositories /etc/apk/repositories.bak;echo "http://mirrors.aliyun.com/alpine/v3.7/main/" > /etc/apk/repositories;apk add --no-cache make'
   docker exec -it $DOCKER_CONTAINER sh -c "cd $DOCKER_RUN_PATH;make coverhtml"
-  docker exec -it $DOCKER_CONTAINER sh -c 'apk del git'
+  # docker exec -it $DOCKER_CONTAINER sh -c 'apk del git'
 }
 
 checkDockerContainerStatus () {
