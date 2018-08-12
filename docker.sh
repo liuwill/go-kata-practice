@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEMO_PATH=`pwd`
-GOLANG_DOCKER_VERSION=golang:1.10
+GOLANG_DOCKER_VERSION=golang:alpine
 DOCKER_CONTAINER=golang-kata
 APP_NAME=go-kata-practice
 DOCKER_RUN_PATH=/go/src/$APP_NAME
@@ -38,11 +38,13 @@ startDocker () {
 }
 
 enterDocker () {
-  docker exec -it $DOCKER_CONTAINER /bin/bash
+  docker exec -it $DOCKER_CONTAINER /bin/sh
 }
 
 execTestKata () {
-  docker exec -it $DOCKER_CONTAINER bash -c "cd $DOCKER_RUN_PATH;make coverhtml"
+  docker exec -it $DOCKER_CONTAINER sh -c 'cp /etc/apk/repositories /etc/apk/repositories.bak;echo "http://mirrors.aliyun.com/alpine/v3.7/main/" > /etc/apk/repositories;apk add --no-cache make'
+  docker exec -it $DOCKER_CONTAINER sh -c "cd $DOCKER_RUN_PATH;make coverhtml"
+  docker exec -it $DOCKER_CONTAINER sh -c 'apk del git'
 }
 
 checkDockerContainerStatus () {
