@@ -8,6 +8,8 @@ JUST make some practice
 
 ## Docs
 
+> [Say All Puzzle](./docs)
+
 ### Questions
 
 -   [Sudoku](./docs/sudoku.md)
