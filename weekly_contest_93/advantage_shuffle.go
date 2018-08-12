@@ -33,14 +33,16 @@ func advantageCount(A []int, B []int) []int {
 	target := make([]int, len(A))
 	markedA := make([]bool, len(A))
 
+	current := 0
 	for _, value := range sortedB {
 		winner := false
-		for i := 0; i < len(sortedA); i++ {
+		for i := current; i < len(sortedA); i++ {
 			pos := sortedA[i].Position
 			if sortedA[i].Number > value.Number && !markedA[pos] {
 				markedA[pos] = true
 				target[value.Position] = A[pos]
 				winner = true
+				current = i
 				break
 			}
 		}
