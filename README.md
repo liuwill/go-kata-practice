@@ -30,6 +30,7 @@ JUST make some practice
 -   [Rotate Image](./docs/rotate_image.md)
 -   [Sort Colors](./docs/sort_colors.md)
 -   [Binary Gap](./docs/binary_gap.md)
+-   [Advantage Shuffle](./docs/advantage_shuffle.md)
 
 
 ### Script
