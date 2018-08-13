@@ -6,15 +6,21 @@ func superEggDrop(K int, N int) int {
 	tail := N
 	left := K
 
-	for K > 1 && tail > 0 {
+	for left > 1 && tail > 1 {
 		tail = tail / 2
+
 		times++
 		left--
 	}
 
-	if K == 1 && tail > 0 {
+	if left >= 1 && tail > 0 {
 		times = times + tail
+		if N%2 == 0 && tail < N {
+			times--
+		}
 	}
+
+	println(K, N, left, tail, times)
 
 	return times
 }
