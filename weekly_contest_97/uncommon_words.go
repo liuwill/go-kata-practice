@@ -1,9 +1,8 @@
 package weekly_contest_97
 
-func uncommonFromSentences(A string, B string) []string {
-	dict := make(map[string]int)
+func detectSentence(sentence string, dict map[string]int) {
 	word := ""
-	for _, v := range A {
+	for _, v := range sentence {
 		letter := string(v)
 
 		if letter != " " {
@@ -26,29 +25,12 @@ func uncommonFromSentences(A string, B string) []string {
 		}
 		word = ""
 	}
+}
 
-	for _, v := range B {
-		letter := string(v)
-
-		if letter != " " {
-			word += letter
-		} else {
-			if _, ok := dict[word]; ok {
-				dict[word]++
-			} else {
-				dict[word] = 1
-			}
-			word = ""
-		}
-	}
-
-	if len(word) > 0 {
-		if _, ok := dict[word]; ok {
-			dict[word]++
-		} else {
-			dict[word] = 1
-		}
-	}
+func uncommonFromSentences(A string, B string) []string {
+	dict := make(map[string]int)
+	detectSentence(A, dict)
+	detectSentence(B, dict)
 
 	result := []string{}
 	for k, v := range dict {
