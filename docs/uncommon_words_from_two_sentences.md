@@ -1,6 +1,7 @@
 # Uncommon Words from Two Sentences
 
-[Code](../weekly_contest_97/uncommon_words.go)
+[Code With Map](../weekly_contest_97/uncommon_words.go)
+[Code Without Map](../weekly_contest_97/uncommon_words_advance.go)
 
 ```
 We are given two sentences A and B.  (A sentence is a string of space separated words.  Each word consists only of lowercase letters.)
