@@ -111,3 +111,15 @@ func Test_SuperEggDropFour(t *testing.T) {
 	}
 	t.Log("Translate Test_SuperEggDropFour Success")
 }
+
+func Test_SuperEggDropNine(t *testing.T) {
+	sourceK := 2
+	sourceN := 9
+	target := superEggDrop(sourceK, sourceN)
+	expect := 4
+
+	if expect != target {
+		t.Error("Translate Test_SuperEggDropNine Fail", expect, target)
+	}
+	t.Log("Translate Test_SuperEggDropNine Success")
+}
