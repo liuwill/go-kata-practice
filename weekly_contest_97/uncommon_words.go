@@ -24,6 +24,30 @@ func uncommonFromSentences(A string, B string) []string {
 		} else {
 			dict[word] = 1
 		}
+		word = ""
+	}
+
+	for _, v := range B {
+		letter := string(v)
+
+		if letter != " " {
+			word += letter
+		} else {
+			if _, ok := dict[word]; ok {
+				dict[word]++
+			} else {
+				dict[word] = 1
+			}
+			word = ""
+		}
+	}
+
+	if len(word) > 0 {
+		if _, ok := dict[word]; ok {
+			dict[word]++
+		} else {
+			dict[word] = 1
+		}
 	}
 
 	result := []string{}
