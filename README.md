@@ -34,6 +34,7 @@ JUST make some practice
 -   [Binary Gap](./docs/binary_gap.md)
 -   [Advantage Shuffle](./docs/advantage_shuffle.md)
 -   [Super Egg Drop](./docs/super_egg_drop.md)
+-   [Uncommon Words from Two Sentences](./docs/uncommon_words_from_two_sentences.md)
 
 
 ### Script
