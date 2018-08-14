@@ -2,23 +2,6 @@ package weekly_contest_97
 
 import "testing"
 
-func compareListWithoutOrder(expect []string, target []string) bool {
-	if len(expect) != len(target) {
-		return false
-	}
-
-	count := 0
-	for _, exp := range expect {
-		for _, tar := range target {
-			if exp == tar {
-				count++
-				break
-			}
-		}
-	}
-	return count == len(expect)
-}
-
 func Test_UncommonFromSentences(t *testing.T) {
 	sourceA := "this apple is sweet"
 	sourceB := "this apple is sour"
