@@ -33,6 +33,7 @@ JUST make some practice
 -   [Sort Colors](./docs/sort_colors.md)
 -   [Binary Gap](./docs/binary_gap.md)
 -   [Advantage Shuffle](./docs/advantage_shuffle.md)
+-   [Super Egg Drop](./docs/super_egg_drop.md)
 
 
 ### Script
