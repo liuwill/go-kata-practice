@@ -1,5 +1,6 @@
 # Go Kata Practice
   [![Build Status][travis-image]][travis-url]
+  [![Build status](https://ci.appveyor.com/api/projects/status/94djahf3vnm1tk51?svg=true)](https://ci.appveyor.com/project/liuwill/go-kata-practice)
   [![Codecov branch][codecov-image]][codecov-url]
   [![Maintainability][codeclimate-image]][codeclimate-url]
 
