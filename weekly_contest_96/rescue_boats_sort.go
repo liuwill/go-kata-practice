@@ -25,7 +25,7 @@ func numRescueBoatsSort(people []int, limit int) int {
 				people[i] = 0
 				pos = i
 				number = 1
-			} else if boat > 0 && boat+people[i] <= limit {
+			} else if boat+people[i] <= limit {
 				boat += people[i]
 				people[i] = 0
 				number++
