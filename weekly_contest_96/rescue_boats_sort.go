@@ -20,16 +20,12 @@ func numRescueBoatsSort(people []int, limit int) int {
 			// fmt.Printf("i=%v boat=%v index=%v %v -> %v\n", i, boat, index, limit, times)
 			if people[i] == 0 {
 				continue
-			}
-
-			if boat == 0 && people[i] != 0 {
+			} else if boat == 0 {
 				boat += people[i]
 				people[i] = 0
 				pos = i
 				number = 1
-			}
-
-			if people[i] != 0 && boat > 0 && boat+people[i] <= limit {
+			} else if boat > 0 && boat+people[i] <= limit {
 				boat += people[i]
 				people[i] = 0
 				number++
