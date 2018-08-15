@@ -14,6 +14,7 @@ func numRescueBoats(people []int, limit int) int {
 	// fmt.Printf("=== %v %v\n", people, limit)
 	for index < len(people)-1 {
 		pos := index
+		number := 0
 		for i := index; i < len(people); i++ {
 			// fmt.Printf("i=%v boat=%v index=%v %v -> %v\n", i, boat, index, limit, times)
 			if people[i] == 0 {
@@ -24,14 +25,16 @@ func numRescueBoats(people []int, limit int) int {
 				boat += people[i]
 				people[i] = 0
 				pos = i
+				number = 1
 			}
 
 			if people[i] != 0 && boat > 0 && boat+people[i] <= limit {
 				boat += people[i]
 				people[i] = 0
+				number++
 			}
 
-			if boat == limit {
+			if boat == limit || number > 1 {
 				break
 			}
 		}
