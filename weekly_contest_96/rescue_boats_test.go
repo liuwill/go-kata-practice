@@ -39,3 +39,15 @@ func Test_NumRescueBoatsMore(t *testing.T) {
 	}
 	t.Log("Translate Test_NumRescueBoatsMore Success")
 }
+
+func Test_NumRescueBoatsError(t *testing.T) {
+	source := []int{5, 1, 4, 2}
+	limit := 6
+	target := numRescueBoats(source, limit)
+	expect := 2
+
+	if expect != target {
+		t.Error("Translate Test_NumRescueBoatsError Fail", target)
+	}
+	t.Log("Translate Test_NumRescueBoatsError Success")
+}
