@@ -5,17 +5,18 @@ import (
 )
 
 func numRescueBoatsSort(people []int, limit int) int {
-	times := 0
-	sort.Sort(sort.Reverse(sort.IntSlice(people)))
+	// sort.Sort(sort.Reverse(sort.IntSlice(people)))
+	sort.Ints(people)
 
+	times := 0
 	boat := 0
-	index := 0
+	index := len(people) - 1
 
 	// fmt.Printf("=== %v %v\n", limit, len(people))
-	for index < len(people)-1 {
+	for index > 0 {
 		pos := index
 		number := 0
-		for i := index; i < len(people); i++ {
+		for i := index; i >= 0; i-- {
 			// fmt.Printf("i=%v boat=%v index=%v %v -> %v\n", i, boat, index, limit, times)
 			if people[i] == 0 {
 				continue
@@ -42,11 +43,11 @@ func numRescueBoatsSort(people []int, limit int) int {
 		if boat > 0 {
 			times++
 		}
-		index = pos + 1
+		index = pos - 1
 		boat = 0
 	}
 
-	if index < len(people) && people[index] > 0 {
+	if index >= 0 && people[index] > 0 {
 		times++
 	}
 	return times
