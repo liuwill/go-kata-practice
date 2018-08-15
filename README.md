@@ -36,6 +36,7 @@ JUST make some practice
 -   [Advantage Shuffle](./docs/advantage_shuffle.md)
 -   [Super Egg Drop](./docs/super_egg_drop.md)
 -   [Uncommon Words from Two Sentences](./docs/uncommon_words_from_two_sentences.md)
+-   [Boats to Save People](./docs/boats_to_save_people.md)
 
 
 ### Script
