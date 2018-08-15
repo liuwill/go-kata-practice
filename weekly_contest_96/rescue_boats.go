@@ -43,8 +43,7 @@ func numRescueBoats(people []int, limit int) int {
 		boat = 0
 	}
 
-	// println(index, people[index], times)
-	if people[index] > 0 {
+	if index < len(people) && people[index] > 0 {
 		times++
 	}
 	return times
