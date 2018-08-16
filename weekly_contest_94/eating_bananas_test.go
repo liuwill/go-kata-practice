@@ -40,6 +40,18 @@ func Test_MinEatingSpeedTwo(t *testing.T) {
 	t.Log("Translate Test_MinEatingSpeedTwo Success")
 }
 
+func Test_MinEatingSpeedError(t *testing.T) {
+	source := []int{312884470}
+	limit := 9687094707
+	target := minEatingSpeed(source, limit)
+	expect := 1
+
+	if expect != target {
+		t.Error("Translate Test_MinEatingSpeedError Fail", target)
+	}
+	t.Log("Translate Test_MinEatingSpeedError Success")
+}
+
 func Test_MinEatingSpeedMore(t *testing.T) {
 	source := []int{30, 11, 23, 4, 20}
 	limit := 5
@@ -62,4 +74,16 @@ func Test_MinEatingSpeedMiddle(t *testing.T) {
 		t.Error("Translate Test_MinEatingSpeedError Fail", target)
 	}
 	t.Log("Translate Test_MinEatingSpeedError Success")
+}
+
+func Test_MinEatingSpeedLarge(t *testing.T) {
+	source := []int{332484035, 524908576, 855865114, 632922376, 222257295, 690155293, 112677673, 679580077, 337406589, 290818316, 877337160, 901728858, 679284947, 688210097, 692137887, 718203285, 629455728, 941802184}
+	limit := 823855818
+	target := minEatingSpeed(source, limit)
+	expect := 14
+
+	if expect != target {
+		t.Error("Translate Test_MinEatingSpeedLarge Fail", target)
+	}
+	t.Log("Translate Test_MinEatingSpeedLarge Success")
 }

@@ -14,25 +14,25 @@ func countEatableHour(K int, piles []int) int {
 
 func minEatingSpeed(piles []int, H int) int {
 	largest := piles[0]
-	smallest := piles[0]
+	smallest := 1
+	answer := 0
 	if len(piles) == 1 {
-		return piles[0]
+		answer = piles[0] / H
+		if piles[0]%H > 0 {
+			answer++
+		}
+		return answer
 	}
 
 	for _, v := range piles {
 		if v > largest {
 			largest = v
 		}
-
-		if v < smallest {
-			smallest = v
-		}
 	}
 
 	middle := (largest + smallest) / 2
 	top := smallest
 	bottom := largest
-	answer := 0
 	for middle >= smallest && middle <= largest && top != bottom {
 		current := countEatableHour(middle, piles)
 		if current > H {
