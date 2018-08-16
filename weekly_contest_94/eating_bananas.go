@@ -30,7 +30,7 @@ func minEatingSpeed(piles []int, H int) int {
 	top := smallest
 	bottom := largest
 	answer := 0
-	for true {
+	for middle >= smallest && middle <= largest && top != bottom {
 		current := countEatableHour(middle, piles)
 		if current > H {
 			top = middle
@@ -38,10 +38,19 @@ func minEatingSpeed(piles []int, H int) int {
 			bottom = middle
 			if middle < answer || answer == 0 {
 				answer = middle
+			} else if middle >= answer {
+				break
 			}
 		}
 
-		middle = (top + bottom) / 2
+		center := (top + bottom) / 2
+		if center != middle {
+			middle = center
+		} else {
+			middle = center + 1
+		}
+
+		// println(top, bottom, center, middle, answer, current, largest, smallest)
 	}
 	return answer
 }
