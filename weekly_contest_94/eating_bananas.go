@@ -15,6 +15,9 @@ func countEatableHour(K int, piles []int) int {
 func minEatingSpeed(piles []int, H int) int {
 	largest := piles[0]
 	smallest := piles[0]
+	if len(piles) == 1 {
+		return piles[0]
+	}
 
 	for _, v := range piles {
 		if v > largest {
