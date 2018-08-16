@@ -24,11 +24,14 @@ func minEatingSpeed(piles []int, H int) int {
 		return answer
 	}
 
+	total := 0
 	for _, v := range piles {
 		if v > largest {
 			largest = v
 		}
+		total += v
 	}
+	smallest = total / H
 
 	middle := (largest + smallest) / 2
 	top := smallest
