@@ -2,10 +2,19 @@ package weekly_contest_79
 
 import "math"
 
+func isSamePoint(point1 []int, point2 []int) bool {
+	if point1[0] == point2[0] && point1[1] == point2[1] {
+		return true
+	}
+	return false
+}
+
 func isTriangle(point1 []int, point2 []int, point3 []int) bool {
 	if point1[0] == point2[0] && point3[0] == point2[0] {
 		return false
 	} else if point1[1] == point2[1] && point3[1] == point2[1] {
+		return false
+	} else if isSamePoint(point1, point2) || isSamePoint(point1, point3) || isSamePoint(point2, point3) {
 		return false
 	}
 
@@ -27,8 +36,8 @@ func triangleArea(a float64, b float64, c float64) float64 {
 
 func largestTriangleArea(points [][]int) float64 {
 	maxArea := 0.0
-	for i := 0; i < len(points); i++ {
-		for j := i + 1; j < len(points); j++ {
+	for i := 0; i < len(points)-2; i++ {
+		for j := i + 1; j < len(points)-1; j++ {
 			for k := j + 1; k < len(points); k++ {
 				if !isTriangle(points[i], points[j], points[k]) {
 					continue
