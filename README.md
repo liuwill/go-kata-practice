@@ -38,6 +38,7 @@ JUST make some practice
 -   [Uncommon Words from Two Sentences](./docs/uncommon_words_from_two_sentences.md)
 -   [Boats to Save People](./docs/boats_to_save_people.md)
 -   [Koko Eating Bananas](./docs/koko_eating_bananas.md)
+-   [Largest Triangle Area](./docs/largest_triangle_area.md)
 
 
 ### Script
