@@ -53,12 +53,24 @@ func Test_TwitterEasy(t *testing.T) {
 	obj.Follow(user1, extramUser2)
 	message1 = obj.GetNewsFeed(user1)
 	eMessage2 = obj.GetNewsFeed(extramUser2)
-	t.Error("Translate test_TwitterEasy Step5", message1, eMessage2)
+	if len(message1) != 4 {
+		t.Error("Translate test_TwitterEasy Step5", message1, eMessage2)
+	}
 
 	obj.Follow(user1, user3)
 	message1 = obj.GetNewsFeed(user1)
 	message3 = obj.GetNewsFeed(user3)
-	t.Error("Translate test_TwitterEasy Step6", message1, message3)
+	if len(message1) != 5 {
+		t.Error("Translate test_TwitterEasy Step6", message1, message3)
+	}
+
+	noneUser1 := 41
+	noneUser2 := 42
+	// noneUser3 := 43
+	obj.Unfollow(noneUser1, noneUser2)
+	obj.Unfollow(noneUser1, extramUser2)
+	obj.Follow(noneUser2, noneUser1)
+	obj.Unfollow(noneUser2, noneUser1)
 }
 
 /**

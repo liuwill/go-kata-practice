@@ -1,7 +1,5 @@
 package twitter
 
-import "fmt"
-
 type Twitter struct {
 	Fans     map[int][]int
 	Followed map[int][]int
@@ -109,11 +107,11 @@ func (this *Twitter) Follow(followerId int, followeeId int) {
 			}
 		}
 
-		fmt.Printf("%v %v => ", this.Tweets[followerId], value)
-		println(head, tail, last, len(this.Tweets[followerId]))
+		// fmt.Printf("%v %v => ", this.Tweets[followerId], this.Tweets[followerId][:head-1])
+		// println(head, tail, last, len(this.Tweets[followerId]))
 		tailList := append([]*Tweet{}, this.Tweets[followerId][head-1:]...)
-		this.Tweets[followerId] = append(this.Tweets[followerId][:head], value)
-		this.Tweets[followerId] = append(this.Tweets[followerId][:head], tailList...)
+		this.Tweets[followerId] = append(this.Tweets[followerId][:head-1], value)
+		this.Tweets[followerId] = append(this.Tweets[followerId][:], tailList...)
 		last = head
 	}
 }
