@@ -10,11 +10,11 @@ func sumCandy(list []int) int {
 }
 
 func isSwapPass(currentA int, currentB int, countA int, countB int) bool {
-	if countA > countB && currentA > currentB {
+	if countA > countB && currentA < currentB {
 		return false
 	}
 
-	if countA < countB && currentA < currentB {
+	if countA < countB && currentA > currentB {
 		return false
 	}
 
@@ -29,9 +29,10 @@ func fairCandySwap(A []int, B []int) []int {
 	countA := sumCandy(A)
 	countB := sumCandy(B)
 
-	result := []int{}
+	result := make([]int, 2)
 	for i := 0; i < len(A); i++ {
 		for j := 0; j < len(B); j++ {
+			// println(A[i], B[j], countA, countB)
 			if isSwapPass(A[i], B[j], countA, countB) {
 				result[0] = A[i]
 				result[1] = B[j]
