@@ -3,6 +3,7 @@ package twitter
 type Twitter struct {
 	Fans     map[int][]int
 	Followed map[int][]int
+	Feeds    map[int][]*Tweet
 	Tweets   map[int][]*Tweet
 	Count    int
 }
@@ -18,6 +19,7 @@ func Constructor() Twitter {
 	return Twitter{
 		Fans:     make(map[int][]int),
 		Followed: make(map[int][]int),
+		Feeds:    make(map[int][]*Tweet),
 		Tweets:   make(map[int][]*Tweet),
 		Count:    0,
 	}
@@ -25,7 +27,7 @@ func Constructor() Twitter {
 
 /** Compose a new tweet. */
 func (this *Twitter) PostTweet(userId int, tweetId int) {
-	if _, ok := this.Tweets[userId]; !ok {
+	if _, ok := this.Feeds[userId]; !ok {
 		this.Init(userId)
 	}
 
@@ -35,41 +37,42 @@ func (this *Twitter) PostTweet(userId int, tweetId int) {
 		Count: this.Count,
 	}
 
+	this.Feeds[userId] = append(this.Feeds[userId][:], tweet)
 	this.Tweets[userId] = append(this.Tweets[userId][:], tweet)
 	for _, fansId := range this.Fans[userId] {
-		this.Tweets[fansId] = append(this.Tweets[fansId][:], tweet)
+		this.Feeds[fansId] = append(this.Feeds[fansId][:], tweet)
 	}
 
 	this.Count++
 }
 
-/** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
+/** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Feeds must be ordered from most recent to least recent. */
 func (this *Twitter) GetNewsFeed(userId int) []int {
 	feeds := []int{}
-	if _, ok := this.Tweets[userId]; !ok {
+	if _, ok := this.Feeds[userId]; !ok {
 		return feeds
 	}
 
-	for i := len(this.Tweets[userId]) - 1; i >= 0 && len(feeds) < 10; i-- {
-		feeds = append(feeds[:], this.Tweets[userId][i].Id)
+	for i := len(this.Feeds[userId]) - 1; i >= 0 && len(feeds) < 10; i-- {
+		feeds = append(feeds[:], this.Feeds[userId][i].Id)
 	}
 
 	return feeds
 }
 
 func (this *Twitter) Init(userId int) {
-	this.Tweets[userId] = []*Tweet{}
+	this.Feeds[userId] = []*Tweet{}
 	this.Followed[userId] = []int{}
 	this.Fans[userId] = []int{}
 }
 
 /** Follower follows a followee. If the operation is invalid, it should be a no-op. */
 func (this *Twitter) Follow(followerId int, followeeId int) {
-	if _, ok := this.Tweets[followerId]; !ok {
+	if _, ok := this.Feeds[followerId]; !ok {
 		this.Init(followerId)
 	}
 
-	if _, ok := this.Tweets[followeeId]; !ok {
+	if _, ok := this.Feeds[followeeId]; !ok {
 		this.Init(followeeId)
 	}
 
@@ -80,42 +83,38 @@ func (this *Twitter) Follow(followerId int, followeeId int) {
 	this.Fans[followeeId] = append(this.Fans[followeeId][:], followerId)
 	this.Followed[followerId] = append(this.Followed[followerId][:], followeeId)
 
-	if len(this.Tweets[followeeId]) <= 0 {
+	if len(this.Feeds[followeeId]) <= 0 {
 		return
 	}
 
 	last := 0
-	length := len(this.Tweets[followerId])
+	length := len(this.Feeds[followerId])
 	for _, value := range this.Tweets[followeeId] {
 
-		if len(this.Tweets[followerId]) < 1 {
-			this.Tweets[followerId] = append(this.Tweets[followerId][:], value)
+		if len(this.Feeds[followerId]) < 1 {
+			this.Feeds[followerId] = append(this.Feeds[followerId][:], value)
 			continue
-		} else if value.Count > this.Tweets[followerId][length-1].Count {
-			this.Tweets[followerId] = append(this.Tweets[followerId][:], value)
+		} else if value.Count > this.Feeds[followerId][length-1].Count {
+			this.Feeds[followerId] = append(this.Feeds[followerId][:], value)
 			continue
 		}
 
 		head := last
-		tail := len(this.Tweets[followerId])
+		tail := len(this.Feeds[followerId])
 		for head < tail {
 			middle := (head + tail) / 2
-			if value.Count > this.Tweets[followerId][middle].Count {
+			if value.Count > this.Feeds[followerId][middle].Count {
 				head = middle + 1
 			} else {
 				tail = middle
 			}
 		}
 
-		if value.Id == this.Tweets[followerId][head].Id {
-			continue
-		}
-
 		// fmt.Printf("%v %v %v => ", followerId, followeeId, value)
-		// println(head, tail, last, len(this.Tweets[followerId]))
-		tailList := append([]*Tweet{}, this.Tweets[followerId][head:]...)
-		this.Tweets[followerId] = append(this.Tweets[followerId][:head], value)
-		this.Tweets[followerId] = append(this.Tweets[followerId][:], tailList...)
+		// println(head, tail, last, len(this.Feeds[followerId]))
+		tailList := append([]*Tweet{}, this.Feeds[followerId][head:]...)
+		this.Feeds[followerId] = append(this.Feeds[followerId][:head], value)
+		this.Feeds[followerId] = append(this.Feeds[followerId][:], tailList...)
 		last = head
 	}
 }
@@ -148,13 +147,13 @@ func (this *Twitter) Unfollow(followerId int, followeeId int) {
 		this.Followed[followeeId] = append(this.Followed[followerId][:fansIndex], this.Followed[followerId][fansIndex+1:]...)
 	}
 
-	if len(this.Tweets[followerId]) <= 0 {
+	if len(this.Feeds[followerId]) <= 0 {
 		return
 	}
-	for i := len(this.Tweets[followerId]) - 1; i >= 0; i-- {
-		currentTweet := this.Tweets[followerId][i]
+	for i := len(this.Feeds[followerId]) - 1; i >= 0; i-- {
+		currentTweet := this.Feeds[followerId][i]
 		if currentTweet.Owner == followeeId {
-			this.Tweets[followerId] = append(this.Tweets[followerId][:i], this.Tweets[followerId][i+1:]...)
+			this.Feeds[followerId] = append(this.Feeds[followerId][:i], this.Feeds[followerId][i+1:]...)
 		}
 	}
 }
