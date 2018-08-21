@@ -71,6 +71,12 @@ func Test_TwitterEasy(t *testing.T) {
 	obj.Unfollow(noneUser1, extramUser2)
 	obj.Follow(noneUser2, noneUser1)
 	obj.Unfollow(noneUser2, noneUser1)
+
+	obj.Follow(user1, extramUser1)
+	message1 = obj.GetNewsFeed(user1)
+	if len(message1) != 5 {
+		t.Error("Translate test_TwitterEasy Step7", message1)
+	}
 }
 
 /**

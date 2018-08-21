@@ -107,10 +107,14 @@ func (this *Twitter) Follow(followerId int, followeeId int) {
 			}
 		}
 
-		// fmt.Printf("%v %v => ", this.Tweets[followerId], this.Tweets[followerId][:head-1])
+		if value.Id == this.Tweets[followerId][head].Id {
+			continue
+		}
+
+		// fmt.Printf("%v %v %v => ", followerId, followeeId, value)
 		// println(head, tail, last, len(this.Tweets[followerId]))
-		tailList := append([]*Tweet{}, this.Tweets[followerId][head-1:]...)
-		this.Tweets[followerId] = append(this.Tweets[followerId][:head-1], value)
+		tailList := append([]*Tweet{}, this.Tweets[followerId][head:]...)
+		this.Tweets[followerId] = append(this.Tweets[followerId][:head], value)
 		this.Tweets[followerId] = append(this.Tweets[followerId][:], tailList...)
 		last = head
 	}
