@@ -39,6 +39,7 @@ JUST make some practice
 -   [Boats to Save People](./docs/boats_to_save_people.md)
 -   [Koko Eating Bananas](./docs/koko_eating_bananas.md)
 -   [Largest Triangle Area](./docs/largest_triangle_area.md)
+-   [Fair Candy Swap](./docs/fair_candy_swap.md)
 
 
 ### Script
