@@ -41,6 +41,9 @@ JUST make some practice
 -   [Largest Triangle Area](./docs/largest_triangle_area.md)
 -   [Fair Candy Swap](./docs/fair_candy_swap.md)
 
+#### Design
+-   [Design Twitter](./docs/design_twitter.md)
+
 
 ### Script
 ```shell
