@@ -40,6 +40,7 @@ JUST make some practice
 -   [Koko Eating Bananas](./docs/koko_eating_bananas.md)
 -   [Largest Triangle Area](./docs/largest_triangle_area.md)
 -   [Fair Candy Swap](./docs/fair_candy_swap.md)
+-   [Find and Replace Pattern](./docs/find_and_replace_pattern.md)
 
 #### Design
 -   [Design Twitter](./docs/design_twitter.md)
