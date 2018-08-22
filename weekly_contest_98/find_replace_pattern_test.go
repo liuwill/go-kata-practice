@@ -26,3 +26,15 @@ func Test_FindAndReplacePattern(t *testing.T) {
 	}
 	t.Log("Translate Test_FindAndReplacePattern Success")
 }
+
+func Test_FindAndReplacePatternEmpty(t *testing.T) {
+	words := []string{"abc"}
+	pattern := "abb"
+	target := findAndReplacePattern(words, pattern)
+	expect := []string{}
+
+	if !compareStringList(expect, target) {
+		t.Error("Translate Test_FindAndReplacePatternEmpty Fail", target)
+	}
+	t.Log("Translate Test_FindAndReplacePatternEmpty Success")
+}

@@ -1,11 +1,11 @@
 package weekly_contest_98
 
 func comparePattern(content string, pattern string) bool {
-	dict := make(map[string]string)
-	reverseDice := make(map[string]string)
+	dict := make(map[uint8]uint8)
+	reverseDice := make(map[uint8]uint8)
 	for i, v := range content {
-		letter := string(v)
-		patternLetter := string(pattern[i])
+		letter := uint8(v)
+		patternLetter := uint8(pattern[i])
 
 		if _, ok := dict[letter]; !ok {
 			dict[letter] = patternLetter
