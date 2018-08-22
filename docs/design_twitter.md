@@ -36,3 +36,15 @@ twitter.unfollow(1, 2);
 // since user 1 is no longer following user 2.
 twitter.getNewsFeed(1);
 ```
+
+## Test Case
+
+```
+Case 1:
+["Twitter","postTweet","getNewsFeed","follow","postTweet","getNewsFeed","unfollow","getNewsFeed"]
+[[],[1,5],[1],[1,2],[2,6],[1],[1,2],[1]]
+
+Answer 1:
+[null,null,[5],null,null,[6,5],null,[5]]
+
+```
