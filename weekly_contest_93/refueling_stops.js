@@ -18,8 +18,7 @@ var minRefuelStops = function(target, startFuel, stations) {
     return -1
   }
 
-  let minStations = stations.map(item => 0)
-
+  // let minStations = stations.map(item => 0)
   stack.push({
     step: 0,
     position: -1,

@@ -1,12 +1,5 @@
 package weekly_contest_93
 
-// target = 100, startFuel = 10, stations = [[10,60],[20,30],[30,30],[60,40]]
-
-// target = 100, startFuel = 10, stations = [[10,60],[20,30],[30,30],[60,40]]
-
-// target = 100, startFuel = 10, stations = [[10,60],[20,30],[30,30],[60,0]]
-// target = 100, startFuel = 10, stations = [[10,60],[20,20],[30,30],[60,10]]
-
 func MaxInt(x int, y int) int {
 	if x > y {
 		return x
@@ -16,7 +9,7 @@ func MaxInt(x int, y int) int {
 
 func minRefuelStops(target int, startFuel int, stations [][]int) int {
 	length := len(stations)
-	list := make([]int, length+1) // new long[length + 1]
+	list := make([]int, length+1)
 	list[0] = startFuel
 	for i := 0; i < length; i++ {
 		for t := i; t >= 0; t-- {
