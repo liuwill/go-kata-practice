@@ -15,7 +15,35 @@ func maskEmail(email string) string {
 }
 
 func maskPhone(phone string) string {
-	return phone
+	numbers := ""
+	for _, v := range phone {
+		if v >= 48 && v <= 57 {
+			numbers += string(v)
+		}
+	}
+
+	index := len(numbers) - 4
+	result := numbers[index:]
+	length := index
+	for length > 0 {
+		maskLen := length
+		if length > 3 {
+			maskLen = 3
+			length -= 3
+		} else {
+			length = 0
+		}
+
+		if maskLen > 0 {
+			maskRepeat := strings.Repeat("*", maskLen)
+			result = maskRepeat + "-" + result
+		}
+	}
+
+	if len(numbers) > 10 {
+		result = "+" + result
+	}
+	return result
 }
 
 func maskPII(S string) string {
