@@ -42,6 +42,7 @@ JUST make some practice
 -   [Fair Candy Swap](./docs/fair_candy_swap.md)
 -   [Find and Replace Pattern](./docs/find_and_replace_pattern.md)
 -   [Minimum Number of Refueling Stops](./docs/minimum_number_of_refueling_stops.md)
+-   [Masking Personal Information](./docs/masking_personal_information.md)
 
 #### Design
 -   [Design Twitter](./docs/design_twitter.md)
