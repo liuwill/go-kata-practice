@@ -43,6 +43,7 @@ JUST make some practice
 -   [Find and Replace Pattern](./docs/find_and_replace_pattern.md)
 -   [Minimum Number of Refueling Stops](./docs/minimum_number_of_refueling_stops.md)
 -   [Masking Personal Information](./docs/masking_personal_information.md)
+-   [Positions of Large Groups](./docs/large_groups_positions.md)
 
 #### Design
 -   [Design Twitter](./docs/design_twitter.md)
