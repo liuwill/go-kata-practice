@@ -6,7 +6,6 @@ const (
 )
 
 func predictPartyVictory(senate string) string {
-	println("=====", senate)
 	voteCount := map[string]int{
 		"R": 0,
 		"D": 0,
@@ -36,16 +35,16 @@ func predictPartyVictory(senate string) string {
 			}
 		}
 
-		if leftCount["R"] < leftCount["D"] {
-			victory = Dire
-		} else if leftCount["R"] > leftCount["D"] {
-			victory = Radiant
-		} else if voteCount["R"] < voteCount["D"] {
-			victory = Radiant
-		} else if voteCount["R"] > voteCount["D"] {
-			victory = Dire
+		if leftCount["R"] > 0 && leftCount["D"] > 0 {
+			left = current
+			continue
 		}
-		left = current
+
+		if leftCount["R"] == 0 {
+			victory = Dire
+		} else {
+			victory = Radiant
+		}
 	}
 
 	return victory

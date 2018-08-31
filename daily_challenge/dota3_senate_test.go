@@ -34,3 +34,14 @@ func Test_PredictPartyVictoryFail(t *testing.T) {
 	}
 	t.Log("Translate Test_PredictPartyVictoryFail Success")
 }
+
+func Test_PredictPartyVictoryLong(t *testing.T) {
+	source := "DDDDRRDDDRDRDRRDDRDDDRDRRRRDRRRRRDRDDRDDRRDDRRRDDRRRDDDDRRRRRRRDDRRRDDRDDDRRRDRDDRDDDRRDRRDRRRDRDRDR"
+	target := predictPartyVictory(source)
+	expect := Dire
+
+	if expect != target {
+		t.Error("Translate Test_PredictPartyVictoryLong Fail", target)
+	}
+	t.Log("Translate Test_PredictPartyVictoryLong Success")
+}
