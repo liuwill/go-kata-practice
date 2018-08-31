@@ -23,3 +23,14 @@ func Test_PredictPartyVictoryDire(t *testing.T) {
 	}
 	t.Log("Translate Test_PredictPartyVictoryDire Success")
 }
+
+func Test_PredictPartyVictoryFail(t *testing.T) {
+	source := "DDRRR"
+	target := predictPartyVictory(source)
+	expect := Dire
+
+	if expect != target {
+		t.Error("Translate Test_PredictPartyVictoryFail Fail", target)
+	}
+	t.Log("Translate Test_PredictPartyVictoryFail Success")
+}
