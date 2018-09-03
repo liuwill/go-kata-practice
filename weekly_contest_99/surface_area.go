@@ -31,7 +31,7 @@ func countTop(grid [][]int, i int, j int) int {
 }
 
 func countDown(grid [][]int, i int, j int) int {
-	if j-1 < len(grid) {
+	if j-1 < 0 {
 		return grid[i][j]
 	} else if grid[i][j-1] < grid[i][j] {
 		return grid[i][j] - grid[i][j-1]
@@ -44,13 +44,17 @@ func surfaceArea(grid [][]int) int {
 	result := 0
 	for i := 0; i < len(grid); i++ {
 		for j := 0; j < len(grid); j++ {
-			topBottom := 2
-			result += topBottom
+			current := 0
 
-			result += countFront(grid, i, j)
-			result += countBackend(grid, i, j)
-			result += countTop(grid, i, j)
-			result += countDown(grid, i, j)
+			current += countFront(grid, i, j)
+			current += countBackend(grid, i, j)
+			current += countTop(grid, i, j)
+			current += countDown(grid, i, j)
+			if grid[i][j] > 0 {
+				current += 2
+			}
+
+			result += current
 		}
 	}
 	return result
