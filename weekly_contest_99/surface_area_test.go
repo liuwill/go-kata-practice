@@ -42,3 +42,33 @@ func Test_SurfaceAreaOne(t *testing.T) {
 	}
 	t.Log("Translate Test_SurfaceAreaOne Success")
 }
+
+func Test_SurfaceAreaThree(t *testing.T) {
+	source := [][]int{
+		{1, 1, 1},
+		{1, 0, 1},
+		{1, 1, 1},
+	}
+	target := surfaceArea(source)
+	expect := 32
+
+	if expect != target {
+		t.Error("Translate Test_SurfaceAreaThree Fail", expect, target)
+	}
+	t.Log("Translate Test_SurfaceAreaThree Success")
+}
+
+func Test_SurfaceAreaThreeHigh(t *testing.T) {
+	source := [][]int{
+		{2, 2, 2},
+		{2, 1, 2},
+		{2, 2, 2},
+	}
+	target := surfaceArea(source)
+	expect := 46
+
+	if expect != target {
+		t.Error("Translate Test_SurfaceAreaThreeHigh Fail", expect, target)
+	}
+	t.Log("Translate Test_SurfaceAreaThreeHigh Success")
+}
