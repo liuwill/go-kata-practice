@@ -45,6 +45,7 @@ JUST make some practice
 -   [Masking Personal Information](./docs/masking_personal_information.md)
 -   [Positions of Large Groups](./docs/large_groups_positions.md)
 -   [Dota2 Senate](./docs/dota2_senate.md)
+-   [Surface Area of 3D Shapes](./docs/surface_area_3d_shapes.md)
 
 #### Design
 -   [Design Twitter](./docs/design_twitter.md)
