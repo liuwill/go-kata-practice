@@ -46,6 +46,7 @@ JUST make some practice
 -   [Positions of Large Groups](./docs/large_groups_positions.md)
 -   [Dota2 Senate](./docs/dota2_senate.md)
 -   [Surface Area of 3D Shapes](./docs/surface_area_3d_shapes.md)
+-   [Sum of Subsequence Widths](./docs/sum_subsequence_widths.md)
 
 #### Design
 -   [Design Twitter](./docs/design_twitter.md)
