@@ -10,7 +10,7 @@ func Test_TwoSum(t *testing.T) {
 	target := twoSum(source, sum)
 	expect := []int{0, 1}
 
-	if compareList(expect, target) {
+	if !compareList(expect, target) {
 		t.Error("Translate Test_TwoSum Fail", target)
 	}
 	t.Log("Translate Test_TwoSum Success")

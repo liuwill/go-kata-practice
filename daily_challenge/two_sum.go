@@ -10,8 +10,8 @@ func twoSum(nums []int, target int) []int {
 				continue
 			}
 
-			result[0] = nums[i]
-			result[1] = nums[j]
+			result[0] = i
+			result[1] = j
 			find = true
 		}
 	}
