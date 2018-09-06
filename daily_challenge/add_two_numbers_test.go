@@ -112,6 +112,19 @@ func Test_AddTwoNumbers(t *testing.T) {
 	t.Log("Translate Test_AddTwoNumbers Success")
 }
 
+func Test_AddTwoNumbersFront(t *testing.T) {
+	source1 := transformNumberToListNode(95)
+	source2 := transformNumberToListNode(5)
+
+	target := addTwoNumbers(source1, source2)
+	expect := transformNumberToListNode(100)
+
+	if !compareListNode(expect, target) {
+		t.Error("Translate Test_AddTwoNumbersFront Fail", printListNode(source1), printListNode(source2), printListNode(target))
+	}
+	t.Log("Translate Test_AddTwoNumbersFront Success")
+}
+
 func Test_AddTwoNumbersZero(t *testing.T) {
 	source1 := transformNumberToListNode(0)
 	source2 := transformNumberToListNode(0)

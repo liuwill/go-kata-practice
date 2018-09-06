@@ -47,6 +47,12 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		target.Next = currentNode
 		target = currentNode
 	}
+	if front > 0 {
+		target.Next = &ListNode{
+			Val:  front,
+			Next: nil,
+		}
+	}
 
 	return result.Next
 }
