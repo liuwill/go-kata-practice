@@ -1,7 +1,5 @@
 package daily_challenge
 
-import "fmt"
-
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -38,8 +36,6 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 			second = second.Next
 		}
 
-		fmt.Printf("%v %v %v", l1, second, first)
-
 		sum := num1 + num2 + front
 		current := sum % 10
 		front = sum / 10
@@ -52,5 +48,5 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		target = currentNode
 	}
 
-	return result
+	return result.Next
 }
