@@ -18,5 +18,35 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		Next: nil,
 	}
 
-	return target
+	first := l1
+	second := l2
+
+	front := 0
+	result := target
+	for first != nil || second != nil {
+		num1 := 0
+		num2 := 0
+		if first != nil {
+			num1 = first.Val
+			first = first.Next
+		}
+
+		if second != nil {
+			num2 = second.Val
+			second = second.Next
+		}
+
+		sum := num1 + num2 + front
+		current := sum % 10
+		front = sum / 10
+
+		currentNode := &ListNode{
+			Val:  current,
+			Next: nil,
+		}
+		target.Next = currentNode
+		target = currentNode
+	}
+
+	return result
 }
