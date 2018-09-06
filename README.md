@@ -44,13 +44,13 @@ JUST make some practice
 -   [Minimum Number of Refueling Stops](./docs/minimum_number_of_refueling_stops.md)
 -   [Masking Personal Information](./docs/masking_personal_information.md)
 -   [Positions of Large Groups](./docs/large_groups_positions.md)
--   [Dota2 Senate](./docs/dota2_senate.md)
 -   [Surface Area of 3D Shapes](./docs/surface_area_3d_shapes.md)
 -   [Sum of Subsequence Widths](./docs/sum_subsequence_widths.md)
 
 
 #### Daily Challenge
 
+-   [Dota2 Senate](./docs/dota2_senate.md)
 -   [Two Sum](./docs/daily_challenge/two_sum.md)
 
 
