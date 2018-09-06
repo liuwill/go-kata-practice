@@ -48,6 +48,12 @@ JUST make some practice
 -   [Surface Area of 3D Shapes](./docs/surface_area_3d_shapes.md)
 -   [Sum of Subsequence Widths](./docs/sum_subsequence_widths.md)
 
+
+#### Daily Challenge
+
+-   [Two Sum](./docs/daily_challenge/two_sum.md)
+
+
 #### Design
 -   [Design Twitter](./docs/design_twitter.md)
 

@@ -1,18 +1,13 @@
 package daily_challenge
 
 func twoSum(nums []int, target int) []int {
-	result := make([]int, 2)
+	result := []int{0, 0}
 
-	find := false
-	for i := 0; i < len(nums)-1 && !find; i++ {
+	for i := 0; i < len(nums)-1; i++ {
 		for j := i + 1; j < len(nums); j++ {
-			if nums[i]+nums[j] != target {
-				continue
+			if nums[i]+nums[j] == target {
+				return []int{i, j}
 			}
-
-			result[0] = i
-			result[1] = j
-			find = true
 		}
 	}
 
