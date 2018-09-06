@@ -4,6 +4,18 @@ import (
 	"testing"
 )
 
+func Test_CompareList(t *testing.T) {
+	source1 := []int{12, 24}
+	source2 := []int{12, 24}
+	target := compareList(source1, source2)
+	expect := true
+
+	if expect != target {
+		t.Error("Translate Test_CompareList Fail", target)
+	}
+	t.Log("Translate Test_CompareList Success")
+}
+
 func Test_CompareListLength(t *testing.T) {
 	source1 := []int{12, 24, 8, 32}
 	source2 := []int{12, 24}
