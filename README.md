@@ -53,6 +53,7 @@ JUST make some practice
 -   [Dota2 Senate](./docs/dota2_senate.md)
 -   [Two Sum](./docs/daily_challenge/two_sum.md)
 -   [Add Two Numbers](./docs/daily_challenge/add_two_numbers.md)
+-   [Longest Valid Parentheses](./docs/daily_challenge/longest_valid_parentheses.md)
 
 
 #### Design
