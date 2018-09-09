@@ -3,3 +3,4 @@ coverage.txt
 coverage.html
 */*.test
 dist/
+MEMO.md
