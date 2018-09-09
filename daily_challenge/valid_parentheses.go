@@ -24,7 +24,7 @@ func isValid(s string) bool {
 			pos++
 		} else {
 			left := parentheseMap[v]
-			if pos < 1 || left != temp[pos-1] {
+			if pos <= 0 || left != temp[pos-1] {
 				answer = false
 				break
 			}

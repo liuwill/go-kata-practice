@@ -56,3 +56,14 @@ func Test_IsValidTrue(t *testing.T) {
 	}
 	t.Log("Translate Test_IsValidTrue Success")
 }
+
+func Test_IsValidEmpty(t *testing.T) {
+	source := ""
+	target := isValid(source)
+	expect := true
+
+	if expect != target {
+		t.Error("Translate Test_IsValidEmpty Fail", target)
+	}
+	t.Log("Translate Test_IsValidEmpty Success")
+}
