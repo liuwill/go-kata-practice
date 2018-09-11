@@ -58,6 +58,10 @@ JUST make some practice
 -   [Score Of Parentheses](./docs/daily_challenge/score_of_parentheses.md)
 
 
+#### Weekly Contest
+-   [Monotonic Array](./docs/weekly_contest/monotonic_array.md)
+
+
 #### Design
 -   [Design Twitter](./docs/design_twitter.md)
 
