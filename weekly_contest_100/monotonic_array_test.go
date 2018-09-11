@@ -35,13 +35,30 @@ func Test_IsMonotonicDecrease(t *testing.T) {
 	t.Log("Translate Test_IsMonotonicDecrease Success")
 }
 
-func Test_IsMonotonicFail(t *testing.T) {
+func Test_IsMonotonicFalse(t *testing.T) {
 	source := []int{1, 3, 2}
 	target := isMonotonic(source)
 	expect := false
 
 	if expect != target {
-		t.Error("Translate Test_IsMonotonicFail Fail", target)
+		t.Error("Translate Test_IsMonotonicFalse Fail", target)
 	}
-	t.Log("Translate Test_IsMonotonicFail Success")
+	t.Log("Translate Test_IsMonotonicFalse Success")
+}
+
+func Test_IsMonotonicSet(t *testing.T) {
+	source := [][]int{
+		[]int{1, 2, 4, 5},
+		[]int{1, 1, 1},
+	}
+	expect := []bool{true, true}
+
+	for i, v := range source {
+		target := isMonotonic(v)
+		if expect[i] != target {
+			t.Error("Translate Test_IsMonotonicSet Fail", i, expect[i], target)
+		}
+	}
+
+	t.Log("Translate Test_IsMonotonicSet Success")
 }
