@@ -55,6 +55,7 @@ JUST make some practice
 -   [Add Two Numbers](./docs/daily_challenge/add_two_numbers.md)
 -   [Longest Valid Parentheses](./docs/daily_challenge/longest_valid_parentheses.md)
 -   [Valid Parentheses](./docs/daily_challenge/valid_parentheses.md)
+-   [Score Of Parentheses](./docs/daily_challenge/score_of_parentheses.md)
 
 
 #### Design
