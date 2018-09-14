@@ -18,6 +18,34 @@ func compareList(source []int, target []int) bool {
 	return true
 }
 
+func Test_GenerateTreeNode(t *testing.T) {
+	// source := []int{5, 3, 6, 2, 4, -1, 8, 1, -1, -1, -1, 7, 9}
+	sourceTree := generateTreeNode([]int{})
+
+	if sourceTree != nil {
+		t.Error("Translate Test_GenerateTreeNode Fail ")
+	}
+	t.Log("Translate Test_GenerateTreeNode Success")
+}
+
+func Test_RecoverTreeNode(t *testing.T) {
+	targetList := recoverTreeNode(nil)
+
+	if len(targetList) != 0 {
+		t.Error("Translate Test_RecoverTreeNode Fail ")
+	}
+
+	source := []int{5, 3, 6, 2, 4, -1, 8, 1, -1, -1, -1, 7, 9}
+	sourceTree := generateTreeNode(source)
+	target := recoverTreeNode(sourceTree)
+
+	if !compareList(source, target) {
+		t.Error("Translate Test_RecoverTreeNode Fail ", target)
+	}
+
+	t.Log("Translate Test_RecoverTreeNode Success")
+}
+
 func Test_IncreasingBST(t *testing.T) {
 	// source := []int{5, 3, 6, 2, 4, -1, 8, 1, -1, -1, -1, 7, 9}
 	source := []int{5, 3, 6, 2, 4, -1, 8, 1, -1, -1, -1, 7, 9}
