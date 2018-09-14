@@ -117,5 +117,61 @@ func generateTreeNode(list []int) *TreeNode {
  * }
  */
 func increasingBST(root *TreeNode) *TreeNode {
-	return nil
+	resultTree := &TreeNode{
+		Val:   0,
+		Left:  nil,
+		Right: nil,
+	}
+
+	nodeList := []*TreeNode{}
+	cursor := 0
+
+	current := root
+	target := resultTree
+
+	for current != nil || cursor > 0 {
+		if current.Left != nil {
+			if cursor < len(nodeList) {
+				nodeList[cursor] = current
+			} else {
+				nodeList = append(nodeList, current)
+			}
+
+			next := current
+			current = next.Left
+			next.Left = nil
+			cursor++
+			continue
+		}
+
+		target.Right = &TreeNode{
+			Val:   current.Val,
+			Left:  nil,
+			Right: nil,
+		}
+		target = target.Right
+
+		if current.Right != nil {
+			if cursor < len(nodeList) {
+				nodeList[cursor] = current.Right
+			} else {
+				nodeList = append(nodeList, current.Right)
+			}
+
+			next := current
+			current = next.Right
+			next.Right = nil
+
+			cursor++
+		}
+
+		if cursor > 0 {
+			current = nodeList[cursor-1]
+		} else {
+			current = nil
+		}
+		cursor--
+	}
+
+	return resultTree.Right
 }
