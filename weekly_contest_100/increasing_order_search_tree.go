@@ -11,51 +11,57 @@ func generateTreeNode(list []int) *TreeNode {
 		return nil
 	}
 
-	root := &TreeNode{
-		Val:   0,
-		Left:  nil,
-		Right: nil,
-	}
-
-	current := root
 	first := &TreeNode{
 		Val:   list[0],
 		Left:  nil,
 		Right: nil,
 	}
-	current.Right = first
 
 	nodeList := make([]*TreeNode, len(list))
 	nodeList[0] = first
 
-	for i := 1; i < len(list); i++ {
-		val := list[i]
-		if val < 0 {
-			nodeList[i] = nil
-			continue
-		}
+	cursor := 1
+	parent := 0
+	for i := 1; i < len(list) && parent < cursor; i += 2 {
+		left := list[i]
+		right := list[i+1]
 
-		parent := (i - 1) / 2
-		point := &TreeNode{
-			Val:   val,
-			Left:  nil,
-			Right: nil,
-		}
-
-		println(i, val, parent, list[parent])
-		parentNode := nodeList[parent]
-		if 1%2 == 1 {
-			parentNode.Left = point
+		currentNode := nodeList[parent]
+		if left >= 0 {
+			leftNode := &TreeNode{
+				Val:   left,
+				Left:  nil,
+				Right: nil,
+			}
+			currentNode.Left = leftNode
+			nodeList[cursor] = leftNode
+			cursor++
 		} else {
-			parentNode.Right = point
+			currentNode.Left = nil
 		}
-		nodeList[i] = point
+
+		if right >= 0 {
+			rightNode := &TreeNode{
+				Val:   right,
+				Left:  nil,
+				Right: nil,
+			}
+			currentNode.Right = rightNode
+			nodeList[cursor] = rightNode
+			cursor++
+		} else {
+			currentNode.Right = nil
+		}
+
+		parent++
 	}
 
-	i*2 - 1 = (11 + 1) / 2
-	i * 2 = 12 / 2
+	// fmt.Printf("-=> %v\n", nodeList)
+	// for i, v := range nodeList {
+	// 	fmt.Printf("%v - %v\n", i, v)
+	// }
 
-	return root.Right
+	return first
 }
 
 /**
