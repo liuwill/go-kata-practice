@@ -1,13 +1,59 @@
 package weekly_contest_100
 
+import "fmt"
+
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
 }
 
+func recoverTreeNode(tree *TreeNode) []int {
+	if tree == nil {
+		return []int{}
+	}
+
+	nodeList := []*TreeNode{
+		tree,
+	}
+	result := []int{
+		tree.Val,
+	}
+	cursor := 1
+
+	pos := 0
+	for pos < cursor {
+		current := nodeList[pos]
+
+		if current.Left != nil {
+			result = append(result, current.Left.Val)
+			nodeList = append(nodeList, current.Left)
+			cursor++
+		} else {
+			result = append(result, -1)
+		}
+
+		if current.Right != nil {
+			result = append(result, current.Right.Val)
+			nodeList = append(nodeList, current.Right)
+			cursor++
+		} else {
+			result = append(result, -1)
+		}
+
+		fmt.Printf("%v - %v - %v \n", pos, cursor, result)
+		pos++
+	}
+	fmt.Printf("-=> %v\n", nodeList)
+	for i, v := range nodeList {
+		fmt.Printf("%v - %v\n", i, v)
+	}
+
+	return result
+}
+
 func generateTreeNode(list []int) *TreeNode {
-	if len(list) < 1 {
+	if len(list) < 1 || list[0] < 0 {
 		return nil
 	}
 
