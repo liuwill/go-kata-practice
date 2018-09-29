@@ -19,8 +19,9 @@ func Test_TotalFruitGroup(t *testing.T) {
 		{0, 1, 2, 2},
 		{1, 2, 3, 2, 2},
 		{3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4},
+		{3, 3, 3, 1, 1, 2, 1, 1, 2, 2, 1, 3, 3, 4},
 	}
-	expects := []int{3, 3, 4, 5}
+	expects := []int{3, 3, 4, 5, 8}
 
 	for i, source := range sources {
 		target := totalFruit(source)
