@@ -2,22 +2,23 @@ package weekly_contest_102
 
 import (
 	"math"
-	"sort"
 )
 
 func sumSubarrayMins(A []int) int {
 	maxSum := int(math.Pow10(9)) + 7
 	sum := 0
-	sort.Ints(A)
 
-	pow := 0
-	for i := len(A) - 1; i >= 0; i-- {
-		val := A[i]
-
-		times := int(math.Pow(2, float64(pow))) - 1
-		sum += val * (times + 1) % maxSum
-		println(val, times+1)
-		pow++
+	for i, val := range A {
+		for d := 1; d < len(A)-i+1; d++ {
+			min := val
+			// fmt.Printf("%v\n", A[i:i+d])
+			for j := i + 1; j < d; j++ {
+				if A[j] < min {
+					min = A[j]
+				}
+			}
+			sum += min
+		}
 	}
 
 	return sum % maxSum
