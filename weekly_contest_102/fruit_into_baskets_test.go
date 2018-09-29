@@ -2,6 +2,17 @@ package weekly_contest_102
 
 import "testing"
 
+var (
+	sources = [][]int{
+		{1, 2, 1},
+		{0, 1, 2, 2},
+		{1, 2, 3, 2, 2},
+		{3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4},
+		{3, 3, 3, 1, 1, 2, 1, 1, 2, 2, 1, 3, 3, 4},
+	}
+	expects = []int{3, 3, 4, 5, 8}
+)
+
 func Test_TotalFruit(t *testing.T) {
 	source := []int{1, 2, 2, 3}
 	target := totalFruit(source)
@@ -14,15 +25,6 @@ func Test_TotalFruit(t *testing.T) {
 }
 
 func Test_TotalFruitGroup(t *testing.T) {
-	sources := [][]int{
-		{1, 2, 1},
-		{0, 1, 2, 2},
-		{1, 2, 3, 2, 2},
-		{3, 3, 3, 1, 2, 1, 1, 2, 3, 3, 4},
-		{3, 3, 3, 1, 1, 2, 1, 1, 2, 2, 1, 3, 3, 4},
-	}
-	expects := []int{3, 3, 4, 5, 8}
-
 	for i, source := range sources {
 		target := totalFruit(source)
 		expect := expects[i]
@@ -32,4 +34,16 @@ func Test_TotalFruitGroup(t *testing.T) {
 		}
 	}
 	t.Log("Run Test_TotalFruitGroup Success")
+}
+
+func Test_TotalFruitImproveGroup(t *testing.T) {
+	for i, source := range sources {
+		target := totalFruitImprove(source)
+		expect := expects[i]
+
+		if expect != target {
+			t.Error("Run Test_TotalFruitImproveGroup Fail", source, target)
+		}
+	}
+	t.Log("Run Test_TotalFruitImproveGroup Success")
 }

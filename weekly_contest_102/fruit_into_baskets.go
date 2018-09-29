@@ -1,5 +1,33 @@
 package weekly_contest_102
 
+func totalFruitImprove(tree []int) int {
+	max := 0
+	first, second := 0, 0
+
+	cached := 0
+	current := 0
+	for _, cursor := range tree {
+		if first == cursor || second == cursor {
+			current++
+		} else {
+			current = cached + 1
+		}
+
+		if second == cursor {
+			cached++
+		} else {
+			first = second
+			second = cursor
+			cached = 1
+		}
+
+		if max < current {
+			max = current
+		}
+	}
+	return max
+}
+
 func totalFruit(tree []int) int {
 	// fmt.Printf("%v\n", tree)
 	max := 0
