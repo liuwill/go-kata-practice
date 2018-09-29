@@ -4,6 +4,8 @@ import (
 	"math"
 )
 
+const MAX_SUBARRAY_LENGTH = 30000
+
 func sumSubarrayMinsFast(A []int) int {
 	maxSum := int(math.Pow10(9)) + 7
 	sum := 0
@@ -13,7 +15,7 @@ func sumSubarrayMinsFast(A []int) int {
 	}
 
 	for len(A) > 1 {
-		min := 30001
+		min := MAX_SUBARRAY_LENGTH + 1
 		pos := 0
 		// fmt.Printf("++++ %v\n", A)
 		for i, val := range A {

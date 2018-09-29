@@ -14,16 +14,16 @@ var (
 	subExpects = []int{17, 1733}
 )
 
-func generateRandomArray() []int {
+func generateRandomArray(total int) []int {
 	list := []int{}
-	for i := 0; i < 500; i++ {
-		list = append(list, rand.Intn(29999)+1)
+	for i := 0; i < total; i++ {
+		list = append(list, rand.Intn(MAX_SUBARRAY_LENGTH-1)+1)
 	}
 	return list
 }
 
 func Test_SumSubarrayMinsBanchmark(t *testing.T) {
-	list := generateRandomArray()
+	list := generateRandomArray(500)
 	println(len(list))
 
 	startSimple := time.Now().UnixNano()
@@ -48,7 +48,7 @@ func Test_SumSubarrayMins(t *testing.T) {
 		expect := subExpects[i]
 
 		if expect != target {
-			t.Error("Run Test_SumSubarrayMins Fail", i, target)
+			t.Error("Run Test_SumSubarrayMins Fail", i, expect, target)
 		}
 	}
 	t.Log("Run Test_SumSubarrayMins Success")
@@ -60,7 +60,7 @@ func Test_SumSubarrayMinsFast(t *testing.T) {
 		expect := subExpects[i]
 
 		if expect != target {
-			t.Error("Run Test_SumSubarrayMinsFast Fail", i, target)
+			t.Error("Run Test_SumSubarrayMinsFast Fail", i, expect, target)
 		}
 	}
 	t.Log("Run Test_SumSubarrayMinsFast Success")
