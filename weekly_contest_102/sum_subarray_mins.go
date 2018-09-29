@@ -10,15 +10,14 @@ func sumSubarrayMins(A []int) int {
 	sum := 0
 	sort.Ints(A)
 
-	count := 0
-	times := 0
+	pow := 0
 	for i := len(A) - 1; i >= 0; i-- {
 		val := A[i]
 
-		times += int(math.Pow(2, float64(count)))
-		sum += val * (times) % maxSum
-		println(val, i)
-		count++
+		times := int(math.Pow(2, float64(pow))) - 1
+		sum += val * (times + 1) % maxSum
+		println(val, times+1)
+		pow++
 	}
 
 	return sum % maxSum
