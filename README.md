@@ -60,6 +60,7 @@ JUST make some practice
 
 #### Weekly Contest
 -   [Monotonic Array](./docs/weekly_contest/monotonic_array.md)
+-   [Fruit Into Baskets](./docs/weekly_contest/fruit_into_baskets.md)
 
 
 #### Design
