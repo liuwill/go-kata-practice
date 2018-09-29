@@ -8,34 +8,49 @@ const MAX_SUBARRAY_LENGTH = 30000
 
 func sumSubarrayMinsFast(A []int) int {
 	maxSum := int(math.Pow10(9)) + 7
-	sum := 0
+	stack := make([][]int, len(A))
+	top := 0
 
+	sum := 0
 	for _, val := range A {
 		sum += val
 	}
 
-	for len(A) > 1 {
-		min := MAX_SUBARRAY_LENGTH + 1
+	stack[top] = []int{0, len(A) - 1, len(A)}
+	top += 1
+	for top > 0 {
+		top--
+
+		start := stack[top][0]
+		end := stack[top][1]
+		// fmt.Printf(">> %v %v\n", stack[top], list)
+		min := MAX_SUBARRAY_LENGTH
 		pos := 0
-		// fmt.Printf("++++ %v\n", A)
-		for i, val := range A {
+
+		for i := start; i <= end; i++ {
+			val := A[i]
 			if val < min {
 				min = val
 				pos = i
-
-				sum += val * i
-				// println("==>", val, i, val*i)
-			} else {
-				sum += min * (i - pos)
-				// println("=====>", val, i, i-pos, val*(i-pos))
 			}
-			// println(sum, "===", i, val, pos, min)
 		}
 
-		if pos > 0 {
-			sum += min
+		// println("min", min, pos, start, end)
+		front := pos - start
+		backend := end - pos
+		sum += min * (front + backend + front*backend)
+
+		if front > 1 {
+			stack[top] = []int{start, pos - 1, front}
+			// println("front", start, pos-1, front)
+			top++
 		}
-		A = A[pos+1:]
+
+		if backend > 1 {
+			stack[top] = []int{pos + 1, end, backend}
+			// println("back", pos+1, end, backend)
+			top++
+		}
 	}
 
 	return sum % maxSum
