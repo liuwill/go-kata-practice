@@ -12,9 +12,9 @@ func sumSubarrayMins(A []int) int {
 		for d := 1; d < len(A)-i+1; d++ {
 			min := val
 			// fmt.Printf("%v\n", A[i:i+d])
-			for j := i + 1; j < d; j++ {
-				if A[j] < min {
-					min = A[j]
+			for _, cursor := range A[i : i+d] {
+				if cursor < min {
+					min = cursor
 				}
 			}
 			sum += min
