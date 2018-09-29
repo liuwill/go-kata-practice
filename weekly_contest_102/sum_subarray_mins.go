@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-func sumSubarrayMinsSimple(A []int) int {
+func sumSubarrayMinsFast(A []int) int {
 	maxSum := int(math.Pow10(9)) + 7
 	sum := 0
 

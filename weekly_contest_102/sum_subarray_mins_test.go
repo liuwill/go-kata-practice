@@ -1,15 +1,46 @@
 package weekly_contest_102
 
 import (
+	"math/rand"
 	"testing"
+	"time"
 )
 
 var (
 	subSources = [][]int{
 		{3, 1, 2, 4},
+		{3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4, 3, 1, 2, 4},
 	}
-	subExpects = []int{17}
+	subExpects = []int{17, 1733}
 )
+
+func generateRandomArray() []int {
+	list := []int{}
+	for i := 0; i < 500; i++ {
+		list = append(list, rand.Intn(29999)+1)
+	}
+	return list
+}
+
+func Test_SumSubarrayMinsBanchmark(t *testing.T) {
+	list := generateRandomArray()
+	println(len(list))
+
+	startSimple := time.Now().UnixNano()
+	target := sumSubarrayMinsFast(list)
+	endSimple := time.Now().UnixNano()
+	println("sumSubarrayMinsFast", startSimple, endSimple, endSimple-startSimple)
+
+	start := time.Now().UnixNano()
+	expect := sumSubarrayMins(list)
+	end := time.Now().UnixNano()
+	println("sumSubarrayMins", start, end, end-start)
+
+	if expect != target {
+		t.Error("Run Test_SumSubarrayMinsBanchmark Fail", expect, target)
+	}
+	t.Log("Run Test_SumSubarrayMinsBanchmark Success")
+}
 
 func Test_SumSubarrayMins(t *testing.T) {
 	for i, source := range subSources {
@@ -17,20 +48,20 @@ func Test_SumSubarrayMins(t *testing.T) {
 		expect := subExpects[i]
 
 		if expect != target {
-			t.Error("Run Test_SumSubarrayMins Fail", source, target)
+			t.Error("Run Test_SumSubarrayMins Fail", i, target)
 		}
 	}
 	t.Log("Run Test_SumSubarrayMins Success")
 }
 
-func Test_SumSubarrayMinsSimple(t *testing.T) {
+func Test_SumSubarrayMinsFast(t *testing.T) {
 	for i, source := range subSources {
-		target := sumSubarrayMinsSimple(source)
+		target := sumSubarrayMinsFast(source)
 		expect := subExpects[i]
 
 		if expect != target {
-			t.Error("Run Test_SumSubarrayMinsSimple Fail", source, target)
+			t.Error("Run Test_SumSubarrayMinsFast Fail", i, target)
 		}
 	}
-	t.Log("Run Test_SumSubarrayMinsSimple Success")
+	t.Log("Run Test_SumSubarrayMinsFast Success")
 }
