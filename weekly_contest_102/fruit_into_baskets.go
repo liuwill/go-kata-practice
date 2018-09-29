@@ -11,13 +11,13 @@ func totalFruit(tree []int) int {
 		}
 
 		current := 1
-		second := 0
+		second := -1
 		for _, next := range tree[i+1:] {
 			if next == cursor {
 				current++
-			} else if second != 0 && next == second {
+			} else if second != -1 && next == second {
 				current++
-			} else if second == 0 {
+			} else if second == -1 {
 				current++
 				second = next
 			} else {
