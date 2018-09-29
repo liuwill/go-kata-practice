@@ -22,3 +22,15 @@ func Test_SumSubarrayMins(t *testing.T) {
 	}
 	t.Log("Run Test_SumSubarrayMins Success")
 }
+
+func Test_SumSubarrayMinsSimple(t *testing.T) {
+	for i, source := range subSources {
+		target := sumSubarrayMinsSimple(source)
+		expect := subExpects[i]
+
+		if expect != target {
+			t.Error("Run Test_SumSubarrayMinsSimple Fail", source, target)
+		}
+	}
+	t.Log("Run Test_SumSubarrayMinsSimple Success")
+}
