@@ -129,7 +129,7 @@ func increasingBST(root *TreeNode) *TreeNode {
 	current := root
 	target := resultTree
 
-	popStack := func(stack []*TreeNode, node *TreeNode, cursor int) []*TreeNode {
+	pushStack := func(stack []*TreeNode, node *TreeNode, cursor int) []*TreeNode {
 		if cursor < len(stack) {
 			stack[cursor] = node
 		} else {
@@ -140,7 +140,7 @@ func increasingBST(root *TreeNode) *TreeNode {
 
 	for current != nil || cursor > 0 {
 		if current.Left != nil {
-			nodeList = popStack(nodeList, current, cursor)
+			nodeList = pushStack(nodeList, current, cursor)
 
 			next := current
 			current = next.Left
@@ -157,7 +157,7 @@ func increasingBST(root *TreeNode) *TreeNode {
 		target = target.Right
 
 		if current.Right != nil {
-			nodeList = popStack(nodeList, current.Right, cursor)
+			nodeList = pushStack(nodeList, current.Right, cursor)
 
 			next := current
 			current = next.Right

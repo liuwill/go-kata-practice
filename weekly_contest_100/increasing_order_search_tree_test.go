@@ -47,7 +47,6 @@ func Test_RecoverTreeNode(t *testing.T) {
 }
 
 func Test_IncreasingBST(t *testing.T) {
-	// source := []int{5, 3, 6, 2, 4, -1, 8, 1, -1, -1, -1, 7, 9}
 	source := []int{5, 3, 6, 2, 4, -1, 8, 1, -1, -1, -1, 7, 9}
 	sourceTree := generateTreeNode(source)
 	rawTarget := increasingBST(sourceTree)
