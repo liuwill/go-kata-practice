@@ -24,7 +24,6 @@ func generateRandomArray(total int) []int {
 
 func Test_SumSubarrayMinsBanchmark(t *testing.T) {
 	list := generateRandomArray(500)
-	println(len(list))
 
 	startSimple := time.Now().UnixNano()
 	target := sumSubarrayMinsFast(list)
