@@ -51,15 +51,12 @@ func compareEvenFirst(source []int, expect []int, target []int) bool {
 			return false
 		}
 
-		if mark && v%2 > 0 {
-			return false
+		if v%2 > 0 {
+			mark = false
 		} else if !mark && v%2 == 0 {
 			return false
-		} else if v%2 > 0 {
-			mark = false
 		}
 	}
-
 	return true
 }
 
