@@ -14,28 +14,40 @@ var (
 	}
 )
 
-func compareEvenFirst(expect []int, target []int) bool {
-	if len(expect) != len(target) {
+func compareEvenFirst(source []int, expect []int, target []int) bool {
+	if len(source) != len(target) || len(expect) != len(target) {
 		return false
 	}
 
-	expectLetters := make([]string, len(expect))
-	targetLetters := make([]string, len(expect))
-	for i, v := range expect {
-		expectLetters[i] = string(v)
+	expectMatch := true
+	for i := 0; i < len(target); i++ {
+		if target[i] != expect[i] {
+			expectMatch = false
+			break
+		}
+	}
+
+	if expectMatch {
+		return true
+	}
+
+	sourceLetters := make([]string, len(source))
+	targetLetters := make([]string, len(source))
+	for i, v := range source {
+		sourceLetters[i] = string(v)
 		targetLetters[i] = string(target[i])
 	}
 
-	expectLine := strings.Join(expectLetters, ",")
+	sourceLine := strings.Join(sourceLetters, ",")
 	targetLine := strings.Join(targetLetters, ",")
 
 	mark := true
 	for i, v := range target {
-		if !strings.Contains(expectLine, targetLetters[i]) {
+		if !strings.Contains(sourceLine, targetLetters[i]) {
 			return false
 		}
 
-		if !strings.Contains(targetLine, expectLetters[i]) {
+		if !strings.Contains(targetLine, sourceLetters[i]) {
 			return false
 		}
 
@@ -56,7 +68,7 @@ func Test_SortArrayByParity(t *testing.T) {
 		target := sortArrayByParity(source)
 		expect := expectsParity[i]
 
-		if !compareEvenFirst(expect, target) {
+		if !compareEvenFirst(source, expect, target) {
 			t.Error("Run Test_SortArrayByParityGroup Fail", source, target)
 		}
 	}
