@@ -62,6 +62,7 @@ JUST make some practice
 -   [Monotonic Array](./docs/weekly_contest/monotonic_array.md)
 -   [Fruit Into Baskets](./docs/weekly_contest/fruit_into_baskets.md)
 -   [Sum of Subarray Minimums](./docs/weekly_contest/sum_subarray_mins.md)
+-   [Sort Array By Parity](./docs/weekly_contest/sort_array_by_parity.md)
 
 
 #### Design
