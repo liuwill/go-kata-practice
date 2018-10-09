@@ -4,6 +4,20 @@ import (
 	"testing"
 )
 
+func compareList(source []int, target []int) bool {
+	if len(source) != len(target) {
+		return false
+	}
+
+	for index := 0; index < len(source); index++ {
+		if source[index] != target[index] {
+			return false
+		}
+	}
+
+	return true
+}
+
 func Test_AdvantageCount(t *testing.T) {
 	sourceA := []int{12, 24, 8, 32}
 	sourceB := []int{13, 25, 32, 11}
