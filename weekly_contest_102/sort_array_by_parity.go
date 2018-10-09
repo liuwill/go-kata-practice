@@ -4,7 +4,7 @@ func sortArrayByParity(A []int) []int {
 	i, j := 0, len(A)-1
 
 	for i < j {
-		for A[i]%2 == 0 {
+		for A[i]%2 == 0 && i < j {
 			i++
 		}
 
