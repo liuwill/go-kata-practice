@@ -63,6 +63,7 @@ JUST make some practice
 -   [Fruit Into Baskets](./docs/weekly_contest/fruit_into_baskets.md)
 -   [Sum of Subarray Minimums](./docs/weekly_contest/sum_subarray_mins.md)
 -   [Sort Array By Parity](./docs/weekly_contest/sort_array_by_parity.md)
+-   [Reverse Only Letters](./docs/weekly_contest/reverse_only_letters.md)
 
 
 #### Design
