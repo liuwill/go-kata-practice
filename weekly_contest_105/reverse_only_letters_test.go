@@ -4,10 +4,18 @@ import "testing"
 
 var (
 	sources = []string{
+		"",
+		"==2",
 		"ab-cd",
+		"a-bC-dEf-ghIj",
+		"Test1ng-Leet=code-Q!",
 	}
 	expects = []string{
+		"",
+		"==2",
 		"dc-ba",
+		"j-Ih-gfE-dCba",
+		"Qedo1ct-eeLg=ntse-T!",
 	}
 )
 

@@ -13,16 +13,18 @@ func isLetter(letter byte) bool {
 func reverseOnlyLetters(S string) string {
 	result := ""
 	j := len(S) - 1
-	for i := 0; i < len(S) && j >= 0; {
+	for i := 0; i < len(S); {
 		if !isLetter(S[i]) {
 			result += string(S[i])
 			i++
-		} else if !isLetter(S[j]) {
-			j--
-		} else {
-			result += string(S[j])
-			i++
-			j--
+		} else if j >= 0 {
+			if !isLetter(S[j]) {
+				j--
+			} else {
+				result += string(S[j])
+				i++
+				j--
+			}
 		}
 	}
 
