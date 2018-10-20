@@ -4,7 +4,7 @@
   [![Codecov branch][codecov-image]][codecov-url]
   [![Maintainability][codeclimate-image]][codeclimate-url]
 
-JUST make some practice
+JUST make some practice, In this repository questions came from leetcode
 
 
 ## Docs
