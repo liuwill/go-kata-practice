@@ -7,14 +7,13 @@ import (
 func minIncrementForUnique(A []int) int {
 	sort.Ints(A)
 	count := 0
-	for i, v := range A {
-		if i == 0 {
-			continue
-		}
+	for i := 1; i < len(A); i++ {
+		v := A[i]
 
 		if v <= A[i-1] {
-			count += A[i-1] - v + 1
-			A[i] += A[i-1] - v + 1
+			step := A[i-1] - v + 1
+			count += step
+			A[i] += step
 		}
 	}
 	return count
