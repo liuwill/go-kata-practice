@@ -56,6 +56,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Longest Valid Parentheses](./docs/daily_challenge/longest_valid_parentheses.md)
 -   [Valid Parentheses](./docs/daily_challenge/valid_parentheses.md)
 -   [Score Of Parentheses](./docs/daily_challenge/score_of_parentheses.md)
+-   [Minimum Increment to Make Array Unique](./docs/daily_challenge/min_increment_for_unique.md)
 
 
 #### Weekly Contest
