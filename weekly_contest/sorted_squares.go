@@ -65,3 +65,24 @@ func sortedSquares(A []int) []int {
 	}
 	return result
 }
+
+func shortSortedSquares(A []int) []int {
+	result := make([]int, len(A))
+	top := 0
+	end := len(A) - 1
+
+	for i := len(A) - 1; i >= 0; i-- {
+		topVal := A[top] * A[top]
+		endVal := A[end] * A[end]
+
+		if topVal > endVal {
+			result[i] = topVal
+			top++
+		} else {
+			result[i] = endVal
+			end--
+		}
+	}
+
+	return result
+}

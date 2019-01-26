@@ -29,6 +29,11 @@ func Test_SortedSquares(t *testing.T) {
 	}
 
 	for i, list := range source {
+		short := shortSortedSquares(list)
+		if short == nil || !compareList(expect[i], short) {
+			t.Error("Translate Test_ShortSortedSquares Fail", short)
+		}
+
 		target := sortedSquares(list)
 		if target == nil || !compareList(expect[i], target) {
 			t.Error("Translate Test_SortedSquares Fail", target)
