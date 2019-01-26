@@ -65,6 +65,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Sum of Subarray Minimums](./docs/weekly_contest/sum_subarray_mins.md)
 -   [Sort Array By Parity](./docs/weekly_contest/sort_array_by_parity.md)
 -   [Reverse Only Letters](./docs/weekly_contest/reverse_only_letters.md)
+-   [Squares of a Sorted Array](./docs/weekly_contest/squares_of_a_sorted_array.md)
 
 
 #### Design

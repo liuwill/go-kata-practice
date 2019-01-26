@@ -20,10 +20,12 @@ func Test_SortedSquares(t *testing.T) {
 	source := [][]int{
 		{-4, -1, 0, 3, 10},
 		{-7, -3, 2, 3, 11},
+		{-7, -3, -2, -1, 0},
 	}
 	expect := [][]int{
 		{0, 1, 9, 16, 100},
 		{4, 9, 9, 49, 121},
+		{0, 1, 4, 9, 49},
 	}
 
 	for i, list := range source {
