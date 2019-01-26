@@ -11,7 +11,6 @@ func sortedSquares(A []int) []int {
 	for i, v := range A {
 		current := v
 		if currentMin < current {
-			A[i] = current * current
 			continue
 		}
 
@@ -23,43 +22,50 @@ func sortedSquares(A []int) []int {
 			min = i
 			currentMin = current
 		}
-		A[i] = current * current
 	}
 
 	result := make([]int, len(A))
-	result[0] = A[min]
+	result[0] = A[min] * A[min]
 	pos := 1
 
 	left := 0
 	right := 0
 
 	length := len(A) - 1
+	topVal := 0
+	endVal := 0
 	for pos <= length {
 		if min-(left+1) < 0 {
 			for min+right+1 < len(A) {
 				right++
-				result[pos] = A[min+right]
+				endVal := A[min+right] * A[min+right]
+				result[pos] = endVal
 				pos++
 			}
 			continue
+		} else {
+			topVal = A[min-(left+1)] * A[min-(left+1)]
 		}
 
 		if min+(right+1) > length {
 			for min-(left+1) >= 0 {
 				left++
-				result[pos] = A[min-left]
+				topVal = A[min-left] * A[min-left]
+				result[pos] = topVal
 				pos++
 			}
 			continue
+		} else {
+			endVal = A[min+right+1] * A[min+right+1]
 		}
 
-		if A[min-(left+1)] > A[min+right+1] {
+		if topVal > endVal {
 			right++
-			result[pos] = A[min+right]
+			result[pos] = endVal
 			pos++
 		} else {
 			left++
-			result[pos] = A[min-left]
+			result[pos] = topVal
 			pos++
 		}
 	}

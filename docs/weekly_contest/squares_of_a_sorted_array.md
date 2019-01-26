@@ -24,3 +24,6 @@ Note:
 A is sorted in non-decreasing order.
 
 ```
+
+## Insert Sort
+If we insert and find position, It will consume NlgN, Instead of N
