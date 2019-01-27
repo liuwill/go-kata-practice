@@ -21,13 +21,22 @@ func strWithout3a3b(A int, B int) string {
 	}
 
 	current := 'a'
+	if B > A {
+		current = 'b'
+	}
 	size := 0
 
 	max := A + B
 
 	for len(target) < max {
 		reverse := reverseDict[current]
-		if letterDict[current] <= 0 || size >= MAX_DUPLICATE_SIZE || letterDict[reverse]-letterDict[current] >= MAX_DUPLICATE_SIZE {
+
+		limitSize := MAX_DUPLICATE_SIZE
+		if letterDict[reverse] > letterDict[current] {
+			limitSize = 1
+		}
+
+		if letterDict[current] <= 0 || size >= limitSize {
 			current = reverse
 			size = 0
 		} else {

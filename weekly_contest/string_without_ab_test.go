@@ -33,6 +33,8 @@ func Test_StrWithout3a3b(t *testing.T) {
 		{4, 1},
 		{0, 0},
 		{2, 5},
+		{2, 6},
+		{8, 3},
 	}
 
 	for _, pair := range source {
