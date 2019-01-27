@@ -66,6 +66,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Sort Array By Parity](./docs/weekly_contest/sort_array_by_parity.md)
 -   [Reverse Only Letters](./docs/weekly_contest/reverse_only_letters.md)
 -   [Squares of a Sorted Array](./docs/weekly_contest/squares_of_a_sorted_array.md)
+-   [String Without AAA or BBB](./docs/weekly_contest/string_without_ab.md)
 
 
 #### Design
