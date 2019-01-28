@@ -5,19 +5,27 @@ package daily_challenge
  * PUZZLE: Perfect Squares
  */
 func numSquares(n int) int {
-	start := n / 2
-	left := n
-	count := 0
+	min := n
 
-	for left > 0 {
-		square := start * start
-		if square > left {
-			start--
-		} else {
-			count++
-			println(start)
-			left -= square
+	for index := n / 2; index > 0; index-- {
+		left := n
+		count := 0
+		start := index
+
+		for left > 0 {
+			square := start * start
+			if square > left {
+				start--
+			} else {
+				count++
+				left -= square
+			}
+		}
+
+		if min > count {
+			min = count
 		}
 	}
-	return count
+
+	return min
 }
