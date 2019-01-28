@@ -9,7 +9,7 @@ func Test_NumSquares(t *testing.T) {
 	for i, val := range source {
 		target := numSquares(val)
 		if expect[i] != target {
-			t.Error("Translate Test_NumSquares Fail", target)
+			t.Error("Translate Test_NumSquares Fail", val, target)
 		}
 	}
 
