@@ -1,6 +1,6 @@
 ## 984. String Without AAA or BBB
 
-[Code](../../weekly_contest_102/string_without_ab.go)
+[Code](../../weekly_contest/string_without_ab.go)
 
 ```
 Given two integers A and B, return any string S such that:
