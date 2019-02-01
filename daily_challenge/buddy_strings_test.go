@@ -27,3 +27,29 @@ func Test_BuddyStrings(t *testing.T) {
 
 	t.Log("Translate Test_BuddyStrings Success")
 }
+
+func Test_BuddyStringsSwap(t *testing.T) {
+	source := [][]string{
+		{"ab", "ba"},
+		{"ab", "ab"},
+		{"aa", "aa"},
+		{"aaaaaaabc", "aaaaaaacb"},
+		{"", "aa"},
+	}
+	expect := []bool{
+		true,
+		false,
+		true,
+		true,
+		false,
+	}
+
+	for i, val := range source {
+		target := buddyStringsSwap(val[0], val[1])
+		if expect[i] != target {
+			t.Error("Translate Test_BuddyStringsSwap Fail", val, target)
+		}
+	}
+
+	t.Log("Translate Test_BuddyStringsSwap Success")
+}

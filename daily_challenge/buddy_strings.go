@@ -6,7 +6,7 @@ import "strings"
  * daily-challenge-859
  * PUZZLE: Buddy Strings
  */
-func buddyStrings(A string, B string) bool {
+func buddyStringsSwap(A string, B string) bool {
 	if len(A) != len(B) {
 		return false
 	}
@@ -17,6 +17,38 @@ func buddyStrings(A string, B string) bool {
 			if newA == B {
 				return true
 			}
+		}
+	}
+	return false
+}
+
+func buddyStrings(A string, B string) bool {
+	if len(A) != len(B) || len(A) == 0 {
+		return false
+	}
+
+	pos := []int{}
+	diff := 0
+
+	hasSame := false
+	sameCount := make([]rune, 128)
+	for i, v := range A {
+		if A[i] != B[i] {
+			pos = append(pos, i)
+			diff++
+		}
+
+		if sameCount[v] > 0 {
+			hasSame = true
+		}
+		sameCount[v]++
+	}
+
+	if diff == 0 && hasSame {
+		return true
+	} else if diff == 2 {
+		if A[pos[0]] == B[pos[1]] && B[pos[0]] == A[pos[1]] {
+			return true
 		}
 	}
 	return false
