@@ -58,6 +58,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Score Of Parentheses](./docs/daily_challenge/score_of_parentheses.md)
 -   [Minimum Increment to Make Array Unique](./docs/daily_challenge/min_increment_for_unique.md)
 -   [Perfect Squares](./docs/daily_challenge/perfect_squares.md)
+-   [Buddy Strings](./docs/daily_challenge/buddy_strings.md)
 
 
 #### Weekly Contest
