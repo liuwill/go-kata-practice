@@ -38,8 +38,8 @@ func Test_InsertInterval(t *testing.T) {
 
 	expectInterval := buildIntervalList(expect)
 	target := insert(buildIntervalList(source), buildInterval(newItem))
-	if compareInterval(target, expectInterval) {
-		t.Error("Translate Test_InsertInterval Fail", source, target)
+	if !compareInterval(target, expectInterval) {
+		t.Error("Translate Test_InsertInterval Fail", expect, target)
 	}
 
 	t.Log("Translate Test_InsertInterval Success")

@@ -38,8 +38,24 @@ func insert(intervals []Interval, newInterval Interval) []Interval {
 		scopeEnd = i
 	}
 
-	for i := scopeStart; i < scopeEnd; i++ {
-
+	start := newInterval.Start
+	end := newInterval.End
+	if scopeStart > -1 && intervals[scopeStart].Start < start {
+		start = intervals[scopeStart].Start
 	}
-	return intervals
+
+	if scopeEnd > -1 && intervals[scopeEnd].End > end {
+		end = intervals[scopeStart].End
+	}
+	output = append(output, Interval{
+		Start: start,
+		End:   end,
+	})
+
+	for i := current + 1; i < len(intervals); i++ {
+		output = append(output, intervals[i])
+	}
+	// println(scopeStart, scopeEnd)
+	// fmt.Printf("Intervals: %v - %v", output, newInterval)
+	return output
 }
