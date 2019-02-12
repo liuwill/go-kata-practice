@@ -31,9 +31,9 @@ func merge(intervals []Interval) []Interval {
 		} else {
 			start := current.Start
 			end := intervals[i].End
-			if current.Start > intervals[i].Start {
-				start = intervals[i].Start
-			}
+			// if current.Start > intervals[i].Start {
+			// 	start = intervals[i].Start
+			// }
 			if intervals[i].End < current.End {
 				end = current.End
 			}
