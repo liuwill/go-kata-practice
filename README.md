@@ -59,6 +59,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Minimum Increment to Make Array Unique](./docs/daily_challenge/min_increment_for_unique.md)
 -   [Perfect Squares](./docs/daily_challenge/perfect_squares.md)
 -   [Buddy Strings](./docs/daily_challenge/buddy_strings.md)
+-   [Insert Interval](./docs/daily_challenge/insert_interval.md)
 
 
 #### Weekly Contest

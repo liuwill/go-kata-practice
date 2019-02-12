@@ -26,7 +26,7 @@ func insert(intervals []Interval, newInterval Interval) []Interval {
 			break
 		}
 
-		current = i
+		current = i + 1
 		if item.End < newInterval.Start {
 			output = append(output, item)
 			continue
@@ -52,10 +52,10 @@ func insert(intervals []Interval, newInterval Interval) []Interval {
 		End:   end,
 	})
 
-	for i := current + 1; i < len(intervals); i++ {
+	for i := current; i < len(intervals); i++ {
 		output = append(output, intervals[i])
 	}
-	// println(scopeStart, scopeEnd)
+	// println(scopeStart, scopeEnd, current)
 	// fmt.Printf("Intervals: %v - %v", output, newInterval)
 	return output
 }

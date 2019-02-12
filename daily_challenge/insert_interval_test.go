@@ -35,14 +35,17 @@ func Test_InsertInterval(t *testing.T) {
 	sourceCase := [][][]int{
 		{{1, 3}, {6, 9}},
 		{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}},
+		{{1, 5}},
 	}
 	insertCase := [][]int{
 		{2, 5},
 		{4, 8},
+		{0, 0},
 	}
 	expectCase := [][][]int{
 		{{1, 5}, {6, 9}},
 		{{1, 2}, {3, 10}, {12, 16}},
+		{{0, 0}, {1, 5}},
 	}
 
 	for i, source := range sourceCase {
