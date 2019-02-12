@@ -45,7 +45,7 @@ func insert(intervals []Interval, newInterval Interval) []Interval {
 	}
 
 	if scopeEnd > -1 && intervals[scopeEnd].End > end {
-		end = intervals[scopeStart].End
+		end = intervals[scopeEnd].End
 	}
 	output = append(output, Interval{
 		Start: start,

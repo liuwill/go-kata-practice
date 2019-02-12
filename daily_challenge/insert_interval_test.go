@@ -32,14 +32,28 @@ func buildIntervalList(items [][]int) []Interval {
 }
 
 func Test_InsertInterval(t *testing.T) {
-	source := [][]int{{1, 3}, {6, 9}}
-	newItem := []int{2, 5}
-	expect := [][]int{{1, 5}, {6, 9}}
+	sourceCase := [][][]int{
+		{{1, 3}, {6, 9}},
+		{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}},
+	}
+	insertCase := [][]int{
+		{2, 5},
+		{4, 8},
+	}
+	expectCase := [][][]int{
+		{{1, 5}, {6, 9}},
+		{{1, 2}, {3, 10}, {12, 16}},
+	}
 
-	expectInterval := buildIntervalList(expect)
-	target := insert(buildIntervalList(source), buildInterval(newItem))
-	if !compareInterval(target, expectInterval) {
-		t.Error("Translate Test_InsertInterval Fail", expect, target)
+	for i, source := range sourceCase {
+		newItem := insertCase[i]
+		expect := expectCase[i]
+
+		expectInterval := buildIntervalList(expect)
+		target := insert(buildIntervalList(source), buildInterval(newItem))
+		if !compareInterval(target, expectInterval) {
+			t.Error("Translate Test_InsertInterval Fail", expect, target)
+		}
 	}
 
 	t.Log("Translate Test_InsertInterval Success")
