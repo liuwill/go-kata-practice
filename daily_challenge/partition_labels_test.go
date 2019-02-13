@@ -33,6 +33,11 @@ func Test_PartitionLabels(t *testing.T) {
 		if !compareList(target, expect) {
 			t.Error("Translate Test_PartitionLabels Fail", expect, target)
 		}
+
+		targetFast := partitionLabelsFast(source)
+		if !compareList(targetFast, expect) {
+			t.Error("Translate Test_PartitionLabelsFast Fail", expect, targetFast)
+		}
 	}
 
 	t.Log("Translate Test_PartitionLabels Success")
