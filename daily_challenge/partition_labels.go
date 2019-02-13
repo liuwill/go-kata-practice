@@ -1,5 +1,9 @@
 package daily_challenge
 
+/**
+ * daily-challenge-763
+ * PUZZLE: Partition Labels
+ */
 func partitionLabels(S string) []int {
 	target := []int{}
 	start := 0
@@ -17,7 +21,7 @@ func partitionLabels(S string) []int {
 			end = i
 		}
 
-		for j := len(S) - 1; j > i; j-- {
+		for j := len(S) - 1; j > end; j-- {
 			if current == S[j] {
 				end = j
 				break

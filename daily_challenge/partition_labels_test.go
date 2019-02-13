@@ -12,6 +12,7 @@ func Test_PartitionLabels(t *testing.T) {
 		"tkl",
 		"tklk",
 		"tktlk",
+		"eccbbbbdec",
 	}
 	expectCase := [][]int{
 		{9, 7, 8},
@@ -22,6 +23,7 @@ func Test_PartitionLabels(t *testing.T) {
 		{1, 1, 1},
 		{1, 3},
 		{5},
+		{10},
 	}
 
 	for i, source := range sourceCase {

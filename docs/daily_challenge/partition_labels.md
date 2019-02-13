@@ -1,4 +1,4 @@
-## . Partition Labels
+## 763. Partition Labels
 
 [Code](../../daily_challenge/partition_labels.go)
 

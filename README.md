@@ -61,6 +61,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Buddy Strings](./docs/daily_challenge/buddy_strings.md)
 -   [Insert Interval](./docs/daily_challenge/insert_interval.md)
 -   [Merge Intervals](./docs/daily_challenge/merge_intervals.md)
+-   [Partition Labels](./docs/daily_challenge/partition_labels.md)
 
 
 #### Weekly Contest
