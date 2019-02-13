@@ -5,9 +5,23 @@ import "testing"
 func Test_PartitionLabels(t *testing.T) {
 	sourceCase := []string{
 		"ababcbacadefegdehijhklij",
+		"vvvvooopopttttk",
+		"vvvvooopopttttkk",
+		"p",
+		"ttt",
+		"tkl",
+		"tklk",
+		"tktlk",
 	}
 	expectCase := [][]int{
 		{9, 7, 8},
+		{4, 6, 4, 1},
+		{4, 6, 4, 2},
+		{1},
+		{3},
+		{1, 1, 1},
+		{1, 3},
+		{5},
 	}
 
 	for i, source := range sourceCase {
