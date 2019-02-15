@@ -46,7 +46,6 @@ func findDuplicateOptimize(nums []int) int {
 			}
 		}
 
-		println(low, high, middle, count)
 		if count <= middle {
 			low = middle + 1
 		} else {
