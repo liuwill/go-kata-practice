@@ -19,6 +19,11 @@ func Test_FindDuplicate(t *testing.T) {
 		if target != expect {
 			t.Error("Translate Test_FindDuplicate Fail", expect, target)
 		}
+
+		optimizeTarget := findDuplicateOptimize(source)
+		if optimizeTarget != expect {
+			t.Error("Translate Test_FindDuplicateOptimize Fail", expect, optimizeTarget)
+		}
 	}
 
 	t.Log("Translate Test_FindDuplicate Success")
