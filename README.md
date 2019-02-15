@@ -63,6 +63,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Merge Intervals](./docs/daily_challenge/merge_intervals.md)
 -   [Partition Labels](./docs/daily_challenge/partition_labels.md)
 -   [Find the Duplicate Number](./docs/daily_challenge/find_duplicate.md)
+-   [Missing Number](./docs/daily_challenge/missing_number.md)
 
 
 #### Weekly Contest

@@ -1,5 +1,9 @@
 package daily_challenge
 
+/**
+ * daily-challenge-268
+ * PUZZLE: Missing Number
+ */
 func missingNumber(nums []int) int {
 	target := 0
 	expect := 0
