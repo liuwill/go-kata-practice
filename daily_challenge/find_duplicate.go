@@ -1,7 +1,5 @@
 package daily_challenge
 
-import "fmt"
-
 /**
  * daily-challenge-287
  * PUZZLE: Find the Duplicate Number
@@ -32,7 +30,6 @@ func findDuplicate(nums []int) int {
  */
 func findDuplicateOptimize(nums []int) int {
 	// target := 0
-	fmt.Printf("%v\n", nums)
 
 	low := 1
 	high := len(nums)
