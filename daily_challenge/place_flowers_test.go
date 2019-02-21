@@ -6,14 +6,23 @@ func Test_CanPlaceFlowers(t *testing.T) {
 	sourceCase := [][]int{
 		{1, 0, 0, 0, 1},
 		{1, 0, 0, 0, 1},
+		{1, 0, 0, 0, 0, 1},
+		{0, 0, 1, 0, 1},
+		{0, 0, 1, 0, 0},
 	}
 	attackCase := []int{
 		1,
 		2,
+		2,
+		1,
+		1,
 	}
 	expectCase := []bool{
 		true,
 		false,
+		false,
+		true,
+		true,
 	}
 
 	for i, source := range sourceCase {
