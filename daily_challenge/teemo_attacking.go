@@ -10,17 +10,13 @@ func findPoisonedDuration(timeSeries []int, duration int) int {
 		return attack
 	}
 
-	lastAttack := timeSeries[0]
 	for i := 1; i < len(timeSeries); i++ {
-		current := timeSeries[i]
-		distance := current - lastAttack
+		distance := timeSeries[i] - timeSeries[i-1]
 		if distance > duration {
 			attack += duration
 		} else {
 			attack += distance
 		}
-
-		lastAttack = timeSeries[i]
 	}
 	return attack + duration
 }
