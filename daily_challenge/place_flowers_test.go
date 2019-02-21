@@ -2,6 +2,13 @@ package daily_challenge
 
 import "testing"
 
+func copyArray(source []int) []int {
+	target := make([]int, len(source))
+	copy(target, source)
+
+	return target
+}
+
 func Test_CanPlaceFlowers(t *testing.T) {
 	sourceCase := [][]int{
 		{1, 0, 0, 0, 1},
@@ -9,6 +16,7 @@ func Test_CanPlaceFlowers(t *testing.T) {
 		{1, 0, 0, 0, 0, 1},
 		{0, 0, 1, 0, 1},
 		{0, 0, 1, 0, 0},
+		{1, 0, 0, 0, 1, 0, 0},
 	}
 	attackCase := []int{
 		1,
@@ -16,11 +24,13 @@ func Test_CanPlaceFlowers(t *testing.T) {
 		2,
 		1,
 		1,
+		2,
 	}
 	expectCase := []bool{
 		true,
 		false,
 		false,
+		true,
 		true,
 		true,
 	}
@@ -29,9 +39,14 @@ func Test_CanPlaceFlowers(t *testing.T) {
 		expect := expectCase[i]
 		attack := attackCase[i]
 
-		target := canPlaceFlowers(source, attack)
+		target := canPlaceFlowers(copyArray(source), attack)
 		if target != expect {
 			t.Error("Translate Test_CanPlaceFlowers Fail", expect, target)
+		}
+
+		targetSlow := canPlaceFlowersSlow(copyArray(source), attack)
+		if targetSlow != expect {
+			t.Error("Translate Test_CanPlaceFlowersSlow Fail", source, expect, targetSlow)
 		}
 	}
 
