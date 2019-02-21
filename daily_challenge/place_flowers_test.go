@@ -46,7 +46,12 @@ func Test_CanPlaceFlowers(t *testing.T) {
 
 		targetSlow := canPlaceFlowersSlow(copyArray(source), attack)
 		if targetSlow != expect {
-			t.Error("Translate Test_CanPlaceFlowersSlow Fail", source, expect, targetSlow)
+			t.Error("Translate Test_CanPlaceFlowersSlow Fail", expect, targetSlow)
+		}
+
+		targetFast := canPlaceFlowersFast(copyArray(source), attack)
+		if targetFast != expect {
+			t.Error("Translate canPlaceFlowersFast Fail", expect, targetSlow)
 		}
 	}
 

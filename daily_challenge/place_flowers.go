@@ -40,3 +40,26 @@ func canPlaceFlowersSlow(flowerbed []int, n int) bool {
 	}
 	return n <= 0
 }
+
+func canPlaceFlowersFast(flowerbed []int, n int) bool {
+	find := 1
+	target := 0
+	for _, val := range flowerbed {
+		if val == 0 {
+			find++
+		} else {
+			find = 0
+		}
+
+		if find == 3 {
+			target++
+			find = 1
+		}
+	}
+
+	if find == 2 {
+		target++
+	}
+
+	return target >= n
+}
