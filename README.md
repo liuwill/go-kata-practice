@@ -65,6 +65,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Find the Duplicate Number](./docs/daily_challenge/find_duplicate.md)
 -   [Missing Number](./docs/daily_challenge/missing_number.md)
 -   [Teemo Attacking](./docs/daily_challenge/teemo_attacking.md)
+-   [Can Place Flowers](./docs/daily_challenge/place_flowers.md)
 
 
 #### Weekly Contest
