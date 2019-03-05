@@ -1,5 +1,9 @@
 package daily_challenge
 
+/**
+ * daily-challenge-997
+ * PUZZLE: Find the Town Judge
+ */
 func findJudge(N int, trust [][]int) int {
 	trustMarks := make([]int, N)
 	trustedMarks := make([]int, N)
