@@ -1,4 +1,4 @@
-package weekly_content
+package weekly_contest
 
 import (
 	"testing"
