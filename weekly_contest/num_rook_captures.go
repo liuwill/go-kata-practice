@@ -44,7 +44,7 @@ func numRookCaptures(board [][]byte) int {
 		}
 	}
 
-	for x := posY - 1; x >= 0; x-- {
+	for x := posX - 1; x >= 0; x-- {
 		if board[x][posY] == ENEMY {
 			count++
 			break
@@ -53,7 +53,7 @@ func numRookCaptures(board [][]byte) int {
 		}
 	}
 
-	for x := posY + 1; x < len(board); x++ {
+	for x := posX + 1; x < len(board); x++ {
 		if board[x][posY] == ENEMY {
 			count++
 			break
