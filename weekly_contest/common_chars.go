@@ -1,5 +1,9 @@
 package weekly_contest
 
+/**
+ * daily-challenge-1002
+ * PUZZLE: Find Common Characters
+ */
 func commonChars(A []string) []string {
 	countList := make([]int, 26)
 	FIRST_LETTER := 'a'
@@ -14,8 +18,10 @@ func commonChars(A []string) []string {
 	for pos, count := range countList {
 		letter := rune(pos) + FIRST_LETTER
 
-		if count == len(A) {
+		left := count
+		for left >= len(A) {
 			target = append(target, string(letter))
+			left -= len(A)
 		}
 	}
 
