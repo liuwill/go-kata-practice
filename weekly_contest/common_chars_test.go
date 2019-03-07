@@ -24,10 +24,12 @@ func Test_CommonChars(t *testing.T) {
 	sourceCase := [][]string{
 		{"bella", "label", "roller"},
 		{"cool", "lock", "cook"},
+		{"acabcddd", "bcbdbcbd", "baddbadb", "cbdddcac", "aacbcccd", "ccccddda", "cababaab", "addcaccd"},
 	}
 	expectList := [][]string{
 		{"e", "l", "l"},
 		{"c", "o"},
+		{},
 	}
 
 	for i, source := range sourceCase {

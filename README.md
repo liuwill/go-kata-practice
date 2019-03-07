@@ -78,6 +78,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Squares of a Sorted Array](./docs/weekly_contest/squares_of_a_sorted_array.md)
 -   [String Without AAA or BBB](./docs/weekly_contest/string_without_ab.md)
 -   [Available Captures for Rook](./docs/weekly_contest/num_rook_captures.md)
+-   [Find Common Characters](./docs/weekly_contest/common_chars.md)
 
 
 #### Design

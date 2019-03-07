@@ -6,11 +6,26 @@ package weekly_contest
  */
 func commonChars(A []string) []string {
 	countList := make([]int, 26)
+	countMap := make([][]int, len(A))
 	FIRST_LETTER := 'a'
-	for _, list := range A {
+	for i, list := range A {
+		countMap[i] = make([]int, 26)
 		for _, letter := range list {
 			pos := letter - FIRST_LETTER
-			countList[pos] += 1
+			countMap[i][pos] += 1
+		}
+	}
+
+	for i, _ := range countList {
+		countList[i] = countMap[0][i]
+		for j := 1; j < len(countMap); j++ {
+			if countList[i] > countMap[j][i] {
+				countList[i] = countMap[j][i]
+			}
+
+			if countList[i] == 0 {
+				break
+			}
 		}
 	}
 
@@ -19,9 +34,9 @@ func commonChars(A []string) []string {
 		letter := rune(pos) + FIRST_LETTER
 
 		left := count
-		for left >= len(A) {
+		for left > 0 {
 			target = append(target, string(letter))
-			left -= len(A)
+			left -= 1
 		}
 	}
 
