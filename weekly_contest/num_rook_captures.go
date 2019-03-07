@@ -64,3 +64,38 @@ func numRookCaptures(board [][]byte) int {
 
 	return count
 }
+
+func numRookCapturesFast(board [][]byte) int {
+	count := 0
+	for i, _ := range board {
+		mode := false
+		scanned := false
+		rowCount := 0
+
+		for j, _ := range board[i] {
+			if board[i][j] == CURRENT {
+				mode = true
+				if scanned {
+					rowCount++
+				}
+			}
+
+			if mode {
+				if board[i][j] == ENEMY {
+					rowCount++
+				}
+				if board[i][j] != POINT {
+					break
+				}
+			} else {
+				if board[i][j] == ENEMY {
+					scanned = true
+				} else if board[i][j] == POINT {
+					scanned = false
+				}
+			}
+		}
+	}
+
+	return count
+}
