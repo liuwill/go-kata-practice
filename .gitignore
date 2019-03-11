@@ -6,3 +6,4 @@ coverage.html
 */**/.gitignore
 dist/
 MEMO.md
+*/*.go_

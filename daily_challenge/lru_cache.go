@@ -54,6 +54,9 @@ func (this *LRUCache) Get(key int) int {
 			}
 			if recentNode.Next != nil {
 				recentNode.Next.Prev = recentNode.Prev
+				if recentNode == this.recentHead {
+					this.recentHead = recentNode.Next
+				}
 			}
 
 			if recentNode != this.recentTail {
@@ -105,27 +108,40 @@ func (this *LRUCache) Put(key int, value int) {
 		if expireHash.Next != nil {
 			expireHash.Next.Prev = expireHash.Prev
 		}
-
-		this.hashList[pos] = expireHash.Next
+		if expireHash.Prev != nil {
+			expireHash.Prev.Next = expireHash.Next
+		} else {
+			this.hashList[pos] = expireHash.Next
+		}
+	} else {
+		this.size++
 	}
 
 	// 插入
 	hashHead := this.hashList[hashPos]
 	hashNode.Next = hashHead
 	this.hashList[hashPos] = hashNode
-	if hashHead != nil && hashHead.Next != nil {
-		hashHead.Next.Prev = hashNode
+	if hashHead != nil {
+		hashHead.Prev = hashNode
 	}
+	// if hashHead != nil && hashHead.Next != nil {
+	// 	hashHead.Next.Prev = hashNode
+	// }
 
 	if this.recentHead == nil {
 		this.recentHead = recentNode
 	}
 
-	recentTail := this.recentTail
-	recentNode.Prev = recentTail
-	this.recentTail = recentNode
-	if recentTail != nil && recentTail.Prev != nil {
-		recentTail.Prev.Next = recentNode
+	if this.recentTail == nil {
+		this.recentTail = recentNode
+	} else {
+		recentTail := this.recentTail
+
+		recentNode.Prev = recentTail
+		this.recentTail = recentNode
+		if recentTail != nil {
+			recentTail.Next = recentNode
+		}
 	}
 }
 

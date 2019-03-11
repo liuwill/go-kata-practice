@@ -65,6 +65,7 @@ func numRookCaptures(board [][]byte) int {
 	return count
 }
 
+/*
 func numRookCapturesFast(board [][]byte) int {
 	count := 0
 	for i, _ := range board {
@@ -95,7 +96,10 @@ func numRookCapturesFast(board [][]byte) int {
 				}
 			}
 		}
+
+		count += rowCount
 	}
 
 	return count
 }
+*/
