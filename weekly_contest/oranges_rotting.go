@@ -37,14 +37,19 @@ var actionMap = []func(x int, y int) []int{
 
 func orangesRotting(grid [][]int) int {
 	hasRotting := true
+	hasFresh := false
 	round := 0
 	for hasRotting {
 		hasRotting = false
+		hasFresh = false
 		rottingList := [][]int{}
 
 		for i := 0; i < len(grid); i++ {
 			for j := 0; j < len(grid[i]); j++ {
 				if grid[i][j] != ROTTING_ORANGE {
+					if grid[i][j] == FRESH_ORANGE {
+						hasFresh = true
+					}
 					continue
 				}
 
@@ -69,5 +74,9 @@ func orangesRotting(grid [][]int) int {
 			grid[x][y] = ROTTING_ORANGE
 		}
 	}
-	return len(grid)
+
+	if hasFresh {
+		round = -1
+	}
+	return round
 }
