@@ -80,6 +80,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Available Captures for Rook](./docs/weekly_contest/num_rook_captures.md)
 -   [Find Common Characters](./docs/weekly_contest/common_chars.md)
 -   [Rotting Oranges](./docs/weekly_contest/oranges_rotting.md)
+-   [Powerful Integers](./docs/weekly_contest/powerful_integers.md)
 
 
 #### Design

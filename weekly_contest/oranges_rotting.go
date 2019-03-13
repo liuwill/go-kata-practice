@@ -10,7 +10,9 @@ const (
 	FRESH_ORANGE   = 1
 )
 
-func fetchPoint(grid [][]int, x int, y int) int {
+func fetchPoint(grid [][]int, position []int) int {
+	x := position[0]
+	y := position[1]
 	if x < 0 || y < 0 {
 		return -1
 	} else if x >= len(grid) || y >= len(grid[0]) {
@@ -55,7 +57,7 @@ func orangesRotting(grid [][]int) int {
 
 				for _, actionFunc := range actionMap {
 					position := actionFunc(i, j)
-					val := fetchPoint(grid, position[0], position[1])
+					val := fetchPoint(grid, position)
 					if val == FRESH_ORANGE {
 						rottingList = append(rottingList, position)
 					}

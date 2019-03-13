@@ -7,6 +7,10 @@ func powerInt(num int, power int) int {
 	return int(result)
 }
 
+/**
+ * daily-challenge-970
+ * PUZZLE: Powerful Integers
+ */
 func powerfulIntegers(x int, y int, bound int) []int {
 	source := make([]int, bound+1)
 	for i := 0; powerInt(x, i)+1 <= bound; i++ {
@@ -19,9 +23,9 @@ func powerfulIntegers(x int, y int, bound int) []int {
 	}
 
 	target := []int{}
-	for _, val := range source {
+	for pos, val := range source {
 		if val > 0 {
-			target = append(target, val)
+			target = append(target, pos)
 		}
 	}
 	return target
