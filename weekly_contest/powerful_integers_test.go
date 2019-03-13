@@ -31,7 +31,7 @@ func Test_PowerfulIntegers(t *testing.T) {
 		{2, 3, 4, 5, 7, 9, 10},
 		{2, 4, 6, 8, 10, 14},
 		{2, 3, 5, 9},
-		{},
+		{2, 3, 5, 9, 17, 33, 65},
 	}
 
 	for i, source := range sourceCase {
