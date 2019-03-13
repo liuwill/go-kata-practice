@@ -24,10 +24,14 @@ func Test_PowerfulIntegers(t *testing.T) {
 	sourceCase := [][]int{
 		{2, 3, 10},
 		{3, 5, 15},
+		{2, 1, 10},
+		{1, 2, 100},
 	}
 	expectList := [][]int{
 		{2, 3, 4, 5, 7, 9, 10},
 		{2, 4, 6, 8, 10, 14},
+		{2, 3, 5, 9},
+		{},
 	}
 
 	for i, source := range sourceCase {

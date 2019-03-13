@@ -13,8 +13,8 @@ func powerInt(num int, power int) int {
  */
 func powerfulIntegers(x int, y int, bound int) []int {
 	source := make([]int, bound+1)
-	for i := 0; powerInt(x, i)+1 <= bound; i++ {
-		for j := 0; powerInt(y, j)+1 <= bound; j++ {
+	for i := 0; i <= bound && powerInt(x, i)+1 <= bound; i++ {
+		for j := 0; j <= bound && powerInt(y, j)+1 <= bound; j++ {
 			val := powerInt(x, i) + powerInt(y, j)
 			if val <= bound {
 				source[val]++
