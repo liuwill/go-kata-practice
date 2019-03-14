@@ -43,6 +43,7 @@ func isCousins(root *TreeNode, x int, y int) bool {
 		if mark[0] != mark[1] && mark[0] >= 0 && mark[1] >= 0 {
 			return true
 		}
+		treeStack = currentLevel
 	}
 	return false
 }
