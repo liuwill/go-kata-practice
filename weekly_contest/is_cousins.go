@@ -23,7 +23,8 @@ func isCousins(root *TreeNode, x int, y int) bool {
 		top := 0
 		currentLevel := []*TreeNode{}
 		mark := []int{-1, -1}
-		for current := treeStack[top]; top < len(treeStack); top++ {
+		for ; top < len(treeStack); top++ {
+			current := treeStack[top]
 			if current.Left != nil {
 				currentLevel = append(currentLevel, current.Left)
 			}

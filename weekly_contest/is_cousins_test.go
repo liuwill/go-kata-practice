@@ -1,36 +1,53 @@
 package weekly_contest
 
-import "testing"
+import (
+	"testing"
+)
 
 func buildBinaryTree(list []int) *TreeNode {
 	if len(list) < 1 {
 		return nil
 	}
+	nodeList := make([]*TreeNode, len(list))
+	top := 1
+	tail := 1
 
 	root := &TreeNode{
 		Val:   list[0],
 		Left:  nil,
 		Right: nil,
 	}
+	nodeList[0] = root
 	parent := root
 	mode := false
 	for i := 1; i < len(list); i++ {
 		val := list[i]
-		if mode == false {
-			parent.Left = &TreeNode{
-				Val:   val,
-				Left:  nil,
-				Right: nil,
-			}
-		} else {
-			parent.Right = &TreeNode{
-				Val:   val,
-				Left:  nil,
-				Right: nil,
-			}
-			parent = parent.Left
+		newNode := &TreeNode{
+			Val:   val,
+			Left:  nil,
+			Right: nil,
+		}
+		if val == -1 {
+			newNode = nil
 		}
 
+		nodeList[tail] = newNode
+		tail++
+
+		if mode == false {
+			parent.Left = newNode
+			mode = true
+		} else {
+			parent.Right = newNode
+			for ; top < tail; top++ {
+				if nodeList[top] != nil {
+					parent = nodeList[top]
+					top++
+					break
+				}
+			}
+			mode = false
+		}
 	}
 
 	return root
@@ -39,12 +56,15 @@ func buildBinaryTree(list []int) *TreeNode {
 func Test_IsCousins(t *testing.T) {
 	rootCase := [][]int{
 		{1, 2, 3, 4},
+		{1, 2, 3, -1, 4, -1, 5},
 	}
 	sourceCase := [][]int{
 		{4, 3},
+		{5, 4},
 	}
 	expectList := []bool{
 		false,
+		true,
 	}
 
 	for i, source := range sourceCase {
@@ -54,7 +74,7 @@ func Test_IsCousins(t *testing.T) {
 
 		target := isCousins(treeRoot, source[0], source[1])
 		if target != expect {
-			t.Error("Run Test_IsCousins Fail", expect, target)
+			t.Error("Run Test_IsCousins Fail", expect, target, root)
 		}
 	}
 
