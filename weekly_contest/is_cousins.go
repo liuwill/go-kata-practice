@@ -1,11 +1,5 @@
 package weekly_contest
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -14,6 +8,17 @@ type TreeNode struct {
  *     Right *TreeNode
  * }
  */
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+/**
+ * daily-challenge-993
+ * PUZZLE: Cousins in Binary Tree
+ */
+
 func isCousins(root *TreeNode, x int, y int) bool {
 	treeStack := []*TreeNode{
 		root,

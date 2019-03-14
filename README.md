@@ -81,6 +81,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Find Common Characters](./docs/weekly_contest/common_chars.md)
 -   [Rotting Oranges](./docs/weekly_contest/oranges_rotting.md)
 -   [Powerful Integers](./docs/weekly_contest/powerful_integers.md)
+-   [Cousins in Binary Tree](./docs/weekly_contest/is_cousins.md)
 
 
 #### Design
