@@ -48,10 +48,10 @@ func orangesRotting(grid [][]int) int {
 
 		for i := 0; i < len(grid); i++ {
 			for j := 0; j < len(grid[i]); j++ {
+				if grid[i][j] == FRESH_ORANGE {
+					hasFresh = true
+				}
 				if grid[i][j] != ROTTING_ORANGE {
-					if grid[i][j] == FRESH_ORANGE {
-						hasFresh = true
-					}
 					continue
 				}
 

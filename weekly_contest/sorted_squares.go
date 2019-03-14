@@ -62,12 +62,11 @@ func sortedSquares(A []int) []int {
 		if topVal > endVal {
 			right++
 			result[pos] = endVal
-			pos++
 		} else {
 			left++
 			result[pos] = topVal
-			pos++
 		}
+		pos++
 	}
 	return result
 }
