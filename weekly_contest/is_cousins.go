@@ -24,6 +24,7 @@ func isCousins(root *TreeNode, x int, y int) bool {
 		root,
 	}
 
+	source := []int{x, y}
 	for len(treeStack) > 0 {
 		top := 0
 		currentLevel := []*TreeNode{}
@@ -32,17 +33,20 @@ func isCousins(root *TreeNode, x int, y int) bool {
 			current := treeStack[top]
 			if current.Left != nil {
 				currentLevel = append(currentLevel, current.Left)
+				for i, v := range source {
+					if current.Left.Val == v {
+						mark[i] = top
+					}
+				}
 			}
 
 			if current.Right != nil {
 				currentLevel = append(currentLevel, current.Right)
-			}
-
-			if current.Val == x {
-				mark[0] = top
-			}
-			if current.Val == y {
-				mark[1] = top
+				for i, v := range source {
+					if current.Right.Val == v {
+						mark[i] = top
+					}
+				}
 			}
 		}
 

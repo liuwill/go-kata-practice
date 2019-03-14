@@ -58,15 +58,18 @@ func Test_IsCousins(t *testing.T) {
 		{1, 2, 3, 4},
 		{1, 2, 3, -1, 4, -1, 5},
 		{1, 2, 3, -1, 4},
+		{1, 2, 3, -1, 4},
 	}
 	sourceCase := [][]int{
 		{4, 3},
 		{5, 4},
 		{3, 4},
+		{2, 3},
 	}
 	expectList := []bool{
 		false,
 		true,
+		false,
 		false,
 	}
 
