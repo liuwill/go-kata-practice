@@ -11,6 +11,9 @@ func bitwiseComplement(N int) int {
 	source := ""
 
 	copy := N
+	if copy == 0 {
+		return 1
+	}
 	for copy > 0 {
 		bit := copy % 2
 		source = string(bit) + source

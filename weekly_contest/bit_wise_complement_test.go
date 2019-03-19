@@ -9,11 +9,13 @@ func Test_BitwiseComplement(t *testing.T) {
 		5,
 		7,
 		10,
+		0,
 	}
 	expectList := []int{
 		2,
 		0,
 		5,
+		1,
 	}
 
 	for i, source := range sourceCase {
