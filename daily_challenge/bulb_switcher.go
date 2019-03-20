@@ -7,8 +7,8 @@ package daily_challenge
 func bulbSwitch(n int) int {
 	list := make([]int, n)
 
-	for i := 1; i <= n; i++ {
-		for pos := 1; pos < n; pos += i + 1 {
+	for i := 0; i < n; i++ {
+		for pos := i; pos < n; pos += i + 1 {
 			list[pos] = list[pos] ^ 1
 		}
 	}

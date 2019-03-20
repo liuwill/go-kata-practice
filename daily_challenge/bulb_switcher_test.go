@@ -7,9 +7,11 @@ import (
 func Test_BulbSwitch(t *testing.T) {
 	sourceCase := []int{
 		3,
+		5,
 	}
 	expectList := []int{
 		1,
+		2,
 	}
 
 	for i, source := range sourceCase {
