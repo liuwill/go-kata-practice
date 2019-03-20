@@ -22,3 +22,22 @@ func bulbSwitch(n int) int {
 	// fmt.Printf("BULB: %v \n", list)
 	return target
 }
+
+func bulbSwitchEasy(n int) int {
+	count := 0
+	for i := 1; i <= n; i++ {
+		pos := i
+		round := 0
+		for j := 1; j <= pos; j++ {
+			if pos%j == 0 {
+				round = round ^ 1
+			}
+		}
+
+		if round == 1 {
+			count++
+		}
+	}
+
+	return count
+}
