@@ -84,6 +84,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Powerful Integers](./docs/weekly_contest/powerful_integers.md)
 -   [Cousins in Binary Tree](./docs/weekly_contest/is_cousins.md)
 -   [Complement of Base 10 Integer](./docs/weekly_contest/bit_wise_complement.md)
+-   [Best Sightseeing Pair](./docs/weekly_contest/best_sightseeing_pair.md)
 
 
 #### Design

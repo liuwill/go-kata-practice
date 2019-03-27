@@ -17,6 +17,11 @@ func Test_MaxScoreSightseeingPair(t *testing.T) {
 		if target != expect {
 			t.Error("Run Test_MaxScoreSightseeingPair Fail", expect, target)
 		}
+
+		targetFast := maxScoreSightseeingPairFast(source)
+		if target != expect {
+			t.Error("Run Test_MaxScoreSightseeingPair maxScoreSightseeingPairFast Fail", expect, targetFast)
+		}
 	}
 
 	t.Log("Run Test_MaxScoreSightseeingPair Success")
