@@ -5,12 +5,18 @@ import "testing"
 func Test_ShipWithinDays(t *testing.T) {
 	sourceCase := [][]int{
 		{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+		{3, 2, 2, 4, 1, 4},
+		{1, 2, 3, 1, 1},
 	}
 	dayCase := []int{
 		5,
+		3,
+		4,
 	}
 	expectList := []int{
 		15,
+		6,
+		3,
 	}
 
 	for i, source := range sourceCase {

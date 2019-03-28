@@ -1,5 +1,9 @@
 package weekly_contest
 
+/**
+ * daily-challenge-1014
+ * PUZZLE: Capacity To Ship Packages Within D Days
+ */
 func shipWithinDays(weights []int, D int) int {
 	target := 0
 	max := 0
