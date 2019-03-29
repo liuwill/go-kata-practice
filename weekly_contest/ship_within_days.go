@@ -15,7 +15,7 @@ func shipWithinDays(weights []int, D int) int {
 		total += val
 	}
 
-	for target = max; target < len(weights)*D; target++ {
+	for target = max; target < total; target++ {
 		w := target
 		count := 1
 
