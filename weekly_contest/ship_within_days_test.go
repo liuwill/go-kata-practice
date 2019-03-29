@@ -32,6 +32,11 @@ func Test_ShipWithinDays(t *testing.T) {
 		if target != expect {
 			t.Error("Run Test_ShipWithinDays Fail", expect, target)
 		}
+
+		targetBinary := shipWithinDaysBinary(source, dayCase[i])
+		if targetBinary != expect {
+			t.Error("Run Test_ShipWithinDaysBinary Fail", expect, targetBinary)
+		}
 	}
 
 	t.Log("Run Test_ShipWithinDays Success")

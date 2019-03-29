@@ -6,16 +6,16 @@ package weekly_contest
  */
 func shipWithinDays(weights []int, D int) int {
 	target := 0
+	min := 0
 	max := 0
-	total := 0
 	for _, val := range weights {
-		if val > max {
-			max = val
+		if val > min {
+			min = val
 		}
-		total += val
+		max += val
 	}
 
-	for target = max; target < total; target++ {
+	for target = min; target < max; target++ {
 		w := target
 		count := 1
 
@@ -37,4 +37,40 @@ func shipWithinDays(weights []int, D int) int {
 		}
 	}
 	return target
+}
+
+func shipWithinDaysBinary(weights []int, D int) int {
+	min := 0
+	max := 0
+	for _, val := range weights {
+		if val > min {
+			min = val
+		}
+		max += val
+	}
+	if max/len(weights) > min {
+		min = max / len(weights)
+	}
+
+	for min < max {
+		mid := (min + max) / 2
+		days := 1
+		weight := 0
+
+		for _, val := range weights {
+			if val+weight > mid {
+				weight = 0
+				days++
+			}
+			weight += val
+		}
+
+		if days <= D {
+			max = mid
+		} else {
+			min = mid + 1
+		}
+	}
+
+	return min
 }
