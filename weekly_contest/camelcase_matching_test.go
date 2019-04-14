@@ -7,12 +7,18 @@ import (
 func Test_CamelMatch(t *testing.T) {
 	sourceCase := [][]string{
 		[]string{"FooBar", "FooBarTest", "FootBall", "FrameBuffer", "ForceFeedBack"},
+		[]string{"FooBar", "FooBarTest", "FootBall", "FrameBuffer", "ForceFeedBack"},
+		[]string{"FooBar", "FooBarTest", "FootBall", "FrameBuffer", "ForceFeedBack"},
 	}
 	patternCase := []string{
 		"FB",
+		"FoBa",
+		"FoBaT",
 	}
 	expectList := [][]bool{
 		[]bool{true, false, true, true, false},
+		[]bool{true, false, true, false, false},
+		[]bool{false, true, false, false, false},
 	}
 
 	for i, source := range sourceCase {

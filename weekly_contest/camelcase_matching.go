@@ -12,7 +12,6 @@ func camelMatch(queries []string, pattern string) []bool {
 
 		p := 0
 		answer := false
-		// itemList := []rune(item)
 		i := 0
 		for ; i < len(item) && p < len(pattern); i++ {
 			letter := item[i]
@@ -20,16 +19,18 @@ func camelMatch(queries []string, pattern string) []bool {
 
 			if letter == current {
 				p++
+			} else if item[i] < 'a' || item[i] > 'z' {
+				break
 			}
 		}
 
-		if p == len(pattern)-1 {
+		if p == len(pattern) {
 			answer = true
 		}
 
-		if i < len(item) {
+		if i < len(item) && answer {
 			for ; i < len(item); i++ {
-				if item[i] >= 'A' {
+				if item[i] < 'a' || item[i] > 'z' {
 					answer = false
 				}
 			}
