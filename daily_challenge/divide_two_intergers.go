@@ -17,9 +17,18 @@ func divide(dividend int, divisor int) int {
 		divisor *= -1
 	}
 
-	for dividend > divisor {
-		dividend -= divisor
-		result++
+	step := 1
+	currentDiv := divisor
+	for dividend >= currentDiv {
+		result += step
+		dividend -= currentDiv
+		currentDiv += currentDiv
+		step += step
+
+		if dividend < currentDiv {
+			currentDiv = divisor
+			step = 1
+		}
 	}
 
 	if mark {
