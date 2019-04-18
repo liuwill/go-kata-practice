@@ -68,6 +68,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Can Place Flowers](./docs/daily_challenge/place_flowers.md)
 -   [Find the Town Judge](./docs/daily_challenge/find_judge.md)
 -   [Binary Number with Alternating Bits](./docs/daily_challenge/has_alternatin_bits.md)
+-   [Divide Two Integers](./docs/daily_challenge/divide_two_intergers.md)
 
 
 #### Weekly Contest

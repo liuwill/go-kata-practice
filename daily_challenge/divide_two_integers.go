@@ -2,6 +2,10 @@ package daily_challenge
 
 import "math"
 
+/**
+ * daily-challenge-29
+ * PUZZLE: Divide Two Integers
+ */
 func divide(dividend int, divisor int) int {
 	result := 0
 	max := int(math.Pow(2, 31) - 1)

@@ -1,6 +1,6 @@
 ## 29. Divide Two Integers
 
-[Code](../../daily_challenge/divide_two_intergers.go)
+[Code](../../daily_challenge/divide_two_integers.go)
 
 ```
 Given two integers dividend and divisor, divide two integers without using multiplication, division and mod operator.
