@@ -17,19 +17,19 @@ func divide(dividend int, divisor int) int {
 		divisor *= -1
 	}
 
-	for dividend >= divisor {
+	for dividend > divisor {
 		dividend -= divisor
-
-		if mark {
-			result--
-		} else {
-			result++
-		}
-
-		if result >= max || result <= min {
-			break
-		}
+		result++
 	}
 
+	if mark {
+		result = -result
+	}
+
+	if result > max {
+		return max
+	} else if result < min {
+		return min
+	}
 	return result
 }
