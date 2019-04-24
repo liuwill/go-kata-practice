@@ -88,6 +88,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Best Sightseeing Pair](./docs/weekly_contest/best_sightseeing_pair.md)
 -   [Capacity To Ship Packages Within D Days](./docs/weekly_contest/ship_within_days.md)
 -   [Camelcase Matching](./docs/weekly_contest/camelcase_matching.md)
+-   [Two City Scheduling](./docs/weekly_contest/two_city_scheduling.md)
 
 
 #### Design
