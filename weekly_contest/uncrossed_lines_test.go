@@ -8,9 +8,19 @@ func Test_MaxUncrossedLines(t *testing.T) {
 			{1, 4, 2},
 			{1, 2, 4},
 		},
+		[][]int{
+			{2, 5, 1, 2, 5},
+			{10, 5, 2, 1, 5, 2},
+		},
+		[][]int{
+			{1, 3, 7, 1, 7, 5},
+			{1, 9, 2, 5, 1},
+		},
 	}
 	expectList := []int{
+		2,
 		3,
+		2,
 	}
 
 	for i, source := range sourceCase {

@@ -8,15 +8,21 @@ func maxUncrossedLines(A []int, B []int) int {
 		dict[i] = make([]int, bLen)
 	}
 
-	for j := 0; j < bLen; j++ {
-		if A[0] == B[j] {
-			dict[0][j] = 1
+	for i := 0; i < aLen; i++ {
+		if A[i] == B[0] {
+			for k := i; k < aLen; k++ {
+				dict[k][0] = 1
+			}
+			break
 		}
 	}
 
-	for i := 0; i < aLen; i++ {
-		if A[i] == B[0] {
-			dict[i][0] = 1
+	for j := 0; j < bLen; j++ {
+		if A[0] == B[j] {
+			for k := j; k < bLen; k++ {
+				dict[0][k] = 1
+			}
+			break
 		}
 	}
 
