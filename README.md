@@ -89,6 +89,8 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Capacity To Ship Packages Within D Days](./docs/weekly_contest/ship_within_days.md)
 -   [Camelcase Matching](./docs/weekly_contest/camelcase_matching.md)
 -   [Two City Scheduling](./docs/weekly_contest/two_city_scheduling.md)
+-   [Uncrossed Lines](./docs/weekly_contest/uncrossed_lines.md)
+-   [Moving Stones Until Consecutive](./docs/weekly_contest/num_moves_stones.md)
 
 
 #### Design

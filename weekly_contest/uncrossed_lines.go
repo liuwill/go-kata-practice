@@ -1,5 +1,9 @@
 package weekly_contest
 
+/**
+ * weekly-contest-1035
+ * PUZZLE: Uncrossed Lines
+ */
 func maxUncrossedLines(A []int, B []int) int {
 	aLen := len(A)
 	bLen := len(B)
