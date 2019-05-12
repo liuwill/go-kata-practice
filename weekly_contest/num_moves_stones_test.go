@@ -20,7 +20,7 @@ func Test_NumMovesStones(t *testing.T) {
 		expect := expectList[i]
 
 		target := numMovesStones(source[0], source[1], source[2])
-		if len(target) == 2 && target[0] != expect[0] && target[1] != expect[1] {
+		if len(target) != 2 || (target[0] != expect[0] || target[1] != expect[1]) {
 			t.Error("Run Test_NumMovesStones Fail", expect, target)
 		}
 	}
