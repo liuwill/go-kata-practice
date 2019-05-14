@@ -91,6 +91,7 @@ JUST make some practice, In this repository questions came from leetcode
 -   [Two City Scheduling](./docs/weekly_contest/two_city_scheduling.md)
 -   [Uncrossed Lines](./docs/weekly_contest/uncrossed_lines.md)
 -   [Moving Stones Until Consecutive](./docs/weekly_contest/num_moves_stones.md)
+-   [Flower Planting With No Adjacent](./docs/weekly_contest/garden_no_adj.md)
 
 
 #### Design
