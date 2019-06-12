@@ -41,9 +41,9 @@ func Test_FindOccurrences(t *testing.T) {
 
 		target := findOcurrences(source[0], source[1], source[2])
 		if !compareStringList(target, expect) {
-			t.Error("Run Test_FindOcurrences Fail", expect, target)
+			t.Error("Run Test_FindOccurrences Fail", expect, target)
 		}
 	}
 
-	t.Log("Run Test_FindOcurrences Success")
+	t.Log("Run Test_FindOccurrences Success")
 }
