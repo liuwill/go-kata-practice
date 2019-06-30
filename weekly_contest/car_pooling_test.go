@@ -25,6 +25,11 @@ func Test_CarPooling(t *testing.T) {
 		if target != expect {
 			t.Error("Run Test_CarPooling Fail", i, expect, target)
 		}
+
+		targetFast := carPoolingFast(source, capacity)
+		if targetFast != expect {
+			t.Error("Run Test_CarPoolingFast Fail", i, expect, targetFast)
+		}
 	}
 
 	t.Log("Run Test_CarPooling Success")
