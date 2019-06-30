@@ -6,10 +6,15 @@ package weekly_contest
  */
 func carPooling(trips [][]int, capacity int) bool {
 	tripLen := len(trips)
-	roadLen := trips[tripLen-1][2]
+	roadLen := 0
+	for i := 0; i < len(trips); i++ {
+		if trips[i][2] > roadLen {
+			roadLen = trips[i][2]
+		}
+	}
 	posData := make([]int, roadLen)
 
-	for pos := 0; pos < len(trips); pos++ {
+	for pos := 0; pos < tripLen; pos++ {
 		tripStep := trips[pos]
 		num := tripStep[0]
 		for i := tripStep[1]; i < tripStep[2]; i++ {
