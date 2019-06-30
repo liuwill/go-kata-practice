@@ -93,6 +93,7 @@
 -   [Moving Stones Until Consecutive](./docs/weekly_contest/num_moves_stones.md)
 -   [Flower Planting With No Adjacent](./docs/weekly_contest/garden_no_adj.md)
 -   [Occurrences After Bigram](./docs/weekly_contest/find_ocurrences.md)
+-   [Car Pooling](./docs/weekly_contest/car_pooling.md)
 
 
 #### Design

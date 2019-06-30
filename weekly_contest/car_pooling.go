@@ -1,7 +1,13 @@
 package weekly_contest
 
+/**
+ * daily-challenge-1094
+ * PUZZLE: Car Pooling
+ */
 func carPooling(trips [][]int, capacity int) bool {
-	posData := make([]int, 1000)
+	tripLen := len(trips)
+	roadLen := trips[tripLen-1][2]
+	posData := make([]int, roadLen)
 
 	for pos := 0; pos < len(trips); pos++ {
 		tripStep := trips[pos]
@@ -11,7 +17,8 @@ func carPooling(trips [][]int, capacity int) bool {
 		}
 	}
 
-	for num := range posData {
+	for i := 0; i < len(posData); i++ {
+		num := posData[i]
 		if num > capacity {
 			return false
 		}
