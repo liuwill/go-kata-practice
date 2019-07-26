@@ -5,6 +5,25 @@ package weekly_contest
  * PUZZLE: Distribute Candies to People
  */
 func distributeCandies(candies int, num_people int) []int {
+	result := make([]int, num_people)
+
+	pos := 0
+	for start := 1; candies > 0; start++ {
+		current := start
+		if current > candies {
+			current = candies
+		}
+		result[pos] += current
+
+		pos = (pos + 1) % num_people
+		candies -= current
+	}
+
+	return result
+}
+
+/*
+func distributeCandies(candies int, num_people int) []int {
 	sum := func(n int) int { return n * (n + 1) / 2 }
 	current := 0
 	last := 0
@@ -35,3 +54,4 @@ func distributeCandies(candies int, num_people int) []int {
 	}
 	return result
 }
+*/
