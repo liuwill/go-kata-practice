@@ -94,6 +94,7 @@
 -   [Flower Planting With No Adjacent](./docs/weekly_contest/garden_no_adj.md)
 -   [Occurrences After Bigram](./docs/weekly_contest/find_ocurrences.md)
 -   [Car Pooling](./docs/weekly_contest/car_pooling.md)
+-   [Corporate Flight Bookings](./docs/weekly_contest/flight_bookings.md)
 
 
 #### Design

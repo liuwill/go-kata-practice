@@ -1,5 +1,9 @@
 package weekly_contest
 
+/**
+ * daily-challenge-1109
+ * PUZZLE: Corporate Flight Bookings
+ */
 func corpFlightBookings(bookings [][]int, n int) []int {
 	result := make([]int, n)
 
