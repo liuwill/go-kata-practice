@@ -9,21 +9,49 @@ func doMove(source []int, target []int) string {
 	vDistance := target[0] - source[0]
 	pDistance := target[1] - source[1]
 
+	vNum := 0
+	pNum := 0
+
 	if vDistance > 0 {
-		vLetter = strings.Repeat("D", vDistance)
+		vLetter = "D"
+		vNum = vDistance
 	} else if vDistance < 0 {
-		vLetter = strings.Repeat("U", vDistance*-1)
+		vLetter = "U"
+		vNum = vDistance * -1
 	}
 
 	if pDistance > 0 {
-		pLetter = strings.Repeat("R", pDistance)
+		pLetter = "R"
+		pNum = pDistance
 	} else if pDistance < 0 {
-		pLetter = strings.Repeat("L", pDistance*-1)
+		pLetter = "L"
+		pNum = pDistance * -1
 	}
 
-	return vLetter + pLetter + "!"
+	zMark := false
+	if target[0] == 5 && pNum > 0 && vNum > 0 {
+		zMark = true
+		vNum--
+	}
+
+	result := ""
+	if vNum > 0 {
+		result += strings.Repeat(vLetter, vNum)
+	}
+	if pNum > 0 {
+		result += strings.Repeat(pLetter, pNum)
+	}
+	if zMark {
+		result += vLetter
+	}
+
+	return result + "!"
 }
 
+/**
+ * daily-challenge-1138
+ * PUZZLE: Alphabet Board Path
+ */
 func alphabetBoardPath(target string) string {
 	start := 'a'
 	board := []string{"abcde", "fghij", "klmno", "pqrst", "uvwxy", "z"}
