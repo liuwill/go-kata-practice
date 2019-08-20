@@ -1,5 +1,9 @@
 package weekly_contest
 
+/**
+ * daily-challenge-1163
+ * PUZZLE: Last Substring in Lexicographical Order
+ */
 func lastSubstring(s string) string {
 	big := 'a'
 	positions := []int{}

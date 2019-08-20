@@ -99,6 +99,7 @@
 -   [Distribute Candies to People](./docs/weekly_contest/distribute_candies.md)
 -   [Alphabet Board Path](./docs/weekly_contest/alphabet_board_path.md)
 -   [As Far from Land as Possible](./docs/weekly_contest/far_land_possible.md)
+-   [Last Substring in Lexicographical Order](./docs/weekly_contest/last_substring_order.md)
 
 #### Design
 -   [Design Twitter](./docs/design_twitter.md)
