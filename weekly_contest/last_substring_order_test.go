@@ -5,10 +5,10 @@ import "testing"
 func Test_LastSubstring(t *testing.T) {
 	mapCase := []string{
 		"abab",
-		"bab",
+		"leetcode",
 	}
 	expectList := []string{
-		"leetcode",
+		"bab",
 		"tcode",
 	}
 
