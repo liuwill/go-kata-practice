@@ -98,6 +98,7 @@
 -   [Defanging an IP Address](./docs/weekly_contest/defang_ip_addr.md)
 -   [Distribute Candies to People](./docs/weekly_contest/distribute_candies.md)
 -   [Alphabet Board Path](./docs/weekly_contest/alphabet_board_path.md)
+-   [As Far from Land as Possible](./docs/weekly_contest/far_land_possible.md)
 
 #### Design
 -   [Design Twitter](./docs/design_twitter.md)
