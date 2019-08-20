@@ -55,5 +55,8 @@ func maxDistance(grid [][]int) int {
 			}
 		}
 	}
+	if max == 0 {
+		max = -1
+	}
 	return max
 }
