@@ -38,3 +38,39 @@ func countCharacters(words []string, chars string) int {
 
 	return count
 }
+
+func parseCharactersWord(word string) []int {
+	meta := make([]int, 26)
+	for _, l := range word {
+		meta[l-'a']++
+	}
+	return meta
+}
+
+func countWordMatchs(meta []int, word string) int {
+	count := 0
+	current := make([]int, 26)
+	for _, l := range word {
+		pos := l - 'a'
+
+		current[pos]++
+		if current[pos] > meta[pos] {
+			return 0
+		}
+		count++
+	}
+	return count
+}
+
+/**
+ * Smart Answer
+ */
+func countCharactersSmart(words []string, chars string) int {
+	meta := parseCharactersWord(chars)
+
+	count := 0
+	for _, word := range words {
+		count += countWordMatchs(meta, word)
+	}
+	return count
+}

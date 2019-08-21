@@ -24,6 +24,11 @@ func Test_CountCharacters(t *testing.T) {
 		if target != expect {
 			t.Error("Run Test_CountCharacters Fail", expect, target)
 		}
+
+		smart := countCharactersSmart(words, chars)
+		if smart != expect {
+			t.Error("Run Test_CountCharactersSmart Fail", expect, smart)
+		}
 	}
 
 	t.Log("Run Test_CountCharacters Success")
