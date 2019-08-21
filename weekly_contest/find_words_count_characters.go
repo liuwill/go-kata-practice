@@ -1,5 +1,9 @@
 package weekly_contest
 
+/**
+ * daily-challenge-1160
+ * PUZZLE: Find Words That Can Be Formed by Characters
+ */
 func countCharacters(words []string, chars string) int {
 	letterMap := make(map[rune]int)
 
@@ -13,14 +17,20 @@ func countCharacters(words []string, chars string) int {
 	count := 0
 	for _, word := range words {
 		match := 0
+
+		currentMap := make(map[rune]int)
+		for k, v := range letterMap {
+			currentMap[k] = v
+		}
+
 		for _, l := range word {
-			if _, ok := letterMap[l]; !ok || letterMap[l] <= 0 {
+			if _, ok := currentMap[l]; !ok || currentMap[l] <= 0 {
 				match = 0
 				break
 			}
 
 			match++
-			letterMap[l]--
+			currentMap[l]--
 		}
 
 		count += match
