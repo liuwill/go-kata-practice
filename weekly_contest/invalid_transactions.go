@@ -46,14 +46,12 @@ func invalidTransactions(transactions []string) []string {
 			mark[i] = 1
 		}
 
-		if _, ok := history[transaction.Name]; ok {
-			for _, curTrans := range history[transaction.Name] {
-				if curTrans.City != transaction.City &&
-					curTrans.Minute-transaction.Minute <= MAX_MINUTE &&
-					curTrans.Minute-transaction.Minute >= -MAX_MINUTE {
-					mark[i] = 1
-					mark[curTrans.Pos] = 1
-				}
+		for _, curTrans := range history[transaction.Name] {
+			if curTrans.City != transaction.City &&
+				curTrans.Minute-transaction.Minute <= MAX_MINUTE &&
+				curTrans.Minute-transaction.Minute >= -MAX_MINUTE {
+				mark[i] = 1
+				mark[curTrans.Pos] = 1
 			}
 		}
 
