@@ -6,12 +6,23 @@ import (
 	"strings"
 )
 
-func invalidTransactions(transactions []string) []string {
-	MAX_AMOUNT := 1000
-	MAX_MINUTE := 60
-	nameDict := map[string]map[int][]string{}
+const (
+	MAX_AMOUNT = 1000
+	MAX_MINUTE = 60
+)
 
-	size := 0
+type Meta struct {
+	Pos  int
+	City string
+}
+
+/**
+ * daily-challenge-1169
+ * PUZZLE: Invalid Transactions
+ */
+func invalidTransactions(transactions []string) []string {
+	nameDict := map[string]map[int]Meta{}
+
 	mark := make([]int, len(transactions))
 	for i, v := range transactions {
 		meta := strings.Split(v, ",")
@@ -19,36 +30,33 @@ func invalidTransactions(transactions []string) []string {
 		minute, _ := strconv.Atoi(meta[1])
 		if num, _ := strconv.Atoi(meta[2]); num > MAX_AMOUNT {
 			mark[i] = 1
-			size++
-		} else if _, ok := nameDict[meta[0]]; ok {
-			for curMin, curData := range nameDict[meta[0]] {
-				city := curData[1]
-				pos, _ := strconv.Atoi(curData[0])
-				if city != meta[3] && int(math.Abs(float64(minute-curMin))) <= MAX_MINUTE {
-					mark[i] = 1
-					size++
-				}
+		}
 
-				if mark[pos] == 0 {
-					mark[pos] = 1
-					size++
+		if _, ok := nameDict[meta[0]]; ok {
+			for curMin, curMeta := range nameDict[meta[0]] {
+				if curMeta.City != meta[3] && int(math.Abs(float64(minute-curMin))) <= MAX_MINUTE {
+					mark[i] = 1
+					mark[curMeta.Pos] = 1
 				}
 			}
 		}
 
 		if _, ok := nameDict[meta[0]]; !ok {
-			nameDict[meta[0]] = map[int][]string{}
+			nameDict[meta[0]] = map[int]Meta{}
 		}
-		nameDict[meta[0]][minute] = []string{string(i), meta[3]}
+		nameDict[meta[0]][minute] = Meta{
+			City: meta[3],
+			Pos:  i,
+		}
 	}
 
-	j := 0
-	target := make([]string, size)
+	target := []string{}
 	for i, v := range mark {
-		if v == 1 {
-			target[j] = transactions[i]
-			j++
+		if v == 0 {
+			continue
 		}
+
+		target = append(target, transactions[i])
 	}
 	return target
 }

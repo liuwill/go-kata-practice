@@ -101,6 +101,7 @@
 -   [As Far from Land as Possible](./docs/weekly_contest/far_land_possible.md)
 -   [Last Substring in Lexicographical Order](./docs/weekly_contest/last_substring_order.md)
 -   [Find Words That Can Be Formed by Characters](./docs/weekly_contest/find_words_count_characters.md)
+-   [Invalid Transactions](./docs/weekly_contest/invalid_transactions.md)
 
 #### Design
 -   [Design Twitter](./docs/design_twitter.md)
