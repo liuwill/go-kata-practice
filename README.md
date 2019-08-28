@@ -69,6 +69,7 @@
 -   [Find the Town Judge](./docs/daily_challenge/find_judge.md)
 -   [Binary Number with Alternating Bits](./docs/daily_challenge/has_alternatin_bits.md)
 -   [Divide Two Integers](./docs/daily_challenge/divide_two_intergers.md)
+-   [Repeated Substring Pattern](./docs/daily_challenge/repeated_substring_pattern.md)
 
 
 #### Weekly Contest
