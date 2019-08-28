@@ -27,6 +27,11 @@ func Test_InvalidTransactions(t *testing.T) {
 		if !compareStringList(target, expect) {
 			t.Error("Run Test_InvalidTransactions Fail", expect, target)
 		}
+
+		targetCost := invalidTransactionsCost(source)
+		if !compareStringList(targetCost, expect) {
+			t.Error("Run Test_InvalidTransactionsCost Fail", expect, targetCost)
+		}
 	}
 
 	t.Log("Run Test_InvalidTransactions Success")

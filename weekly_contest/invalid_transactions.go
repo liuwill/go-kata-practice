@@ -15,12 +15,70 @@ type Meta struct {
 	Pos  int
 	City string
 }
+type Transaction struct {
+	Name   string
+	Minute int
+	Amount int
+	City   string
+	Pos    int
+}
+
+func parseTransaction(raw string, pos int) Transaction {
+	meta := strings.Split(raw, ",")
+	minute, _ := strconv.Atoi(meta[1])
+	amount, _ := strconv.Atoi(meta[2])
+	return Transaction{
+		Name:   meta[0],
+		Minute: minute,
+		Amount: amount,
+		City:   meta[3],
+		Pos:    pos,
+	}
+}
+
+func invalidTransactions(transactions []string) []string {
+	history := make(map[string][]Transaction)
+
+	mark := make([]int, len(transactions))
+	for i, v := range transactions {
+		transaction := parseTransaction(v, i)
+		if transaction.Amount > MAX_AMOUNT {
+			mark[i] = 1
+		}
+
+		if _, ok := history[transaction.Name]; ok {
+			for _, curTrans := range history[transaction.Name] {
+				if curTrans.City != transaction.City &&
+					curTrans.Minute-transaction.Minute <= MAX_MINUTE &&
+					curTrans.Minute-transaction.Minute >= -MAX_MINUTE {
+					mark[i] = 1
+					mark[curTrans.Pos] = 1
+				}
+			}
+		}
+
+		if _, ok := history[transaction.Name]; !ok {
+			history[transaction.Name] = []Transaction{}
+		}
+		history[transaction.Name] = append(history[transaction.Name], transaction)
+	}
+
+	target := []string{}
+	for i, v := range mark {
+		if v == 0 {
+			continue
+		}
+
+		target = append(target, transactions[i])
+	}
+	return target
+}
 
 /**
  * daily-challenge-1169
  * PUZZLE: Invalid Transactions
  */
-func invalidTransactions(transactions []string) []string {
+func invalidTransactionsCost(transactions []string) []string {
 	nameDict := map[string]map[int]Meta{}
 
 	mark := make([]int, len(transactions))
