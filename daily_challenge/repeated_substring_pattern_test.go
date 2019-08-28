@@ -4,10 +4,10 @@ import "testing"
 
 func Test_RepeatedSubstringPattern(t *testing.T) {
 	sourceCase := []string{
-		"abab", "aba", "abcabcabcabc",
+		"abab", "aba", "abcabcabcabc", "",
 	}
 	expectCase := []bool{
-		true, false, true,
+		true, false, true, false,
 	}
 
 	for i, source := range sourceCase {
@@ -16,6 +16,11 @@ func Test_RepeatedSubstringPattern(t *testing.T) {
 		target := repeatedSubstringPattern(source)
 		if expect != target {
 			t.Error("Run Test_RepeatedSubstringPattern Fail", target)
+		}
+
+		targetFast := repeatedSubstringPatternFast(source)
+		if expect != targetFast {
+			t.Error("Run Test_RepeatedSubstringPatternFast Fail", targetFast)
 		}
 	}
 

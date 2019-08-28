@@ -1,5 +1,7 @@
 package daily_challenge
 
+import "strings"
+
 /**
  * daily-challenge-459
  * PUZZLE: Repeated Substring Pattern
@@ -26,4 +28,14 @@ func repeatedSubstringPattern(s string) bool {
 		}
 	}
 	return false
+}
+
+func repeatedSubstringPatternFast(s string) bool {
+	ll := len(s)
+	if ll == 0 {
+		return false
+	}
+
+	chk := (s + s)[1 : ll*2-1]
+	return strings.Contains(chk, s)
 }
