@@ -6,12 +6,14 @@ import (
 
 func Test_HasAlternatingBits(t *testing.T) {
 	sourceCase := []int{
+		1,
 		5,
 		7,
 		11,
 		10,
 	}
 	expectList := []bool{
+		true,
 		true,
 		false,
 		false,

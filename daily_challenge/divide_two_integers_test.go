@@ -1,19 +1,27 @@
 package daily_challenge
 
-import "testing"
+import (
+	"math"
+	"testing"
+)
 
 func Test_Divide(t *testing.T) {
+	max := int(math.Pow(2, 31) - 1)
+	min := int(math.Pow(2, 31)) * -1
+
 	sourceCase := [][]int{
 		{10, 3},
 		{7, -3},
 		{-2147483648, -1},
 		{-2147483648, 2},
+		{min - 1, 1},
 	}
 	expectList := []int{
 		3,
 		-2,
-		2147483647,
+		max,
 		-1073741824,
+		min,
 	}
 
 	for i, source := range sourceCase {
