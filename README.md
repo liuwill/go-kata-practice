@@ -103,6 +103,7 @@
 - [Find Words That Can Be Formed by Characters](./docs/weekly_contest/find_words_count_characters.md)
 - [Invalid Transactions](./docs/weekly_contest/invalid_transactions.md)
 - [Distance Between Bus Stops](./docs/weekly_contest/distance_between_bus_stops.md)
+- [Minimum Absolute Difference](./docs/weekly_contest/minimum_abs_difference.md)
 
 #### Design
 
