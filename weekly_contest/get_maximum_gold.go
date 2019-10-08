@@ -1,8 +1,12 @@
 package weekly_contest
 
+/**
+ * weekly-contest-1219
+ * PUZZLE: Path with Maximum Gold
+ */
 func deepGoldSearch(i int, j int, grid [][]int, target [][]int, visited [][]int, current int) {
 	if i < 0 || i > len(grid)-1 ||
-		j < 0 || j > len(grid)-1 ||
+		j < 0 || j > len(grid[0])-1 ||
 		grid[i][j] == 0 || visited[i][j] == 1 {
 		return
 	}
@@ -49,7 +53,6 @@ func getMaximumGold(grid [][]int) int {
 		for j, item := range line {
 			visited = initGoldMap(grid)
 			deepGoldSearch(i, j, grid, target, visited, item)
-			println(i, j, target[i][j])
 		}
 	}
 
