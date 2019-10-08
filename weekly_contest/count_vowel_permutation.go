@@ -53,7 +53,7 @@ func countVowelPermutation(n int) int {
 		},
 	}
 
-	for ; n > 1; n-- {
+	for j := 2; j <= n; j++ {
 		round := 0
 		newCounter := initVowelCounter()
 		for k, v := range current {
