@@ -5,11 +5,11 @@ import "testing"
 func Test_CountVowelPermutation(t *testing.T) {
 	sourceCase := []int{
 		1, 2, 5,
-		// 144,
+		144,
 	}
 	expectList := []int{
 		5, 10, 68,
-		// 18208803,
+		18208803,
 	}
 
 	for i, source := range sourceCase {

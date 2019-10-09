@@ -106,6 +106,7 @@
 - [Minimum Absolute Difference](./docs/weekly_contest/minimum_abs_difference.md)
 - [Unique Number of Occurrences](./docs/weekly_contest/unique_occurrences.md)
 - [Path with Maximum Gold](./docs/weekly_contest/get_maximum_gold.md)
+- [Count Vowels Permutation](./docs/weekly_contest/count_vowel_permutation.md)
 
 #### Design
 
