@@ -1,5 +1,9 @@
 package weekly_contest
 
+/**
+ * daily-challenge-1221
+ * PUZZLE: Split a String in Balanced Strings
+ */
 func balancedStringSplit(s string) int {
 	llen := 0
 	rlen := 0
