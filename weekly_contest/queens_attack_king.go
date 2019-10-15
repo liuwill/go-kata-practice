@@ -28,8 +28,9 @@ func positionAttackQueen(x int, y int) int {
  */
 func queensAttacktheKing(queens [][]int, king []int) [][]int {
 	direction := make([][]int, MAP_SIZE)
+	INFINITE := MAP_SIZE*MAP_SIZE + 1
 	for i, _ := range direction {
-		direction[i] = []int{-1, 100}
+		direction[i] = []int{-1, INFINITE}
 	}
 
 	count := 0
