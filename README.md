@@ -108,6 +108,7 @@
 - [Path with Maximum Gold](./docs/weekly_contest/get_maximum_gold.md)
 - [Count Vowels Permutation](./docs/weekly_contest/count_vowel_permutation.md)
 - [Split a String in Balanced Strings](./docs/weekly_contest/balanced_string_split.md)
+- [Queens That Can Attack the King](./docs/weekly_contest/queens_attack_king.md)
 
 #### Design
 

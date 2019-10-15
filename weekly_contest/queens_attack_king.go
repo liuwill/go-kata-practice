@@ -22,6 +22,10 @@ func positionAttackQueen(x int, y int) int {
 	return 7
 }
 
+/**
+ * daily-challenge-1222
+ * PUZZLE: Queens That Can Attack the King
+ */
 func queensAttacktheKing(queens [][]int, king []int) [][]int {
 	direction := make([][]int, MAP_SIZE)
 	for i, _ := range direction {
