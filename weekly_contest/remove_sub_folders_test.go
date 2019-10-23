@@ -1,7 +1,6 @@
 package weekly_contest
 
 import (
-	"fmt"
 	"sort"
 	"testing"
 )
@@ -34,11 +33,6 @@ func Test_RemoveSubfolders(t *testing.T) {
 		{"/a"},
 		{"/a/b/c", "/a/b/ca", "/a/b/d"},
 	}
-
-	str := []string{"/a", "/a/b", "/c/d/e", "/c/d", "/c/f"}
-	sort.Slice(str, func(i, j int) bool { return len(str[i]) < len(str[j]) })
-
-	fmt.Printf("%v", str)
 
 	for i, folders := range folderList {
 		expect := output[i]
