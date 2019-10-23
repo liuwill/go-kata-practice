@@ -18,6 +18,10 @@ func compareSubFolder(first string, second string) int {
 		}
 	}
 
+	if long[len(short)] != '/' {
+		return 0
+	}
+
 	if position {
 		return -1
 	}
@@ -25,6 +29,10 @@ func compareSubFolder(first string, second string) int {
 	return 1
 }
 
+/**
+ * daily-challenge-1233
+ * PUZZLE: Remove Sub-Folders from the Filesystem
+ */
 func removeSubfolders(folder []string) []string {
 	mark := make([]int, len(folder))
 	for i := 0; i < len(folder)-1; i++ {

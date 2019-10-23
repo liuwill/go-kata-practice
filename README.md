@@ -109,6 +109,7 @@
 - [Count Vowels Permutation](./docs/weekly_contest/count_vowel_permutation.md)
 - [Split a String in Balanced Strings](./docs/weekly_contest/balanced_string_split.md)
 - [Queens That Can Attack the King](./docs/weekly_contest/queens_attack_king.md)
+- [Remove Sub-Folders from the Filesystem](./docs/weekly_contest/remove_sub_folders.md)
 
 #### Design
 
