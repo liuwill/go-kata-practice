@@ -1,5 +1,7 @@
 package weekly_contest
 
+import "sort"
+
 func compareSubFolder(first string, second string) int {
 	long := first
 	short := second
@@ -34,6 +36,29 @@ func compareSubFolder(first string, second string) int {
  * PUZZLE: Remove Sub-Folders from the Filesystem
  */
 func removeSubfolders(folder []string) []string {
+	sort.Slice(folder, func(i, j int) bool { return len(folder[i]) < len(folder[j]) })
+
+	result := []string{}
+	rootFolder := make(map[string]bool)
+	for _, path := range folder {
+		isSub := false
+		for i := 1; i < len(path); i++ {
+			if path[i] == '/' && rootFolder[path[:i]] {
+				isSub = true
+				break
+			}
+		}
+
+		if !isSub {
+			rootFolder[path] = true
+			result = append(result, path)
+		}
+	}
+
+	return result
+}
+
+func removeSubfoldersSlow(folder []string) []string {
 	mark := make([]int, len(folder))
 	for i := 0; i < len(folder)-1; i++ {
 		if mark[i] == 1 {
