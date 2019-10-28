@@ -30,3 +30,22 @@ func checkStraightLine(coordinates [][]int) bool {
 	}
 	return true
 }
+
+func checkStraightLineFast(coordinates [][]int) bool {
+	if len(coordinates) == 2 {
+		return true
+	}
+
+	base1 := coordinates[0]
+	base2 := coordinates[1]
+
+	sub0 := base2[0] - base1[0]
+	sub1 := base2[1] - base1[1]
+	for i := 2; i < len(coordinates); i++ {
+		current := coordinates[i]
+		if (current[1]-base2[1])*sub0 != sub1*(current[0]-base2[0]) {
+			return false
+		}
+	}
+	return true
+}

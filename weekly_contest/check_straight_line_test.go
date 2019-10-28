@@ -21,6 +21,11 @@ func Test_CheckStraightLine(t *testing.T) {
 		if target != expect {
 			t.Error("Run Test_CheckStraightLine Fail", i, expect, target)
 		}
+
+		fast := checkStraightLineFast(source)
+		if fast != expect {
+			t.Error("Run Test_CheckStraightLineFast Fail", i, expect, fast)
+		}
 	}
 
 	t.Log("Run Test_CheckStraightLine Success")
