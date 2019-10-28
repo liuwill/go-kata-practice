@@ -1,30 +1,26 @@
 package weekly_contest
 
-func compareStraightLine(start []int, middle []int, end []int) bool {
-	firstX := start[0] - middle[0]
-	firstY := start[1] - middle[1]
+const MAX_COORDINATES_POINT = 10001
 
-	secondX := middle[0] - end[0]
-	secondY := middle[1] - end[1]
-	if (firstX == 0 || firstY == 0) && firstY == firstX {
-		return true
-	}
-	if (secondX == 0 || secondY == 0) && secondY == secondX {
-		return true
-	}
+func tanStraightLine(start []int, end []int) int {
+	x := start[0] - end[0]
+	y := start[1] - end[1]
 
-	if firstY != 0 && secondY != 0 {
-		if firstX/firstY == secondX/secondY {
-			return true
-		}
+	if x == 0 {
+		return 0
+	}
+	if y == 0 {
+		return MAX_COORDINATES_POINT
 	}
 
-	return false
+	return x / y
 }
 
 func checkStraightLine(coordinates [][]int) bool {
+	tan := tanStraightLine(coordinates[0], coordinates[1])
 	for i := 1; i < len(coordinates)-1; i++ {
-		if !compareStraightLine(coordinates[i-1], coordinates[i], coordinates[i+1]) {
+		current := tanStraightLine(coordinates[i], coordinates[i+1])
+		if current != tan {
 			return false
 		}
 	}
