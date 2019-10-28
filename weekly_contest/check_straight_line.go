@@ -16,6 +16,10 @@ func tanStraightLine(start []int, end []int) int {
 	return x / y
 }
 
+/**
+ * daily-challenge-1232
+ * PUZZLE: Check If It Is a Straight Line
+ */
 func checkStraightLine(coordinates [][]int) bool {
 	tan := tanStraightLine(coordinates[0], coordinates[1])
 	for i := 1; i < len(coordinates)-1; i++ {
