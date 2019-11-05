@@ -23,6 +23,11 @@ func Test_MinRemoveToMakeValid(t *testing.T) {
 		if target != expect {
 			t.Error("Run Test_MinRemoveToMakeValid Fail", i, expect, target)
 		}
+
+		targetFast := minRemoveToMakeValidFast(source)
+		if targetFast != expect {
+			t.Error("Run minRemoveToMakeValidFast Fail", i, expect, targetFast)
+		}
 	}
 
 	t.Log("Run Test_MinRemoveToMakeValid Success")
