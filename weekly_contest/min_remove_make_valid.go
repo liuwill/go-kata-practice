@@ -1,5 +1,9 @@
 package weekly_contest
 
+/**
+ * daily-challenge-1249
+ * PUZZLE: Minimum Remove to Make Valid Parentheses
+ */
 func minRemoveToMakeValid(s string) string {
 	ll := len(s)
 	targetMap := make([]int, ll)

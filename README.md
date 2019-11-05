@@ -111,6 +111,7 @@
 - [Queens That Can Attack the King](./docs/weekly_contest/queens_attack_king.md)
 - [Remove Sub-Folders from the Filesystem](./docs/weekly_contest/remove_sub_folders.md)
 - [Check If It Is a Straight Line](./docs/weekly_contest/check_straight_line.md)
+- [Minimum Remove to Make Valid Parentheses](./docs/weekly_contest/min_remove_make_valid.md)
 
 #### Design
 
