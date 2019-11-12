@@ -62,6 +62,10 @@ func scanClosedIsland(grid [][]int, point []int) bool {
 	return isMatch
 }
 
+/**
+ * daily-challenge-1254
+ * PUZZLE: Number of Closed Islands
+ */
 func closedIsland(grid [][]int) int {
 	islandNumbers := 0
 
