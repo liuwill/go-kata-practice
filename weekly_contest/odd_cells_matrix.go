@@ -1,5 +1,9 @@
 package weekly_contest
 
+/**
+ * daily-challenge-1252
+ * PUZZLE: Cells with Odd Values in a Matrix
+ */
 func oddCells(n int, m int, indices [][]int) int {
 	matrix := make([][]int, n)
 	for i, _ := range matrix {

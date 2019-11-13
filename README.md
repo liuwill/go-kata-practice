@@ -113,6 +113,7 @@
 - [Check If It Is a Straight Line](./docs/weekly_contest/check_straight_line.md)
 - [Minimum Remove to Make Valid Parentheses](./docs/weekly_contest/min_remove_make_valid.md)
 - [Number of Closed Islands](./docs/weekly_contest/closed_island.md)
+- [Cells with Odd Values in a Matrix](./docs/weekly_contest/odd_cells_matrix.md)
 
 #### Design
 
