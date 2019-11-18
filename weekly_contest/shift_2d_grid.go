@@ -1,23 +1,24 @@
 package weekly_contest
 
-func findShiftPosition(hl int, wl int, x int, y int, round int) []int {
+func findShiftPosition(hl int, wl int, y int, x int, round int) []int {
 	yd := round / wl
 	xd := round % wl
 
 	xp := x - xd
 	if xp < 0 {
 		xp = wl + xp
+		yd++
 	}
+
 	if yd > hl {
 		yd = yd % hl
 	}
-
 	yp := y - yd
 	if yp < 0 {
 		yp = hl + yp
 	}
 
-	return []int{xp, yp}
+	return []int{yp, xp}
 }
 
 func shiftGrid(grid [][]int, k int) [][]int {
@@ -29,7 +30,6 @@ func shiftGrid(grid [][]int, k int) [][]int {
 
 		for j := 0; j < wl; j++ {
 			p := findShiftPosition(hl, wl, i, j, k)
-			println(p[0], p[1], "=============")
 			target[i][j] = grid[p[0]][p[1]]
 		}
 	}
