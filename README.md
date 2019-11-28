@@ -1,4 +1,5 @@
 # Go Kata Practice
+
   [![Build Status][travis-image]][travis-url]
   [![Build status](https://ci.appveyor.com/api/projects/status/94djahf3vnm1tk51?svg=true)](https://ci.appveyor.com/project/liuwill/go-kata-practice)
   [![Codecov branch][codecov-image]][codecov-url]
@@ -115,6 +116,7 @@
 - [Number of Closed Islands](./docs/weekly_contest/closed_island.md)
 - [Cells with Odd Values in a Matrix](./docs/weekly_contest/odd_cells_matrix.md)
 - [Shift 2D Grid](./docs/weekly_contest/shift_2d_grid.md)
+- [Search Suggestions System](./docs/weekly_contest/search_suggestions_system.md)
 
 #### Design
 
