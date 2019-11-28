@@ -2,7 +2,6 @@ package weekly_contest
 
 import (
 	"sort"
-	"strings"
 )
 
 /**
@@ -14,15 +13,21 @@ func suggestedProducts(products []string, searchWord string) [][]string {
 
 	target := make([][]string, ll)
 	left := products[:]
-	sort.Strings(left)
+	sorted := false
 	for i, _ := range searchWord {
-		current := searchWord[0 : i+1]
+		wl := i + 1
+		current := searchWord[:wl]
 		filtered := []string{}
-		for _, item := range left {
-			if strings.HasPrefix(item, current) {
-				filtered = append(filtered, item)
+		for _, word := range left {
+			if i < len(word) && word[:wl] == current {
+				filtered = append(filtered, word)
 			}
 		}
+		if !sorted {
+			sort.Strings(filtered)
+			sorted = true
+		}
+
 		left = filtered
 
 		l := len(filtered)
