@@ -21,6 +21,10 @@ func findShiftPosition(hl int, wl int, y int, x int, round int) []int {
 	return []int{yp, xp}
 }
 
+/**
+ * daily-challenge-1260
+ * PUZZLE: Shift 2D Grid
+ */
 func shiftGrid(grid [][]int, k int) [][]int {
 	hl := len(grid)
 	wl := len(grid[0])
