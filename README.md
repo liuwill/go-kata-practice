@@ -117,6 +117,7 @@
 - [Cells with Odd Values in a Matrix](./docs/weekly_contest/odd_cells_matrix.md)
 - [Shift 2D Grid](./docs/weekly_contest/shift_2d_grid.md)
 - [Search Suggestions System](./docs/weekly_contest/search_suggestions_system.md)
+- [Count Servers that Communicate](./docs/weekly_contest/count_servers.md)
 
 #### Design
 

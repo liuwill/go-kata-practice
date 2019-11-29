@@ -1,44 +1,35 @@
 package weekly_contest
 
+/**
+ * daily-challenge-1267
+ * PUZZLE: Count Servers that Communicate
+ */
 func countServers(grid [][]int) int {
 	count := 0
 	m := len(grid)
 	n := len(grid[0])
 
-	source := make([][]int, m)
-	for i, line := range grid {
-		source[i] = line[:]
+	row := make([]int, m)
+	column := make([]int, n)
+
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			row[i] += grid[i][j]
+			column[j] += grid[i][j]
+		}
 	}
 
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			if source[i][j] == 0 {
+			if grid[i][j] != 1 {
 				continue
 			}
 
-			if i-1 >= 0 && source[i-1][j] > 0 {
-				source[i][j]++
+			if row[i] > 1 || column[j] > 1 {
 				count++
-				continue
-			}
-			if j-1 >= 0 && source[i][j-1] > 0 {
-				source[i][j]++
-				count++
-				continue
-			}
-
-			if i+1 < m && source[i+1][j] > 0 {
-				source[i][j]++
-				count++
-				continue
-			}
-
-			if j+1 < n && source[i][j+1] > 0 {
-				source[i][j]++
-				count++
-				continue
 			}
 		}
 	}
+
 	return count
 }
